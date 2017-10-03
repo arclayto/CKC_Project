@@ -23,8 +23,12 @@ public class PlayerController : MonoBehaviour {
 
 		if (Input.GetButtonDown ("Jump") && controller.isGrounded) {
 			moveDirection.y = jumpForce;
+		} 
+		else if (controller.isGrounded) {
+			moveDirection.y = 0;
 		}
 
+			
 		moveDirection.y = moveDirection.y + ((Physics.gravity.y * Time.deltaTime) * gravityForce);
 		controller.Move (moveDirection * Time.deltaTime);
 	}
