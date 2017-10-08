@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
 	public float gravityForce;
 
 	private Vector3 moveDirection;
+    private int health;
     private int equippedItem;
 	CharacterController controller;
     SpriteRenderer spriteRenderer;
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
+        health = 2;
         equippedItem = 0;
 
 		controller = GetComponent<CharacterController>();
@@ -113,6 +115,10 @@ public class PlayerController : MonoBehaviour {
             // Restart the scene when colliding with a kill zone
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+    }
+
+    public int GetHealth() {
+        return health;
     }
 
     public int GetEquippedItem() {
