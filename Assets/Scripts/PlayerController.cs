@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour {
 
 	private Vector3 moveDirection;
 	CharacterController controller;
-    SpriteRenderer spriteRenderer;
+	SpriteRenderer spriteRenderer;
     Animator animator;
 
     // Use this for initialization
@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
         // Flip player horizontally based on x direction
-        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey")) {
+      	if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey")) {
             if (Input.GetAxis("Horizontal") > 0.0f) {
                 spriteRenderer.flipX = false;
             } else if (Input.GetAxis("Horizontal") < 0.0f) {
@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour {
         }
 
         // Aerial animations based on y movement
-        if (!controller.isGrounded) {
+		if (!controller.isGrounded) {
             if (moveDirection.y > 1.0f) {
                 // Jump animation when moving up in y
                 if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumJump") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey")) {
@@ -73,6 +73,8 @@ public class PlayerController : MonoBehaviour {
             // Cap vertical speed on ground (fixes terminal velocity fall bug)
 			moveDirection.y = -4.5f;
 		}
+
+		RaycastHit hit;
 
         if (Input.GetButtonDown("Ability")) {
             // Use ability
