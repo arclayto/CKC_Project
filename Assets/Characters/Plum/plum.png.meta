@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: bdf7681b85944104ca1ff1a0cb727fe7
-timeCreated: 1507417729
+timeCreated: 1507430806
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -15,6 +15,12 @@ TextureImporter:
     21300016: plum_8
     21300018: plum_9
     21300020: plum_10
+    21300022: plum_11
+    21300024: plum_12
+    21300026: plum_13
+    21300028: plum_14
+    21300030: plum_15
+    21300032: plum_16
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -67,7 +73,7 @@ TextureImporter:
   textureFormatSet: 0
   platformSettings:
   - buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
@@ -75,7 +81,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
@@ -118,7 +124,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 640
+        y: 1280
         width: 640
         height: 640
       alignment: 9
@@ -132,7 +138,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 640
-        y: 640
+        y: 1280
         width: 640
         height: 640
       alignment: 9
@@ -146,7 +152,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1280
-        y: 640
+        y: 1280
         width: 640
         height: 640
       alignment: 9
@@ -160,7 +166,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1920
-        y: 640
+        y: 1280
         width: 640
         height: 640
       alignment: 9
@@ -174,7 +180,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2560
-        y: 640
+        y: 1280
         width: 640
         height: 640
       alignment: 9
@@ -185,6 +191,90 @@ TextureImporter:
       tessellationDetail: 0
     - serializedVersion: 2
       name: plum_7
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 1280
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.49, y: 0.485}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plum_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.49, y: 0.485}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plum_9
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 640
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.49, y: 0.485}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plum_10
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 640
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.49, y: 0.485}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plum_11
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 640
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.49, y: 0.485}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plum_12
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 640
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.49, y: 0.485}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plum_13
       rect:
         serializedVersion: 2
         x: 0
@@ -198,7 +288,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: plum_8
+      name: plum_14
       rect:
         serializedVersion: 2
         x: 640
@@ -212,7 +302,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: plum_9
+      name: plum_15
       rect:
         serializedVersion: 2
         x: 1280
@@ -226,7 +316,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: plum_10
+      name: plum_16
       rect:
         serializedVersion: 2
         x: 1920

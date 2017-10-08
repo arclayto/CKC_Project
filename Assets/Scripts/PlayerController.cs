@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour {
 
         // Idle & Walk animation based on x and z movement
         if (controller.isGrounded) {
-            if (moveDirection.x != 0.0f && moveDirection.z != 0.0f) {
+            if (moveDirection.x == 0.0f && moveDirection.z == 0.0f) {
                 // Idle animation when not moving in x or z
                 if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumIdle") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey")) {
                     animator.Play("PlumIdle", -1, 0.0f);
@@ -43,8 +43,8 @@ public class PlayerController : MonoBehaviour {
             }
             else {
                 // Walk animation when moving in x and/or z
-                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumIdle") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey")) {
-                    animator.Play("PlumIdle", -1, 0.0f);
+                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumWalk") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey")) {
+                    animator.Play("PlumWalk", -1, 0.0f);
                 }
             }
         }
