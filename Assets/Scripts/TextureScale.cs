@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class TextureScale : MonoBehaviour {
 
-	public float scale = 1;
+	public float tileX = 1.0f;
+    public float tileY = 1.0f;
 	Renderer rend;
 
 	// Use this for initialization
 	void Start () {
 		rend = GetComponent<Renderer>();
-		rend.material.mainTextureScale = new Vector2(transform.localScale.x * scale, transform.localScale.z * scale);
+		rend.material.mainTextureScale = new Vector2(tileX, tileY);
 	}
 }
