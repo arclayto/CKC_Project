@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
@@ -9,12 +10,15 @@ public class PlayerController : MonoBehaviour {
 	public float gravityForce;
 
 	private Vector3 moveDirection;
+    private int equippedItem;
 	CharacterController controller;
     SpriteRenderer spriteRenderer;
     Animator animator;
 
     // Use this for initialization
     void Start() {
+        equippedItem = 0;
+
 		controller = GetComponent<CharacterController>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
@@ -76,8 +80,10 @@ public class PlayerController : MonoBehaviour {
 
         if (Input.GetButtonDown("Ability")) {
             // Use ability
-            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey")) {
-                animator.Play("PlumKey", -1, 0.0f);
+            if (equippedItem == 1) {
+                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey")) {
+                    animator.Play("PlumKey", -1, 0.0f);
+                }
             }
         }
 
@@ -95,4 +101,17 @@ public class PlayerController : MonoBehaviour {
         moveDirection.y = moveDirection.y + ((Physics.gravity.y * Time.deltaTime) * gravityForce);
 		controller.Move(moveDirection * Time.deltaTime);
 	}
+
+    private void OnTriggerEnter(Collider other) {
+        if (other.tag == "Item") {
+            // Equip the item and destroy it when colliding with it
+            Destroy(other.gameObject);
+            equippedItem = 1;
+        }
+
+        if (other.tag == "Kill Zone") {
+            // Restart the scene when colliding with a kill zone
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
 }
