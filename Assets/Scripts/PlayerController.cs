@@ -114,4 +114,8 @@ public class PlayerController : MonoBehaviour {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
+
+    public int GetEquippedItem() {
+        return equippedItem;
+    }
 }
