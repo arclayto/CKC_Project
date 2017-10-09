@@ -80,8 +80,6 @@ public class PlayerController : MonoBehaviour {
 			moveDirection.y = -4.5f;
 		}
 
-		RaycastHit hit;
-
         if (Input.GetButtonDown("Ability")) {
             // Use ability
             if (equippedItem == 1) {

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class KeyAttack : MonoBehaviour {
 
-	MeshCollider keyCollider;
+	//MeshCollider keyCollider;
 	Animator animator;
 
 	// Use this for initialization
 	void Start () {
-		keyCollider = GetComponent<MeshCollider>();
+		//keyCollider = GetComponent<MeshCollider>();
 		animator = transform.parent.GetComponent<Animator>();
 	}
 	
