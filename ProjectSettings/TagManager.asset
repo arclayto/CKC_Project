@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Item
+  - Kill Zone
   layers:
   - Default
   - TransparentFX
