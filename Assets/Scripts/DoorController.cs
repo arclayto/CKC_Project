@@ -23,6 +23,7 @@ public class DoorController : MonoBehaviour {
 			//animation for door goes here
 			//destroy door as placeholder for now
 			Destroy(gameObject);
+			player.SetEquppedItem(0);
 		}
 	}
 }

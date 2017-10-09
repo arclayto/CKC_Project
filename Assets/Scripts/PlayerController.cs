@@ -124,4 +124,9 @@ public class PlayerController : MonoBehaviour {
     public int GetEquippedItem() {
         return equippedItem;
     }
+
+	public void SetEquppedItem(int i)
+	{
+		equippedItem = i;
+	}
 }
