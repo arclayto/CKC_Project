@@ -371,6 +371,7 @@ GameObject:
   - component: {fileID: 510173418}
   - component: {fileID: 510173423}
   - component: {fileID: 510173424}
+  - component: {fileID: 510173425}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -454,7 +455,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 510173417}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3bc6b30837d6e4c4289c8f7b755a33e0, type: 3}
   m_Name: 
@@ -467,7 +468,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 510173417}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 193218bcd98818745bcacc1d3f58866c, type: 3}
   m_Name: 
@@ -475,6 +476,22 @@ MonoBehaviour:
   target: {fileID: 35246187}
   useOffset: 1
   offset: {x: 0, y: -0.5, z: 1}
+--- !u!114 &510173425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 510173417}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f76806479d916a64aa03f8e3eba7912f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 35246187}
+  distance: 10
+  height: 5
+  rotationDamping: 0
+  heightDamping: 0
 --- !u!1 &526834311 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100006, guid: 5456d6e65368f0840a20fe16206f1bde, type: 3}
@@ -552,6 +569,10 @@ Prefab:
     - target: {fileID: 100006, guid: 5456d6e65368f0840a20fe16206f1bde, type: 3}
       propertyPath: m_TagString
       value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: 5456d6e65368f0840a20fe16206f1bde, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5456d6e65368f0840a20fe16206f1bde, type: 3}
