@@ -5,15 +5,14 @@ using UnityEngine;
 public class BellController : MonoBehaviour {
 
     public float maxSpeed;
-    public float acceleration;
     public float gravityForce;
     public float aggroRange;
     public GameObject target;
 
     private Vector3 moveDirection;
     private bool aggro;
+    private Vector3 velocity;
     Rigidbody rb;
-    Collider collider;
     SpriteRenderer spriteRenderer;
     Animator animator;
 
@@ -21,7 +20,6 @@ public class BellController : MonoBehaviour {
         aggro = false;
 
         rb = GetComponent<Rigidbody>();
-        collider = GetComponent<Collider>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
     }
@@ -40,12 +38,12 @@ public class BellController : MonoBehaviour {
         float magnitude = direction.magnitude;
         direction.Normalize();
 
-        Vector3 velocity = direction * maxSpeed;
+        velocity = direction * maxSpeed;
 
         if (magnitude < aggroRange) {
             // Move towards player when in aggro range
             aggro = true;
-            rb.AddForce(new Vector3(velocity.x, rb.velocity.y, velocity.z), ForceMode.Acceleration);
+            rb.AddForce(new Vector3(velocity.x, rb.velocity.y, velocity.z), ForceMode.Force);
         }
 
         // Idle & Walk animation aggro
@@ -64,19 +62,21 @@ public class BellController : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.tag == "Player") {
-            // Ignore collision with player
-            //Physics.IgnoreCollision(collision.collider, collider);
+            // Rebound off player when colliding with them
+    		rb.AddForce(new Vector3(-velocity.x / 2, rb.velocity.y, -velocity.z / 2), ForceMode.Impulse);
         }
     }
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player Attack") {
+            // Enemy hit by key attack, destroy
             Destroy(gameObject);
         }
     }
 
     private void OnTriggerStay(Collider other) {
         if (other.gameObject.tag == "Player Attack") {
+            // Enemy hit by key attack, destroy
             Destroy(gameObject);
         }
     }

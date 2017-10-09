@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour {
     private int equippedItem;
     private bool invulnerable;
 	CharacterController controller;
-    Collider collider;
+    Collider coll;
 	SpriteRenderer spriteRenderer;
     Animator animator;
 
@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour {
         equippedItem = 0;
 
 		controller = GetComponent<CharacterController>();
-        collider = GetComponent<Collider>();
+        coll = GetComponent<Collider>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
     }
@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour {
             }
 
             // Ignore collision with enemy
-            Physics.IgnoreCollision(collision.collider, collider);
+            Physics.IgnoreCollision(collision.collider, coll);
         }
     }
 
