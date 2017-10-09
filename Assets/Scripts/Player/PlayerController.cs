@@ -120,8 +120,11 @@ public class PlayerController : MonoBehaviour {
         if (collision.gameObject.tag == "Enemy") {
             if (invulnerable == false) {
                 // Deal damage to player if not invulnerable, then make the player invulnerable for a short time
-                if (health > 0) {
+                if (health > 1) {
                     health--;
+                }
+                else {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 }
 
                 StartCoroutine("InvulnerabilityTimer");
@@ -135,8 +138,11 @@ public class PlayerController : MonoBehaviour {
     private void OnCollisionStay(Collision collision) {
         if (invulnerable == false) {
             // Deal damage to player if not invulnerable, then make the player invulnerable for a short time
-            if (health > 0) {
+            if (health > 1) {
                 health--;
+            }
+            else {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
 
             StartCoroutine("InvulnerabilityTimer");
