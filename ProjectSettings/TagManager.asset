@@ -8,6 +8,7 @@ TagManager:
   - Kill Zone
   - Enemy
   - Door
+  - Player Attack
   layers:
   - Default
   - TransparentFX
