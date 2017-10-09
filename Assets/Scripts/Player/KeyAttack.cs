@@ -18,6 +18,7 @@ public class KeyAttack : MonoBehaviour {
 		animator = transform.parent.GetComponent<Animator>();
 	}
 
+    /*
 	void OnCollisionEnter(Collision col) {
 		if (animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey")) {
 			if (col.gameObject.tag == "Enemy") {
@@ -32,4 +33,5 @@ public class KeyAttack : MonoBehaviour {
 			}
 		}
 	}
+    */
 }
