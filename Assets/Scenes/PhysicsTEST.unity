@@ -108,6 +108,24 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &23892422 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 5456d6e65368f0840a20fe16206f1bde, type: 3}
+  m_PrefabInternal: {fileID: 531253723}
+--- !u!64 &23892426
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 23892422}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 1
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300002, guid: 5456d6e65368f0840a20fe16206f1bde, type: 3}
 --- !u!4 &35246187 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4182800959545914, guid: e9eec65b9d77c4e438da375c623c76d2,
@@ -434,6 +452,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 787980227}
+--- !u!65 &526834317
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 526834311}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.4848006, y: 3.149166, z: 0.14946222}
+  m_Center: {x: 0, y: 1.4339356, z: -0.00027632713}
 --- !u!1001 &531253723
 Prefab:
   m_ObjectHideFlags: 0
@@ -578,6 +608,19 @@ GameObject:
   m_PrefabParentObject: {fileID: 1728021400414832, guid: e9eec65b9d77c4e438da375c623c76d2,
     type: 2}
   m_PrefabInternal: {fileID: 1631679997}
+--- !u!136 &590045470
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 590045466}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.4717604
+  m_Height: 2.162963
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.16464686, z: 0}
 --- !u!114 &787980227 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114421201523692858, guid: e9eec65b9d77c4e438da375c623c76d2,
