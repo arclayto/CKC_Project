@@ -29,7 +29,7 @@ public class KeyAttack : MonoBehaviour {
 		if (animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey")) {
 			if (col.gameObject.tag == "Enemy") {
 				Destroy (col.gameObject);
-			}
+			} 
 		}
 	}
 }
