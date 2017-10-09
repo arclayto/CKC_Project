@@ -797,6 +797,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1214779792}
   - component: {fileID: 1214779789}
+  - component: {fileID: 1214779795}
   - component: {fileID: 1214779790}
   - component: {fileID: 1214779793}
   - component: {fileID: 1214779794}
@@ -820,7 +821,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!212 &1214779790
 SpriteRenderer:
@@ -871,7 +872,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1214779788}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.61, y: 0.5, z: 0}
+  m_LocalPosition: {x: 11.7, y: 0.5, z: -0.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 906433262}
@@ -908,8 +909,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 1
   gravityForce: 5.5
-  aggroRange: 1000
+  aggroRange: 0
   target: {fileID: 590045466}
+--- !u!136 &1214779795
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1214779788}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 0.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.021333456, z: 0}
 --- !u!1 &1279328757
 GameObject:
   m_ObjectHideFlags: 0

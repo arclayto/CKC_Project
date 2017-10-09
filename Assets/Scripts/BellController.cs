@@ -20,7 +20,7 @@ public class BellController : MonoBehaviour {
         animator = GetComponent<Animator>();
     }
 
-    void Update() {
+    void FixedUpdate() {
         // Flip enemy horizontally based on x relative to player
         if (transform.position.x < target.transform.position.x) {
             spriteRenderer.flipX = false;
