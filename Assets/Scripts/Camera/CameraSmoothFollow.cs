@@ -9,6 +9,7 @@ public class CameraSmoothFollow : MonoBehaviour {
 	public Vector3 offset;
 
 	private Vector3 velocity = Vector3.zero;
+	Vector3 smoothed;
 
 	void Start () {
 		//generally keep checked
@@ -21,9 +22,9 @@ public class CameraSmoothFollow : MonoBehaviour {
 
 	void Update()
 	{
-		Vector3 desired = target.position + offset;
-		Vector3 smoothed = Vector3.SmoothDamp (transform.position, desired, ref velocity, 0.1f);
-		transform.position = smoothed - offset;
+		Vector3 desired = target.position - offset;
+		smoothed = Vector3.SmoothDamp(transform.position, desired, ref velocity, 0.3f);
+		transform.position = smoothed;
 
 		//add this if you're ok with fixed rotation
 		//for our purposes, it's ugly
