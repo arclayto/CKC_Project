@@ -422,7 +422,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 35246187}
   useOffset: 1
-  offset: {x: 0, y: -0.5, z: 1}
+  offset: {x: 0, y: -4, z: 7}
 --- !u!114 &510173425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1688,6 +1688,11 @@ Prefab:
         type: 2}
       propertyPath: invulnerableTime
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114421201523692858, guid: e9eec65b9d77c4e438da375c623c76d2,
+        type: 2}
+      propertyPath: jumpForce
+      value: 1250
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e9eec65b9d77c4e438da375c623c76d2, type: 2}

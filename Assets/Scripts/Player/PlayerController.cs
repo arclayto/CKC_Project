@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour {
 
         if (Input.GetButtonDown ("Jump") && controller.isGrounded) {
             // Jump if on ground
-			moveDirection.y = jumpForce;
+			moveDirection.y = jumpForce * Time.deltaTime;
 		} 
 		else if (controller.isGrounded) {
             // Cap vertical speed on ground (fixes terminal velocity fall bug)
