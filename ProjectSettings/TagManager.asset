@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Item
   - Kill Zone
+  - Enemy
+  - Door
   layers:
   - Default
   - TransparentFX
