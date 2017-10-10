@@ -23,7 +23,6 @@ public class DoorController : MonoBehaviour {
 				//animation for door goes here
 				//destroy door as placeholder for now
 				Animator animator = transform.GetComponentInParent<Animator>();
-				animator.gameObject.SetActive (true);
 				animator.SetTrigger("Open");
 				player.SetEquippedItem (0);
 			}
