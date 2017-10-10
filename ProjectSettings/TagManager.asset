@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Door
   - Player Attack
+  - Feet Attack
   layers:
   - Default
   - TransparentFX

@@ -75,9 +75,9 @@ public class BellController : MonoBehaviour {
     }
 
     private void OnTriggerStay(Collider other) {
-        if (other.gameObject.tag == "Player Attack") {
-            // Enemy hit by key attack, destroy
-            Destroy(gameObject);
-        }
+		if (other.gameObject.tag == "Player Attack") {
+			// Enemy hit by key attack, destroy
+			Destroy (gameObject);
+		} 
     }
 }

@@ -10,11 +10,13 @@ public class PlayerController : MonoBehaviour {
 	public float gravityForce;
     public int invulnerableTime;
     public GameObject keyAttack;
+	public GameObject feetAttack;
 
     private Vector3 moveDirection;
     private int health;
     private int equippedItem;
     private bool invulnerable;
+	//private bool jumpCheck;
 	CharacterController controller;
     Collider coll;
 	SpriteRenderer spriteRenderer;
@@ -78,7 +80,8 @@ public class PlayerController : MonoBehaviour {
 
         if (Input.GetButtonDown ("Jump") && controller.isGrounded) {
             // Jump if on ground
-			moveDirection.y = jumpForce * Time.deltaTime;
+			Jump();
+			//jumpCheck = true;
 		} 
 		else if (controller.isGrounded) {
             // Cap vertical speed on ground (fixes terminal velocity fall bug)
@@ -101,6 +104,7 @@ public class PlayerController : MonoBehaviour {
 
             // Activate hitbox
             keyAttack.SetActive(true);
+			feetAttack.SetActive(true);
 
             if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f) {
                 // Key ability complete, return to idle state
@@ -110,9 +114,10 @@ public class PlayerController : MonoBehaviour {
         else {
             // Deactivate hitbox
             keyAttack.SetActive(false);
+			feetAttack.SetActive(false);
         }
 
-        moveDirection.y = moveDirection.y + ((Physics.gravity.y * Time.deltaTime) * gravityForce);
+		moveDirection.y -= gravityForce * Time.deltaTime;
 		controller.Move(moveDirection * Time.deltaTime);
 	}
 
@@ -172,6 +177,10 @@ public class PlayerController : MonoBehaviour {
 
 	public void SetEquippedItem(int i){
 		equippedItem = i;
+	}
+
+	public void Jump() {
+		moveDirection.y = jumpForce;
 	}
 
     IEnumerator InvulnerabilityTimer() {
