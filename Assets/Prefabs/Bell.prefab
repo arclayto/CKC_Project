@@ -118,9 +118,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 10
-  acceleration: 0.1
   gravityForce: 5.5
-  aggroRange: 1000
+  aggroRange: 15
+  maxAggroRange: 50
   target: {fileID: 0}
 --- !u!119 &119455555185838784
 Projector:

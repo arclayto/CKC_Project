@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraSmoothFollow : MonoBehaviour {
 
 	public Transform target;
+	public bool lookAtTarget;
 	public bool useOffset;
 	public Vector3 offset;
 
@@ -17,7 +18,9 @@ public class CameraSmoothFollow : MonoBehaviour {
 			offset = target.position - transform.position;
 		}
 
-		transform.LookAt (target);
+		if (lookAtTarget) {
+			transform.LookAt (target);
+		}
 	}
 
 	void Update()
