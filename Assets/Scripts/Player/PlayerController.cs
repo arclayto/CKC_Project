@@ -24,6 +24,9 @@ public class PlayerController : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
+		//hide the cursor
+		Cursor.visible = false;
+
         health = 2;
         equippedItem = 0;
 
@@ -119,6 +122,12 @@ public class PlayerController : MonoBehaviour {
 
 		moveDirection.y -= gravityForce * Time.deltaTime;
 		controller.Move(moveDirection * Time.deltaTime);
+
+		//ESC key quits the application
+		if(Input.GetKey(KeyCode.Escape))
+		{
+			Application.Quit ();
+		}
 	}
 
     void OnCollisionEnter(Collision collision) {
@@ -163,8 +172,10 @@ public class PlayerController : MonoBehaviour {
 
         if (other.tag == "Healthup") {
             // Heal and destroy item when colliding with it
-            Destroy(other.gameObject);
-            health = 2;
+			if (health < 2) {
+				Destroy (other.gameObject);
+				health = 2;
+			}
         }
 
         if (other.tag == "Kill Zone") {
