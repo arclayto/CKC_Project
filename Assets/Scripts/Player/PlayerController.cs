@@ -123,8 +123,8 @@ public class PlayerController : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.tag == "Enemy") {
-            if (invulnerable == false) {
-                // Deal damage to player if not invulnerable, then make the player invulnerable for a short time
+            if (invulnerable == false && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey")) {
+                // Deal damage to player if not invulnerable and not spinning, then make the player invulnerable for a short time
                 if (health > 1) {
                     health--;
                 }
@@ -159,6 +159,12 @@ public class PlayerController : MonoBehaviour {
             // Equip the item and destroy it when colliding with it
             Destroy(other.gameObject);
             equippedItem = 1;
+        }
+
+        if (other.tag == "Healthup") {
+            // Heal and destroy item when colliding with it
+            Destroy(other.gameObject);
+            health = 2;
         }
 
         if (other.tag == "Kill Zone") {

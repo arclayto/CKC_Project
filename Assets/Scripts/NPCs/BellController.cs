@@ -81,6 +81,9 @@ public class BellController : MonoBehaviour {
         if (other.gameObject.tag == "Player Attack") {
             // Enemy hit by key attack, destroy
             Destroy(gameObject);
+
+            // Create smoke effect
+            MakeSmoke();
         }
     }
 
@@ -88,6 +91,15 @@ public class BellController : MonoBehaviour {
 		if (other.gameObject.tag == "Player Attack") {
 			// Enemy hit by key attack, destroy
 			Destroy (gameObject);
+
+            // Create smoke effect
+            MakeSmoke();
 		} 
+    }
+
+    public void MakeSmoke() {
+        // Create smoke effect
+            GameObject smoke = (GameObject)Instantiate(Resources.Load("Smoke"));
+            smoke.transform.position = transform.position;
     }
 }
