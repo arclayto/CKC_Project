@@ -10,6 +10,7 @@ TagManager:
   - Door
   - Player Attack
   - Feet Attack
+  - Healthup
   layers:
   - Default
   - TransparentFX
