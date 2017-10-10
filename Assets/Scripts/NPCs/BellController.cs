@@ -7,6 +7,7 @@ public class BellController : MonoBehaviour {
     public float maxSpeed;
     public float gravityForce;
     public float aggroRange;
+    public float maxAggroRange;
     public GameObject target;
 
     private Vector3 moveDirection;
@@ -40,9 +41,18 @@ public class BellController : MonoBehaviour {
 
         velocity = direction * maxSpeed;
 
-        if (magnitude < aggroRange) {
-            // Move towards player when in aggro range
+        if (aggro == false && magnitude < aggroRange) {
+            // Become aggressive when player is in range
             aggro = true;
+        }
+
+        if (aggro == true && magnitude > maxAggroRange) {
+            // Become passive when player is out of chasing range
+            aggro = false;
+        }
+
+        if (aggro) {
+            // Move towards player when in aggro range
             rb.AddForce(new Vector3(velocity.x, rb.velocity.y, velocity.z), ForceMode.Force);
         }
 
