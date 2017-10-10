@@ -602,6 +602,7 @@ GameObject:
   - component: {fileID: 510173424}
   - component: {fileID: 510173425}
   - component: {fileID: 510173426}
+  - component: {fileID: 510173427}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -735,6 +736,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: 6a9faa953b998a94081ecb4f705eb3bf, type: 2}
+--- !u!45 &510173427
+Skybox:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 510173417}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: 169a1b8f06c17c84e8de491f2bfef986, type: 2}
 --- !u!1001 &536686070
 Prefab:
   m_ObjectHideFlags: 0
@@ -1824,7 +1833,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 0.46274513, g: 0.7254902, b: 0.9294118, a: 1}
+  m_Color: {r: 0.013732712, g: 0.5317671, b: 0.9338235, a: 1}
   m_Intensity: 0.5
   m_Range: 10
   m_SpotAngle: 30
