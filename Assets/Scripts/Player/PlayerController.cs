@@ -124,7 +124,7 @@ public class PlayerController : MonoBehaviour {
         }
 
 		//gravity contingent upon use of umbrella
-		if (Input.GetButton("Ability") && equippedItem == 2) {
+		if (Input.GetButton("Jump") && equippedItem == 2) {
 			if (moveDirection.y < 0) {
 				moveDirection.y -= (gravityForce / 3 * Time.deltaTime);
 				controller.Move (moveDirection * Time.deltaTime);
