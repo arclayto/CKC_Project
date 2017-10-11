@@ -16,11 +16,12 @@ public class PlayerController : MonoBehaviour {
     private int health;
     private int equippedItem;
     private bool invulnerable;
-	//private bool jumpCheck;
+	private float lastSwitchedItem;
+
 	CharacterController controller;
     Collider coll;
 	SpriteRenderer spriteRenderer;
-    Animator animator;
+	Animator animator;
 
     // Use this for initialization
     void Start() {
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour {
 
         health = 2;
         equippedItem = 0;
+		lastSwitchedItem = Time.time;
 
 		controller = GetComponent<CharacterController>();
         coll = GetComponent<Collider>();
@@ -180,15 +182,32 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider other) {
-		if (other.tag == "Key" && equippedItem == 0) {
+		if (other.tag == "Key") {
 			// Equip the item and destroy it when colliding with it
-			Destroy (other.gameObject);
-			equippedItem = 1;
+			if (equippedItem == 0) {
+				Destroy (other.gameObject);
+				equippedItem = 1;
+			}
+			else if (equippedItem == 2 && (Time.time - lastSwitchedItem) > 1) {
+				Destroy (other.gameObject);
+				Instantiate (Resources.Load("Umbrella"), other.transform.position, Quaternion.identity);
+				lastSwitchedItem = Time.time;
+				equippedItem = 1;
+				Destroy (other.gameObject);
+			}
         }
 
-		if (other.tag == "Umbrella" && equippedItem == 0) {
-			Destroy (other.gameObject );
-			equippedItem = 2;
+		if (other.tag == "Umbrella") {
+			if (equippedItem == 0) {
+				Destroy (other.gameObject);
+				equippedItem = 2;
+			}
+			else if (equippedItem == 1 && (Time.time - lastSwitchedItem) > 1.0f) {
+				Instantiate (Resources.Load("Key"), other.transform.position, Quaternion.identity);
+				lastSwitchedItem = Time.time;
+				equippedItem = 2;
+				Destroy (other.gameObject);
+			}
 		}
 
         if (other.tag == "Healthup") {
