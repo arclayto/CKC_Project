@@ -11,6 +11,9 @@ TagManager:
   - Player Attack
   - Feet Attack
   - Healthup
+  - Cloud
+  - Key
+  - Umbrella
   layers:
   - Default
   - TransparentFX

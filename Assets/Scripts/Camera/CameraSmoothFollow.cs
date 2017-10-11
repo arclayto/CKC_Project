@@ -29,7 +29,12 @@ public class CameraSmoothFollow : MonoBehaviour {
 		smoothed = Vector3.SmoothDamp(transform.position, desired, ref velocity, 0.1f);
 		transform.position = smoothed;
 
-		//add this if you're ok with fixed rotation
+		/*if (Input.GetButton("C")) {
+			offset = new Vector3(-offset.y, offset.y, -offset.z);
+			transform.LookAt (target);
+		}*/
+
+		//add this if you're ok with non-fixed rotation
 		//for our purposes, it's ugly
 		//transform.LookAt (target);
 	}

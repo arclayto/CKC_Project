@@ -93,11 +93,14 @@ public class PlayerController : MonoBehaviour {
 
         if (Input.GetButtonDown("Ability")) {
             // Use ability
-            if (equippedItem == 1) {
-                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey")) {
-                    animator.Play("PlumKey", -1, 0.0f);
-                }
-            }
+			if (equippedItem == 1) {
+				if (!animator.GetCurrentAnimatorStateInfo (0).IsName ("PlumKey")) {
+					animator.Play ("PlumKey", -1, 0.0f);
+				}
+			} 
+			else if (equippedItem == 2) {
+				//umbrella animations go here
+			}
         }
 
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey")) {
@@ -120,8 +123,21 @@ public class PlayerController : MonoBehaviour {
 			feetAttack.SetActive(false);
         }
 
-		moveDirection.y -= gravityForce * Time.deltaTime;
-		controller.Move(moveDirection * Time.deltaTime);
+		//gravity contingent upon use of umbrella
+		if (Input.GetButton("Ability") && equippedItem == 2) {
+			if (moveDirection.y < 0) {
+				moveDirection.y -= (gravityForce / 3 * Time.deltaTime);
+				controller.Move (moveDirection * Time.deltaTime);
+			} 
+			else {
+				moveDirection.y -= gravityForce * Time.deltaTime;
+				controller.Move (moveDirection * Time.deltaTime);
+			}
+		} 
+		else {
+			moveDirection.y -= gravityForce * Time.deltaTime;
+			controller.Move (moveDirection * Time.deltaTime);
+		}
 
 		//ESC key quits the application
 		if(Input.GetKey(KeyCode.Escape))
@@ -164,11 +180,16 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider other) {
-        if (other.tag == "Item") {
-            // Equip the item and destroy it when colliding with it
-            Destroy(other.gameObject);
-            equippedItem = 1;
+		if (other.tag == "Key" && equippedItem == 0) {
+			// Equip the item and destroy it when colliding with it
+			Destroy (other.gameObject);
+			equippedItem = 1;
         }
+
+		if (other.tag == "Umbrella" && equippedItem == 0) {
+			Destroy (other.gameObject );
+			equippedItem = 2;
+		}
 
         if (other.tag == "Healthup") {
             // Heal and destroy item when colliding with it
