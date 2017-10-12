@@ -9,6 +9,7 @@ public class HudItem : MonoBehaviour {
     public Image itemImage;
 
     public Sprite keySprite;
+    public Sprite umbrellaSprite;
 
 	void Start() {
         itemImage = GetComponent<Image>();
@@ -23,6 +24,10 @@ public class HudItem : MonoBehaviour {
             if (playerScript.GetEquippedItem() == 1) {
                 // If the player has a key, show the key item icon
                 itemImage.sprite = keySprite;
+            }
+            else if (playerScript.GetEquippedItem() == 2) {
+                // If the player has an umbrella, show the umbrella item icon
+                itemImage.sprite = umbrellaSprite;
             }
 
             // If the player has any item, show the item icon
