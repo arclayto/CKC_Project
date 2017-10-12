@@ -46,8 +46,17 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Rising Platform
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 1189094905
+    locked: 0
+  - name: Item
+    uniqueID: 3710518491
+    locked: 0
+  - name: RisingPlatform
+    uniqueID: 970706579
     locked: 0
