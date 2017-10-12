@@ -37,6 +37,15 @@ public class RisingPlatformController : MonoBehaviour {
 	
 	}
 
+	void onTriggerStay(Collider other)
+	{
+		if (other.gameObject.tag == "Player") {
+			Animator animator = transform.GetComponentInChildren<Animator>();
+			animator.SetTrigger("PlatformUp");
+		}
+
+	}
+
 	void OnTriggerExit(Collider other)
 	{
 		if(other.gameObject.tag == "Player")
