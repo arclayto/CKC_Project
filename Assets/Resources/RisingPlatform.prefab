@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23227826380500372}
   - component: {fileID: 114787879189982770}
   - component: {fileID: 95153922999719626}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4961647039592542}
   - component: {fileID: 65231137906826174}
-  - component: {fileID: 114460453767246854}
+  - component: {fileID: 114270224210820020}
   m_Layer: 0
   m_Name: RisingPlatform
   m_TagString: Untagged
@@ -68,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1803669945305436}
   m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 12.26, y: -1.64, z: 16.47}
+  m_LocalPosition: {x: 12.06, y: -1.8, z: 16.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4376702324695838}
@@ -124,8 +124,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 18.53257, y: 12.089138, z: 21.996418}
-  m_Center: {x: 0, y: 4.1961613, z: 0}
+  m_Size: {x: 18.53257, y: 15.787027, z: 21.996418}
+  m_Center: {x: 0, y: 2.3472166, z: 0}
 --- !u!65 &65730039763007292
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -148,14 +148,14 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 2c9f7288c84a12b4fbc00fd0fa434770, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114460453767246854
+--- !u!114 &114270224210820020
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

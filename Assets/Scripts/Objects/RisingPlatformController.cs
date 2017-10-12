@@ -4,17 +4,27 @@ using UnityEngine;
 
 public class RisingPlatformController : MonoBehaviour {
 
-	Mesh childMesh;
+	private StandardShaderUtils.BlendMode blendMode;
+	private Material render;
 
 	// Use this for initialization
 	void Start () {
-		childMesh = gameObject.GetComponentInChildren<MeshFilter>().mesh;
+		render = gameObject.GetComponentInChildren<Renderer>().material;
+		blendMode = StandardShaderUtils.BlendMode.Fade;
+		StandardShaderUtils.ChangeRenderMode (render, blendMode);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-		childMesh.RecalculateBounds();
+		Animator animator = transform.GetComponentInChildren<Animator>();
+		if (animator.GetCurrentAnimatorStateInfo (0).nameHash == Animator.StringToHash ("Base Layer.RisingPlatformIdleTop")) {
+			blendMode = StandardShaderUtils.BlendMode.Opaque;
+			StandardShaderUtils.ChangeRenderMode (render, blendMode);
+		} 
+		else {
+			blendMode = StandardShaderUtils.BlendMode.Fade;
+			StandardShaderUtils.ChangeRenderMode (render, blendMode);
+		}
 	}
 
 	void OnTriggerEnter(Collider other)
@@ -24,6 +34,7 @@ public class RisingPlatformController : MonoBehaviour {
 			Animator animator = transform.GetComponentInChildren<Animator>();
 			animator.SetTrigger("PlatformUp");
 		}
+	
 	}
 
 	void OnTriggerExit(Collider other)
@@ -33,5 +44,7 @@ public class RisingPlatformController : MonoBehaviour {
 			Animator animator = transform.GetComponentInChildren<Animator>();
 			animator.SetTrigger("PlatformDown");
 		}
+			
 	}
+
 }
