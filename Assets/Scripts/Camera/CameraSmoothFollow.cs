@@ -30,7 +30,8 @@ public class CameraSmoothFollow : MonoBehaviour {
 		transform.position = smoothed;
 
 		/*if (Input.GetButton("C")) {
-			offset = new Vector3(-offset.y, offset.y, -offset.z);
+			offset = new Vector3(-offset.z, offset.y, -offset.x);
+			transform.position = target.position - transform.position;
 			transform.LookAt (target);
 		}*/
 

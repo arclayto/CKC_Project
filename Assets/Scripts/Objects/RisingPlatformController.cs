@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class RisingPlatformController : MonoBehaviour {
 
+	Mesh childMesh;
+
 	// Use this for initialization
 	void Start () {
-		
+		childMesh = gameObject.GetComponentInChildren<MeshFilter>().mesh;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
+		childMesh.RecalculateBounds();
 	}
 
 	void OnTriggerEnter(Collider other)
