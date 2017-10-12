@@ -1281,6 +1281,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 32
       objectReference: {fileID: 0}
+    - target: {fileID: 95153922999719626, guid: 85358a0a211bf8a4f96f5dd10f5615c9,
+        type: 2}
+      propertyPath: m_CullingMode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 85358a0a211bf8a4f96f5dd10f5615c9, type: 2}
   m_IsPrefabParent: 0
