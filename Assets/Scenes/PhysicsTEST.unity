@@ -1343,6 +1343,21 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 95153922999719626, guid: 85358a0a211bf8a4f96f5dd10f5615c9,
+        type: 2}
+      propertyPath: m_CullingMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 65231137906826174, guid: 85358a0a211bf8a4f96f5dd10f5615c9,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 15.787027
+      objectReference: {fileID: 0}
+    - target: {fileID: 65231137906826174, guid: 85358a0a211bf8a4f96f5dd10f5615c9,
+        type: 2}
+      propertyPath: m_Center.y
+      value: 2.3472166
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 85358a0a211bf8a4f96f5dd10f5615c9, type: 2}
   m_IsPrefabParent: 0
