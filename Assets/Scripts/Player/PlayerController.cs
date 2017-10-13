@@ -126,21 +126,36 @@ public class PlayerController : MonoBehaviour {
         }
 
 		//gravity contingent upon use of umbrella
-		if (Input.GetButton ("Jump") && equippedItem == 2) {
+		if (Input.GetButton("Jump") && equippedItem == 2) {
 			RaycastHit hit;
 			float reach = 7.0f;
 			float reach2 = 1.2f * reach;
 			Vector3 down = transform.TransformDirection (Vector3.down);
 			Debug.DrawRay (transform.position, down * reach, Color.red);
+			
 			if (Physics.Raycast (transform.position, down, out hit, reach) && hit.transform.tag == "Fan") {
 				moveDirection.y += 1.5f * (gravityForce * Time.deltaTime);
+
+				if (!controller.isGrounded) {
+					animator.Play("PlumFloat", -1, 0.0f);
+				}
 			}
 			else if (Physics.Raycast (transform.position, down, out hit, reach2) && hit.transform.tag == "Fan") {
 				moveDirection.y -= 1.5f * (gravityForce * Time.deltaTime);
+
+				if (!controller.isGrounded) {
+					animator.Play("PlumFloat", -1, 0.0f);
+				}
 			}
 			else if (moveDirection.y < 0) {
-				moveDirection.y -= (gravityForce / 3 * Time.deltaTime);
-			} else {
+				//moveDirection.y -= (gravityForce / 3 * Time.deltaTime);
+				moveDirection.y = -gravityForce / 15;
+
+				if (!controller.isGrounded) {
+					animator.Play("PlumFloat", -1, 0.0f);
+				}
+			}
+			else {
 				moveDirection.y -= gravityForce * Time.deltaTime;
 			}
 		} 
