@@ -14,6 +14,7 @@ TagManager:
   - Cloud
   - Key
   - Umbrella
+  - Fan
   layers:
   - Default
   - TransparentFX

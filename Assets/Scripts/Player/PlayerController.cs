@@ -126,21 +126,29 @@ public class PlayerController : MonoBehaviour {
         }
 
 		//gravity contingent upon use of umbrella
-		if (Input.GetButton("Jump") && equippedItem == 2) {
-			if (moveDirection.y < 0) {
+		if (Input.GetButton ("Jump") && equippedItem == 2) {
+			RaycastHit hit;
+			float reach = 7.0f;
+			float reach2 = 1.2f * reach;
+			Vector3 down = transform.TransformDirection (Vector3.down);
+			Debug.DrawRay (transform.position, down * reach, Color.red);
+			if (Physics.Raycast (transform.position, down, out hit, reach) && hit.transform.tag == "Fan") {
+				moveDirection.y += 1.5f * (gravityForce * Time.deltaTime);
+			}
+			else if (Physics.Raycast (transform.position, down, out hit, reach2) && hit.transform.tag == "Fan") {
+				moveDirection.y -= 1.5f * (gravityForce * Time.deltaTime);
+			}
+			else if (moveDirection.y < 0) {
 				moveDirection.y -= (gravityForce / 3 * Time.deltaTime);
-				controller.Move (moveDirection * Time.deltaTime);
-			} 
-			else {
+			} else {
 				moveDirection.y -= gravityForce * Time.deltaTime;
-				controller.Move (moveDirection * Time.deltaTime);
 			}
 		} 
 		else {
 			moveDirection.y -= gravityForce * Time.deltaTime;
-			controller.Move (moveDirection * Time.deltaTime);
 		}
 
+		controller.Move (moveDirection * Time.deltaTime);
 		//ESC key quits the application
 		if(Input.GetKey(KeyCode.Escape))
 		{
