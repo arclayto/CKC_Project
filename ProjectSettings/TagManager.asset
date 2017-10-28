@@ -15,6 +15,7 @@ TagManager:
   - Key
   - Umbrella
   - Fan
+  - Bean
   layers:
   - Default
   - TransparentFX

@@ -11,10 +11,12 @@ public class PlayerController : MonoBehaviour {
     public int invulnerableTime;
     public GameObject keyAttack;
 	public GameObject feetAttack;
+	public GameObject beanCount;
 
     private Vector3 moveDirection;
     private int health;
     private int equippedItem;
+    private int beans;
     private bool invulnerable;
 	private float lastSwitchedItem;
 
@@ -30,6 +32,7 @@ public class PlayerController : MonoBehaviour {
 
         health = 2;
         equippedItem = 0;
+        beans = 0;
 		lastSwitchedItem = Time.time;
 
 		controller = GetComponent<CharacterController>();
@@ -90,8 +93,14 @@ public class PlayerController : MonoBehaviour {
 		} 
 		else if (controller.isGrounded) {
             // Cap vertical speed on ground (fixes terminal velocity fall bug)
-			moveDirection.y = -4.5f;
+			moveDirection.y = -1f;
 		}
+
+		if (Input.GetButtonUp ("Jump") && !controller.isGrounded && moveDirection.y > 0f) {
+            // Decrease jump height
+			ShortenJump();
+			//jumpCheck = true;
+		} 
 
         if (Input.GetButtonDown("Ability")) {
             // Use ability
@@ -241,6 +250,14 @@ public class PlayerController : MonoBehaviour {
 			}
         }
 
+        if (other.tag == "Bean") {
+            // Increment bean counter and destroy item when colliding with it
+			Destroy (other.gameObject);
+			beans++;
+
+			StartCoroutine(beanCount.GetComponent<HudBeans>().VisiblityTimer());
+        }
+
         if (other.tag == "Kill Zone") {
             // Restart the scene when colliding with a kill zone
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -255,12 +272,20 @@ public class PlayerController : MonoBehaviour {
         return equippedItem;
     }
 
+    public int GetBeans() {
+        return beans;
+    }
+
 	public void SetEquippedItem(int i){
 		equippedItem = i;
 	}
 
 	public void Jump() {
 		moveDirection.y = jumpForce;
+	}
+
+	public void ShortenJump() {
+		moveDirection.y /= 1.5f;
 	}
 
     IEnumerator InvulnerabilityTimer() {
