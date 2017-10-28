@@ -25,7 +25,7 @@ public class HudBeans : MonoBehaviour {
         beansText.text = playerScript.GetBeans().ToString();
     }
 
-    public IEnumerator VisiblityTimer() {
+    public IEnumerator VisibilityTimer() {
         Color tmp = beansImage.color;
         tmp.a = 1f;
         beansImage.color = tmp;

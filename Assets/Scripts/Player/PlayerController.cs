@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
@@ -12,6 +13,7 @@ public class PlayerController : MonoBehaviour {
     public GameObject keyAttack;
 	public GameObject feetAttack;
 	public GameObject beanCount;
+    public GameObject tutorialText;
 
     private Vector3 moveDirection;
     private int health;
@@ -19,6 +21,9 @@ public class PlayerController : MonoBehaviour {
     private int beans;
     private bool invulnerable;
 	private float lastSwitchedItem;
+
+    private Coroutine showTutorialText = null;
+    private Coroutine hideTutorialText = null;
 
 	CharacterController controller;
     Collider coll;
@@ -255,12 +260,31 @@ public class PlayerController : MonoBehaviour {
 			Destroy (other.gameObject);
 			beans++;
 
-			StartCoroutine(beanCount.GetComponent<HudBeans>().VisiblityTimer());
+			StartCoroutine(beanCount.GetComponent<HudBeans>().VisibilityTimer());
+        }
+
+        if (other.tag == "Tutorial") {
+            // Change tutorial text to collider's string
+            tutorialText.GetComponent<Text>().text = other.gameObject.GetComponent<TutorialTextController>().tutorialString;
+            if (hideTutorialText != null) {
+                StopCoroutine(hideTutorialText);
+            }
+            showTutorialText = StartCoroutine(tutorialText.GetComponent<HudTutorial>().ShowTimer());
         }
 
         if (other.tag == "Kill Zone") {
             // Restart the scene when colliding with a kill zone
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
+
+    private void OnTriggerExit(Collider other) {
+        if (other.tag == "Tutorial") {
+            // Fade out tutorial text
+            if (showTutorialText != null) {
+                StopCoroutine(showTutorialText);
+            }
+            hideTutorialText = StartCoroutine(tutorialText.GetComponent<HudTutorial>().HideTimer());
         }
     }
 
