@@ -1429,7 +1429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55cc63948d4c3024f923ebc3c148c1c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialString: Here's a Key, your first weapon!
+  tutorialString: Here's a Key, your first weapon
 --- !u!23 &960870596
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1759,7 +1759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55cc63948d4c3024f923ebc3c148c1c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialString: Use the Z key to jump (hold to jump higher!)
+  tutorialString: Use the Z key to jump (hold to jump higher)
 --- !u!23 &1134350119
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2809,7 +2809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55cc63948d4c3024f923ebc3c148c1c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialString: Are you hurt? Pick up this Heart to heal!
+  tutorialString: Are you hurt? Pick up this Heart to heal
 --- !u!23 &1694993502
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3042,7 +3042,7 @@ GameObject:
   - component: {fileID: 1843144611}
   - component: {fileID: 1843144610}
   m_Layer: 0
-  m_Name: TutorialTextHeart (1)
+  m_Name: TutorialTextUnlock
   m_TagString: Tutorial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
