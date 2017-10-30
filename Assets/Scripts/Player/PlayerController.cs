@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
         // Flip player horizontally based on x direction
-      	if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey")) {
+      	if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
             if (Input.GetAxis("Horizontal") > 0.0f) {
                 spriteRenderer.flipX = false;
             } else if (Input.GetAxis("Horizontal") < 0.0f) {
@@ -63,13 +63,13 @@ public class PlayerController : MonoBehaviour {
         if (controller.isGrounded) {
             if (moveDirection.x == 0.0f && moveDirection.z == 0.0f) {
                 // Idle animation when not moving in x or z
-                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumIdle") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey")) {
+                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumIdle") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
                     animator.Play("PlumIdle", -1, 0.0f);
                 }
             }
             else {
                 // Walk animation when moving in x and/or z
-                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumWalk") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey")) {
+                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumWalk") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
                     animator.Play("PlumWalk", -1, 0.0f);
                 }
             }
@@ -79,13 +79,13 @@ public class PlayerController : MonoBehaviour {
 		if (!controller.isGrounded) {
             if (moveDirection.y > 1.0f) {
                 // Jump animation when moving up in y
-                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumJump") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey")) {
+                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumJump") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
                     animator.Play("PlumJump", -1, 0.0f);
                 }
             }
             else if (moveDirection.y < -1.0f) {
                 // Fall animation when moving down in y
-                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumFall") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey")) {
+                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumFall") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
                     animator.Play("PlumFall", -1, 0.0f);
                 }
             }
@@ -115,7 +115,9 @@ public class PlayerController : MonoBehaviour {
 				}
 			} 
 			else if (equippedItem == 2) {
-				//umbrella animations go here
+				if (!animator.GetCurrentAnimatorStateInfo (0).IsName ("PlumBlock") && controller.isGrounded) {
+					animator.Play ("PlumBlock", -1, 0.0f);
+				}
 			}
         }
 
@@ -137,6 +139,17 @@ public class PlayerController : MonoBehaviour {
             // Deactivate hitbox
             keyAttack.SetActive(false);
 			feetAttack.SetActive(false);
+        }
+
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
+            // Slow movement while using key ability
+            moveDirection.x = 0;
+            moveDirection.z = 0;
+
+            if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f) {
+                // Key ability complete, return to idle state
+                animator.Play("PlumIdle", -1, 0.0f);
+            }
         }
 
 		//gravity contingent upon use of umbrella
@@ -187,7 +200,7 @@ public class PlayerController : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.tag == "Enemy") {
-            if (invulnerable == false && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey")) {
+            if (invulnerable == false && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
                 // Deal damage to player if not invulnerable and not spinning, then make the player invulnerable for a short time
                 if (health > 1) {
                     health--;
@@ -205,7 +218,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void OnCollisionStay(Collision collision) {
-        if (invulnerable == false) {
+        if (invulnerable == false && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") &&  !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
             // Deal damage to player if not invulnerable, then make the player invulnerable for a short time
             if (health > 1) {
                 health--;

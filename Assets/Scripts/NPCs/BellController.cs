@@ -73,7 +73,13 @@ public class BellController : MonoBehaviour {
     void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.tag == "Player") {
             // Rebound off player when colliding with them
-    		rb.AddForce(new Vector3(-velocity.x / 2, rb.velocity.y, -velocity.z / 2), ForceMode.Impulse);
+            if (collision.gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
+                // Rebound further while player is blocking
+                rb.AddForce(new Vector3(-velocity.x, rb.velocity.y, -velocity.z), ForceMode.Impulse);
+            }
+            else {
+        		rb.AddForce(new Vector3(-velocity.x / 2, rb.velocity.y, -velocity.z / 2), ForceMode.Impulse);
+            }
         }
     }
 
