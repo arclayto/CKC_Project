@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour {
     public int invulnerableTime;
     public GameObject keyAttack;
 	public GameObject feetAttack;
+	public GameObject umbrellaAttack;
 	public GameObject beanCount;
     public GameObject tutorialText;
 
@@ -142,14 +143,21 @@ public class PlayerController : MonoBehaviour {
         }
 
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
-            // Slow movement while using key ability
+            // Stop movement while using umbrella block ability
             moveDirection.x = 0;
             moveDirection.z = 0;
+
+            // Activate hitbox
+            umbrellaAttack.SetActive(true);
 
             if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f) {
                 // Key ability complete, return to idle state
                 animator.Play("PlumIdle", -1, 0.0f);
             }
+        }
+        else {
+            // Deactivate hitbox
+            umbrellaAttack.SetActive(false);
         }
 
 		//gravity contingent upon use of umbrella
@@ -273,7 +281,7 @@ public class PlayerController : MonoBehaviour {
 			Destroy (other.gameObject);
 			beans++;
 
-			StartCoroutine(beanCount.GetComponent<HudBeans>().VisibilityTimer());
+			//StartCoroutine(beanCount.GetComponent<HudBeans>().VisibilityTimer());
         }
 
         if (other.tag == "Tutorial") {

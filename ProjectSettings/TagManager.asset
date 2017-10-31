@@ -17,6 +17,8 @@ TagManager:
   - Fan
   - Bean
   - Tutorial
+  - Tornado
+  - Umbrella Attack
   layers:
   - Default
   - TransparentFX

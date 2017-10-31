@@ -73,13 +73,12 @@ public class BellController : MonoBehaviour {
     void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.tag == "Player") {
             // Rebound off player when colliding with them
-            if (collision.gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
-                // Rebound further while player is blocking
-                rb.AddForce(new Vector3(-velocity.x, rb.velocity.y, -velocity.z), ForceMode.Impulse);
-            }
-            else {
-        		rb.AddForce(new Vector3(-velocity.x / 2, rb.velocity.y, -velocity.z / 2), ForceMode.Impulse);
-            }
+    		rb.AddForce(new Vector3(-velocity.x / 2, rb.velocity.y, -velocity.z / 2), ForceMode.Impulse);
+        }
+
+        if (collision.gameObject.tag == "Umbrella Attack") {
+            // Rebound further while player is blocking
+            rb.AddForce(new Vector3(-velocity.x, rb.velocity.y, -velocity.z), ForceMode.Impulse);
         }
     }
 
@@ -100,7 +99,7 @@ public class BellController : MonoBehaviour {
 
             // Create smoke effect
             MakeSmoke();
-		} 
+		}
     }
 
     public void MakeSmoke() {
