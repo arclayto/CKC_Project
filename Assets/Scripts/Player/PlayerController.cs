@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
-        if (Input.GetButtonDown ("Jump") && controller.isGrounded) {
+        if (Input.GetButtonDown ("Jump") /*&& controller.isGrounded*/) {
             // Jump if on ground
 			Jump();
 			//jumpCheck = true;
@@ -296,6 +296,36 @@ public class PlayerController : MonoBehaviour {
         if (other.tag == "Kill Zone") {
             // Restart the scene when colliding with a kill zone
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        if (other.tag == "Cactus") {
+            if (invulnerable == false) {
+                // Deal damage to player if not invulnerable and not spinning, then make the player invulnerable for a short time
+                if (health > 1) {
+                    health--;
+                }
+                else {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                }
+
+                StartCoroutine("InvulnerabilityTimer");
+            }
+        }
+    }
+
+    private void OnTriggerStay(Collider other) {
+    	if (other.tag == "Cactus") {
+            if (invulnerable == false) {
+                // Deal damage to player if not invulnerable and not spinning, then make the player invulnerable for a short time
+                if (health > 1) {
+                    health--;
+                }
+                else {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                }
+
+                StartCoroutine("InvulnerabilityTimer");
+            }
         }
     }
 

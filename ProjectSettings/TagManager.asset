@@ -19,6 +19,7 @@ TagManager:
   - Tutorial
   - Tornado
   - Umbrella Attack
+  - Cactus
   layers:
   - Default
   - TransparentFX
