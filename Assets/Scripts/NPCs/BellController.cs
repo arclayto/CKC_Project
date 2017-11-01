@@ -78,13 +78,21 @@ public class BellController : MonoBehaviour {
 
         if (collision.gameObject.tag == "Umbrella Attack") {
             // Rebound further while player is blocking
-            rb.AddForce(new Vector3(-velocity.x, rb.velocity.y, -velocity.z), ForceMode.Impulse);
+            rb.AddForce(new Vector3(-velocity.x * 1.3f, rb.velocity.y, -velocity.z * 1.3f), ForceMode.Impulse);
         }
     }
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player Attack") {
             // Enemy hit by key attack, destroy
+            Destroy(gameObject);
+
+            // Create smoke effect
+            MakeSmoke();
+        }
+
+        if (other.tag == "Cactus") {
+            // Enemy hit by cactus, destroy
             Destroy(gameObject);
 
             // Create smoke effect
@@ -100,6 +108,14 @@ public class BellController : MonoBehaviour {
             // Create smoke effect
             MakeSmoke();
 		}
+
+        if (other.tag == "Cactus") {
+            // Enemy hit by cactus, destroy
+            Destroy(gameObject);
+
+            // Create smoke effect
+            MakeSmoke();
+        }
     }
 
     public void MakeSmoke() {
