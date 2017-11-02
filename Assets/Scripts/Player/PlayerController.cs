@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour {
     private int beans;
     private bool invulnerable;
 	private bool inTornado;
+	private bool canMove;
 	private Vector3 otherTornado;
 	private float lastSwitchedItem;
 
@@ -37,6 +38,7 @@ public class PlayerController : MonoBehaviour {
     void Start() {
 		//hide the cursor
 		Cursor.visible = false;
+		canMove = true;
 
         health = 2;
         equippedItem = 0;
@@ -103,8 +105,7 @@ public class PlayerController : MonoBehaviour {
                 }
             }
         }
-
-
+			
         if (Input.GetButtonDown ("Jump") && controller.isGrounded && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
 
             // Jump if on ground
@@ -211,8 +212,10 @@ public class PlayerController : MonoBehaviour {
 		else {
 			moveDirection.y -= gravityForce * Time.deltaTime;
 		}
-			
-		controller.Move (moveDirection * Time.deltaTime);
+
+		if (canMove) {
+			controller.Move (moveDirection * Time.deltaTime);
+		}
 		//ESC key quits the application
 		if(Input.GetKey(KeyCode.Escape))
 		{
@@ -423,6 +426,11 @@ public class PlayerController : MonoBehaviour {
 
 	public void ShortenJump() {
 		moveDirection.y /= 1.5f;
+	}
+
+	public void AllowMovement(bool b)
+	{
+		canMove = b;
 	}
 
     IEnumerator InvulnerabilityTimer() {

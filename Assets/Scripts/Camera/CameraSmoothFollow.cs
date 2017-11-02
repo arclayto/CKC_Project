@@ -52,6 +52,7 @@ public class CameraSmoothFollow : MonoBehaviour {
 	IEnumerator changeFocus(Transform newTarget)
 	{
 		Transform oldTarget = target;
+		oldTarget.GetComponentInParent<PlayerController> ().AllowMovement (false);
 		cameraSpeed = 0.5f;
 		target = newTarget;
 		yield return new WaitForSeconds (4);
@@ -61,7 +62,8 @@ public class CameraSmoothFollow : MonoBehaviour {
 
 	IEnumerator ChangeSpeedBack()
 	{
-		yield return new WaitForSeconds(0.5f);
+		yield return new WaitForSeconds(0.55f);
+		target.GetComponentInParent<PlayerController> ().AllowMovement (true);
 		cameraSpeed = 0.1f;
 	}
 }
