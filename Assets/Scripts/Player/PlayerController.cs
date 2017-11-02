@@ -104,7 +104,9 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
-        if (Input.GetButtonDown ("Jump") && controller.isGrounded) {
+
+        if (Input.GetButtonDown ("Jump") && controller.isGrounded && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
+
             // Jump if on ground
 			Jump();
 			//jumpCheck = true;
@@ -238,7 +240,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void OnCollisionStay(Collision collision) {
-        if (invulnerable == false && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") &&  !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
+        if (invulnerable == false && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
             // Deal damage to player if not invulnerable, then make the player invulnerable for a short time
             if (health > 1) {
                 health--;
@@ -330,6 +332,20 @@ public class PlayerController : MonoBehaviour {
 			otherTornado.y = other.GetComponentInParent<Transform>().position.y;
 			otherTornado.z = other.GetComponentInParent<Transform>().position.z;
 		}*/
+
+        if (other.tag == "Lightning") {
+            if (invulnerable == false && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
+                // Deal damage to player if not invulnerable and not spinning, then make the player invulnerable for a short time
+                if (health > 1) {
+                    health--;
+                }
+                else {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                }
+
+                StartCoroutine("InvulnerabilityTimer");
+            }
+        }
     }
 
     private void OnTriggerStay(Collider other) {
@@ -355,6 +371,20 @@ public class PlayerController : MonoBehaviour {
 			//moveDirection.z += other.transform.position.z * 10;
 			//moveDirection.x += other.transform.position.x * 10;
 		}
+
+        if (other.tag == "Lightning") {
+            if (invulnerable == false && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
+                // Deal damage to player if not invulnerable and not spinning, then make the player invulnerable for a short time
+                if (health > 1) {
+                    health--;
+                }
+                else {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                }
+
+                StartCoroutine("InvulnerabilityTimer");
+            }
+        }
     }
 
     private void OnTriggerExit(Collider other) {

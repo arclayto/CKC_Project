@@ -120,7 +120,7 @@ public class BellController : MonoBehaviour {
 
     public void MakeSmoke() {
         // Create smoke effect
-            GameObject smoke = (GameObject)Instantiate(Resources.Load("Smoke"));
-            smoke.transform.position = transform.position;
+        GameObject smoke = (GameObject)Instantiate(Resources.Load("Smoke"));
+        smoke.transform.position = transform.position;
     }
 }

@@ -1,14 +1,12 @@
 fileFormatVersion: 2
-guid: 6dd533921f2c82a4cae3e93e47852930
-timeCreated: 1509589261
+guid: da03e76ba6b2ea4408cf996dc36434f1
+timeCreated: 1509596048
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: lightning_0
-    21300002: lightning_1
-    21300004: lightning_2
-    21300006: lightning_3
-    21300008: lightning_4
+    21300000: lightningmage_0
+    21300002: lightningmage_1
+    21300004: lightningmage_2
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -47,10 +45,10 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.5, y: 0.15}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 150
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -80,71 +78,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: lightning_0
+      name: lightningmage_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1024
-        height: 1024
+        width: 640
+        height: 640
       alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+      pivot: {x: 0.5, y: 0.6}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: lightning_1
+      name: lightningmage_1
       rect:
         serializedVersion: 2
-        x: 1024
+        x: 640
         y: 0
-        width: 1024
-        height: 1024
+        width: 640
+        height: 640
       alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+      pivot: {x: 0.5, y: 0.6}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: lightning_2
+      name: lightningmage_2
       rect:
         serializedVersion: 2
-        x: 2048
+        x: 1280
         y: 0
-        width: 1024
-        height: 1024
+        width: 640
+        height: 640
       alignment: 9
-      pivot: {x: 0.5, y: 0.1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: lightning_3
-      rect:
-        serializedVersion: 2
-        x: 3072
-        y: 0
-        width: 1024
-        height: 1024
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: lightning_4
-      rect:
-        serializedVersion: 2
-        x: 4096
-        y: 0
-        width: 1024
-        height: 1024
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+      pivot: {x: 0.5, y: 0.6}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
