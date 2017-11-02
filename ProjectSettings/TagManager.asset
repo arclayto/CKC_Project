@@ -20,6 +20,7 @@ TagManager:
   - Tornado
   - Umbrella Attack
   - Cactus
+  - Lightning
   layers:
   - Default
   - TransparentFX

@@ -226,7 +226,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void OnCollisionStay(Collision collision) {
-        if (invulnerable == false && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") &&  !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
+        if (invulnerable == false && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
             // Deal damage to player if not invulnerable, then make the player invulnerable for a short time
             if (health > 1) {
                 health--;
@@ -311,11 +311,39 @@ public class PlayerController : MonoBehaviour {
                 StartCoroutine("InvulnerabilityTimer");
             }
         }
+
+        if (other.tag == "Lightning") {
+            if (invulnerable == false && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
+                // Deal damage to player if not invulnerable and not spinning, then make the player invulnerable for a short time
+                if (health > 1) {
+                    health--;
+                }
+                else {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                }
+
+                StartCoroutine("InvulnerabilityTimer");
+            }
+        }
     }
 
     private void OnTriggerStay(Collider other) {
     	if (other.tag == "Cactus") {
             if (invulnerable == false) {
+                // Deal damage to player if not invulnerable and not spinning, then make the player invulnerable for a short time
+                if (health > 1) {
+                    health--;
+                }
+                else {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                }
+
+                StartCoroutine("InvulnerabilityTimer");
+            }
+        }
+
+        if (other.tag == "Lightning") {
+            if (invulnerable == false && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
                 // Deal damage to player if not invulnerable and not spinning, then make the player invulnerable for a short time
                 if (health > 1) {
                     health--;
