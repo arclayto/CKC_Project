@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//to use this script, attach This to any object and when you want the next level loading to fire type:
+//GetComponent<LevelLoadTrigger>().initiateLoad();
+
+
+
 public class LevelLoadTrigger : MonoBehaviour {
 
 	public string levelToLoad;

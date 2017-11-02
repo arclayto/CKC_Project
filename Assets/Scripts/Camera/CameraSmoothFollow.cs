@@ -10,6 +10,8 @@ public class CameraSmoothFollow : MonoBehaviour {
 	public Vector3 offset;
 
 	private Vector3 velocity = Vector3.zero;
+	private float cameraSpeed;
+
 	Vector3 smoothed;
 
 	void Start () {
@@ -21,12 +23,14 @@ public class CameraSmoothFollow : MonoBehaviour {
 		if (lookAtTarget) {
 			transform.LookAt (target);
 		}
+
+		cameraSpeed = 0.1f;
 	}
 
 	void Update()
 	{
 		Vector3 desired = target.position - offset;
-		smoothed = Vector3.SmoothDamp(transform.position, desired, ref velocity, 0.1f);
+		smoothed = Vector3.SmoothDamp(transform.position, desired, ref velocity, cameraSpeed);
 		transform.position = smoothed;
 
 		/*if (Input.GetButton("C")) {
@@ -38,5 +42,26 @@ public class CameraSmoothFollow : MonoBehaviour {
 		//add this if you're ok with non-fixed rotation
 		//for our purposes, it's ugly
 		//transform.LookAt (target);
+	}
+
+	public void setFocus(Transform t)
+	{
+		StartCoroutine (changeFocus (t));
+	}
+
+	IEnumerator changeFocus(Transform newTarget)
+	{
+		Transform oldTarget = target;
+		cameraSpeed = 0.5f;
+		target = newTarget;
+		yield return new WaitForSeconds (4);
+		target = oldTarget;
+		StartCoroutine (ChangeSpeedBack ());
+	}
+
+	IEnumerator ChangeSpeedBack()
+	{
+		yield return new WaitForSeconds(0.5f);
+		cameraSpeed = 0.1f;
 	}
 }
