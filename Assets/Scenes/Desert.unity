@@ -3189,6 +3189,16 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114155902896333684, guid: e9eec65b9d77c4e438da375c623c76d2,
+        type: 2}
+      propertyPath: beanCount
+      value: 
+      objectReference: {fileID: 1173472323}
+    - target: {fileID: 114155902896333684, guid: e9eec65b9d77c4e438da375c623c76d2,
+        type: 2}
+      propertyPath: tutorialText
+      value: 
+      objectReference: {fileID: 1716310051}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e9eec65b9d77c4e438da375c623c76d2, type: 2}
   m_IsPrefabParent: 0
@@ -3247,6 +3257,11 @@ GameObject:
   m_PrefabParentObject: {fileID: 1549189618981462, guid: 22d0ebb12ed457c4abfbf8f6554c9d62,
     type: 2}
   m_PrefabInternal: {fileID: 341668883}
+--- !u!1 &1173472323 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1522063365167036, guid: 1ba6d7fbfe8908a4a9ff0cc1324adad0,
+    type: 2}
+  m_PrefabInternal: {fileID: 918888926}
 --- !u!1 &1217155264
 GameObject:
   m_ObjectHideFlags: 0
@@ -4634,6 +4649,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8694e2881134b304382551063975b3bc, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1716310051 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1589651397781670, guid: 1ba6d7fbfe8908a4a9ff0cc1324adad0,
+    type: 2}
+  m_PrefabInternal: {fileID: 918888926}
 --- !u!1001 &1721521363
 Prefab:
   m_ObjectHideFlags: 0
