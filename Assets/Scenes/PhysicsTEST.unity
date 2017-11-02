@@ -109,6 +109,11 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &7100143 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1882828195306260, guid: 1ba6d7fbfe8908a4a9ff0cc1324adad0,
+    type: 2}
+  m_PrefabInternal: {fileID: 2067785345}
 --- !u!1 &33654146 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 0718de3976399e34cb47ff5b1b2110b2, type: 3}
@@ -2768,6 +2773,7 @@ GameObject:
   - component: {fileID: 1741177939}
   - component: {fileID: 1741177938}
   - component: {fileID: 1741177937}
+  - component: {fileID: 1741177941}
   m_Layer: 0
   m_Name: Door
   m_TagString: Door
@@ -2847,6 +2853,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1741177941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1741177935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f84d1f1df03e59408e58bb3980ca0a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelToLoad: Desert
+  screenToTrigger: {fileID: 7100143}
 --- !u!1 &1748764038
 GameObject:
   m_ObjectHideFlags: 0
@@ -3457,17 +3476,7 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114106226370843390, guid: 1ba6d7fbfe8908a4a9ff0cc1324adad0,
-        type: 2}
-      propertyPath: playerScript
-      value: 
-      objectReference: {fileID: 787980227}
-    - target: {fileID: 114187317733356978, guid: 1ba6d7fbfe8908a4a9ff0cc1324adad0,
-        type: 2}
-      propertyPath: playerScript
-      value: 
-      objectReference: {fileID: 787980227}
-    - target: {fileID: 114211669872383452, guid: 1ba6d7fbfe8908a4a9ff0cc1324adad0,
+    - target: {fileID: 114603714013471382, guid: 1ba6d7fbfe8908a4a9ff0cc1324adad0,
         type: 2}
       propertyPath: playerScript
       value: 
@@ -3477,7 +3486,17 @@ Prefab:
       propertyPath: playerScript
       value: 
       objectReference: {fileID: 787980227}
-    - target: {fileID: 114603714013471382, guid: 1ba6d7fbfe8908a4a9ff0cc1324adad0,
+    - target: {fileID: 114211669872383452, guid: 1ba6d7fbfe8908a4a9ff0cc1324adad0,
+        type: 2}
+      propertyPath: playerScript
+      value: 
+      objectReference: {fileID: 787980227}
+    - target: {fileID: 114187317733356978, guid: 1ba6d7fbfe8908a4a9ff0cc1324adad0,
+        type: 2}
+      propertyPath: playerScript
+      value: 
+      objectReference: {fileID: 787980227}
+    - target: {fileID: 114106226370843390, guid: 1ba6d7fbfe8908a4a9ff0cc1324adad0,
         type: 2}
       propertyPath: playerScript
       value: 
