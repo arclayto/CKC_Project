@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour {
 
     private Coroutine showTutorialText = null;
     private Coroutine hideTutorialText = null;
+	private Coroutine beanFade = null;
 
 	CharacterController controller;
     Collider coll;
@@ -297,8 +298,10 @@ public class PlayerController : MonoBehaviour {
             // Increment bean counter and destroy item when colliding with it
 			Destroy (other.gameObject);
 			beans++;
-
-			//StartCoroutine(beanCount.GetComponent<HudBeans>().VisibilityTimer());
+			if (beanFade != null) {
+				StopCoroutine(beanFade);
+			}
+			beanFade = StartCoroutine(beanCount.GetComponent<HudBeans>().VisibilityTimer());
         }
 
         if (other.tag == "Tutorial") {
