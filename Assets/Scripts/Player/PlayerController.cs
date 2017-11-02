@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
-        moveDirection = new Vector3(Input.GetAxis("Horizontal") * movementSpeed, moveDirection.y, Input.GetAxis("Vertical") * movementSpeed);
+		moveDirection = new Vector3(Input.GetAxis("Horizontal") * movementSpeed, moveDirection.y, Input.GetAxis("Vertical") * movementSpeed);
 
         // Idle & Walk animation based on x and z movement
         if (controller.isGrounded) {
@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
-        if (Input.GetButtonDown ("Jump") /*&& controller.isGrounded*/) {
+        if (Input.GetButtonDown ("Jump") && controller.isGrounded) {
             // Jump if on ground
 			Jump();
 			//jumpCheck = true;
@@ -197,7 +197,7 @@ public class PlayerController : MonoBehaviour {
 		else {
 			moveDirection.y -= gravityForce * Time.deltaTime;
 		}
-
+			
 		controller.Move (moveDirection * Time.deltaTime);
 		//ESC key quits the application
 		if(Input.GetKey(KeyCode.Escape))
@@ -315,18 +315,23 @@ public class PlayerController : MonoBehaviour {
 
     private void OnTriggerStay(Collider other) {
     	if (other.tag == "Cactus") {
-            if (invulnerable == false) {
-                // Deal damage to player if not invulnerable and not spinning, then make the player invulnerable for a short time
-                if (health > 1) {
-                    health--;
-                }
-                else {
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                }
+			if (invulnerable == false) {
+				// Deal damage to player if not invulnerable and not spinning, then make the player invulnerable for a short time
+				if (health > 1) {
+					health--;
+				} else {
+					SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
+				}
 
-                StartCoroutine("InvulnerabilityTimer");
-            }
+				StartCoroutine ("InvulnerabilityTimer");
+			} 
         }
+	 	
+		if (other.tag == "Tornado") {
+			moveDirection.y += other.transform.position.y;
+			moveDirection.z += other.transform.position.z * 10;
+			moveDirection.x += other.transform.position.x * 10;
+		}
     }
 
     private void OnTriggerExit(Collider other) {
