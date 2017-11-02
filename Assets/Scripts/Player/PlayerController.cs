@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour {
     private int equippedItem;
     private int beans;
     private bool invulnerable;
+	private bool inTornado;
+	private Vector3 otherTornado;
 	private float lastSwitchedItem;
 
     private Coroutine showTutorialText = null;
@@ -45,6 +47,7 @@ public class PlayerController : MonoBehaviour {
         coll = GetComponent<Collider>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+		inTornado = false;
     }
 	
 	// Update is called once per frame
@@ -59,6 +62,15 @@ public class PlayerController : MonoBehaviour {
         }
 
 		moveDirection = new Vector3(Input.GetAxis("Horizontal") * movementSpeed, moveDirection.y, Input.GetAxis("Vertical") * movementSpeed);
+
+
+		//broken code for tornados, just leave it for now
+		/*if (inTornado == true) {
+			Vector3 velocity = Vector3.zero;
+										moveDirection = new Vector3((Input.GetAxis("Horizontal") * movementSpeed) + Vector3.Lerp(transform.position, otherTornado, 0.5f).x,
+										moveDirection.y, 
+										(Input.GetAxis("Vertical") * movementSpeed) + Vector3.Lerp(transform.position, otherTornado, 0.5f).z);
+		}*/
 
         // Idle & Walk animation based on x and z movement
         if (controller.isGrounded) {
@@ -311,6 +323,13 @@ public class PlayerController : MonoBehaviour {
                 StartCoroutine("InvulnerabilityTimer");
             }
         }
+
+		/*if (other.tag == "Tornado") {
+			inTornado = true;
+			otherTornado.x = other.GetComponentInParent<Transform>().position.x;
+			otherTornado.y = other.GetComponentInParent<Transform>().position.y;
+			otherTornado.z = other.GetComponentInParent<Transform>().position.z;
+		}*/
     }
 
     private void OnTriggerStay(Collider other) {
@@ -328,20 +347,28 @@ public class PlayerController : MonoBehaviour {
         }
 	 	
 		if (other.tag == "Tornado") {
-			moveDirection.y += other.transform.position.y;
-			moveDirection.z += other.transform.position.z * 10;
-			moveDirection.x += other.transform.position.x * 10;
+			inTornado = true;
+			//otherTornado.y = other.transform.position.y;
+			//otherTornado.x = other.transform.position.x;
+			//otherTornado.z = other.transform.position.z;
+			moveDirection.y += 1;
+			//moveDirection.z += other.transform.position.z * 10;
+			//moveDirection.x += other.transform.position.x * 10;
 		}
     }
 
     private void OnTriggerExit(Collider other) {
-        if (other.tag == "Tutorial") {
-            // Fade out tutorial text
-            if (showTutorialText != null) {
-                StopCoroutine(showTutorialText);
-            }
-            hideTutorialText = StartCoroutine(tutorialText.GetComponent<HudTutorial>().HideTimer());
-        }
+		if (other.tag == "Tutorial") {
+			// Fade out tutorial text
+			if (showTutorialText != null) {
+				StopCoroutine (showTutorialText);
+			}
+			hideTutorialText = StartCoroutine (tutorialText.GetComponent<HudTutorial> ().HideTimer ());
+		} 
+
+		if (other.tag == "Torando") {
+			inTornado = false;
+		}
     }
 
     public int GetHealth() {

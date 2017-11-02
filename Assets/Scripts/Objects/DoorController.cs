@@ -25,6 +25,8 @@ public class DoorController : MonoBehaviour {
 				Animator animator = transform.GetComponentInParent<Animator>();
 				animator.SetTrigger("Open");
 				player.SetEquippedItem (0);
+
+				GetComponent<LevelLoadTrigger>().initiateLoad();
 			}
 		}
 	}
