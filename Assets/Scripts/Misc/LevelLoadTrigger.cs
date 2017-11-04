@@ -11,6 +11,7 @@ public class LevelLoadTrigger : MonoBehaviour {
 
 	public string levelToLoad;
 	public GameObject screenToTrigger;
+	public GameObject musicPlayer;
 
 	private bool loadNext;
 
@@ -22,6 +23,9 @@ public class LevelLoadTrigger : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (loadNext) {
+			StartCoroutine(AudioFadeOut.FadeOut(musicPlayer.GetComponent<AudioSource>(), 10f));
+			//Destroy(musicPlayer);
+
 			LevelLoader lv = screenToTrigger.GetComponent<LevelLoader>();
 			lv.LoadLevel (levelToLoad);
 		}

@@ -21,6 +21,7 @@ TagManager:
   - Umbrella Attack
   - Cactus
   - Lightning
+  - GameMusic
   layers:
   - Default
   - TransparentFX

@@ -1451,6 +1451,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8694e2881134b304382551063975b3bc, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1016665762 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1123963942311042, guid: d5473e4dde03d304a86fd099138d2a40,
+    type: 2}
+  m_PrefabInternal: {fileID: 1621447368}
 --- !u!1001 &1019623976
 Prefab:
   m_ObjectHideFlags: 0
@@ -2553,6 +2558,58 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &1621447368
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4641999553614010, guid: d5473e4dde03d304a86fd099138d2a40, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641999553614010, guid: d5473e4dde03d304a86fd099138d2a40, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641999553614010, guid: d5473e4dde03d304a86fd099138d2a40, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641999553614010, guid: d5473e4dde03d304a86fd099138d2a40, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641999553614010, guid: d5473e4dde03d304a86fd099138d2a40, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641999553614010, guid: d5473e4dde03d304a86fd099138d2a40, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641999553614010, guid: d5473e4dde03d304a86fd099138d2a40, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641999553614010, guid: d5473e4dde03d304a86fd099138d2a40, type: 2}
+      propertyPath: m_RootOrder
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 82718804447956700, guid: d5473e4dde03d304a86fd099138d2a40,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2a722510e18fdcf47b2f039dabb2d55e, type: 3}
+    - target: {fileID: 82718804447956700, guid: d5473e4dde03d304a86fd099138d2a40,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d5473e4dde03d304a86fd099138d2a40, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1631679997
 Prefab:
   m_ObjectHideFlags: 0
@@ -2947,6 +3004,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelToLoad: Desert
   screenToTrigger: {fileID: 7100143}
+  musicPlayer: {fileID: 1016665762}
 --- !u!1 &1748764038
 GameObject:
   m_ObjectHideFlags: 0
