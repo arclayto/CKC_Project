@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour {
     private int equippedItem;
     private int beans;
     private bool invulnerable;
+    private bool isFloating;
 	private bool inTornado;
 	private bool canMove;
 	private Vector3 otherTornado;
@@ -43,6 +44,7 @@ public class PlayerController : MonoBehaviour {
         health = 2;
         equippedItem = 0;
         beans = 0;
+        isFloating = false;
 		lastSwitchedItem = Time.time;
 
 		controller = GetComponent<CharacterController>();
@@ -64,7 +66,6 @@ public class PlayerController : MonoBehaviour {
         }
 
 		moveDirection = new Vector3(Input.GetAxis("Horizontal") * movementSpeed, moveDirection.y, Input.GetAxis("Vertical") * movementSpeed);
-
 
 		//broken code for tornados, just leave it for now
 		/*if (inTornado == true) {
@@ -88,6 +89,9 @@ public class PlayerController : MonoBehaviour {
                     animator.Play("PlumWalk", -1, 0.0f);
                 }
             }
+
+            // Stop floating
+            isFloating = false;
         }
 
         // Aerial animations based on y movement
@@ -107,31 +111,36 @@ public class PlayerController : MonoBehaviour {
         }
 			
         if (Input.GetButtonDown ("Jump") && controller.isGrounded && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
-
             // Jump if on ground
 			Jump();
 			//jumpCheck = true;
 		} 
-		else if (controller.isGrounded) {
+		else if (controller.isGrounded && !inTornado) {
             // Cap vertical speed on ground (fixes terminal velocity fall bug)
 			moveDirection.y = -1f;
 		}
 
-		if (Input.GetButtonUp ("Jump") && !controller.isGrounded && moveDirection.y > 0f) {
-            // Decrease jump height
-			ShortenJump();
-			//jumpCheck = true;
-		} 
+		if (Input.GetButtonUp ("Jump") && !controller.isGrounded) {
+			if (moveDirection.y > 0f) {
+				// Decrease jump height
+				ShortenJump();
+			}
+
+			if (isFloating) {
+				// Stop floating
+				isFloating = false;
+			}
+		}
 
         if (Input.GetButtonDown("Ability")) {
             // Use ability
 			if (equippedItem == 1) {
-				if (!animator.GetCurrentAnimatorStateInfo (0).IsName ("PlumKey")) {
+				if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey")) {
 					animator.Play ("PlumKey", -1, 0.0f);
 				}
 			} 
 			else if (equippedItem == 2) {
-				if (!animator.GetCurrentAnimatorStateInfo (0).IsName ("PlumBlock") && controller.isGrounded) {
+				if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock") && controller.isGrounded) {
 					animator.Play ("PlumBlock", -1, 0.0f);
 				}
 			}
@@ -175,7 +184,29 @@ public class PlayerController : MonoBehaviour {
             umbrellaAttack.SetActive(false);
         }
 
+        if (Input.GetButton("Jump") && equippedItem == 2 && !isFloating && moveDirection.y < 0f) {
+    		// Umbrella reduces gravity
+    		isFloating = true;
+    	}
+
+		if (isFloating) {
+			moveDirection.y -= (gravityForce * Time.deltaTime);
+			
+			if (moveDirection.y < -3f) {
+				moveDirection.y = -3f;
+			}
+
+			if (!controller.isGrounded) {
+				animator.Play("PlumFloat", -1, 0.0f);
+			}
+		}
+        else {
+        	// Normal gravity
+        	moveDirection.y -= gravityForce * Time.deltaTime;
+        }
+
 		//gravity contingent upon use of umbrella
+		/*
 		if (Input.GetButton("Jump") && equippedItem == 2) {
 			RaycastHit hit;
 			float reach = 7.0f;
@@ -212,6 +243,7 @@ public class PlayerController : MonoBehaviour {
 		else {
 			moveDirection.y -= gravityForce * Time.deltaTime;
 		}
+		*/
 
 		if (canMove) {
 			controller.Move (moveDirection * Time.deltaTime);
@@ -329,12 +361,11 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
-		/*if (other.tag == "Tornado") {
-			inTornado = true;
-			otherTornado.x = other.GetComponentInParent<Transform>().position.x;
-			otherTornado.y = other.GetComponentInParent<Transform>().position.y;
-			otherTornado.z = other.GetComponentInParent<Transform>().position.z;
-		}*/
+		if (other.tag == "Tornado") {
+			if (moveDirection.y > 2f) {
+				moveDirection.y = 2f;
+			}
+		}
 
         if (other.tag == "Lightning") {
             if (invulnerable == false && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
@@ -349,6 +380,8 @@ public class PlayerController : MonoBehaviour {
                 StartCoroutine("InvulnerabilityTimer");
             }
         }
+
+
     }
 
     private void OnTriggerStay(Collider other) {
@@ -367,10 +400,15 @@ public class PlayerController : MonoBehaviour {
 	 	
 		if (other.tag == "Tornado") {
 			inTornado = true;
+
+			if (controller.isGrounded) {
+				moveDirection.y = 2f;
+			} else {
+				moveDirection.y += 2f;
+			}
 			//otherTornado.y = other.transform.position.y;
 			//otherTornado.x = other.transform.position.x;
 			//otherTornado.z = other.transform.position.z;
-			moveDirection.y += 1;
 			//moveDirection.z += other.transform.position.z * 10;
 			//moveDirection.x += other.transform.position.x * 10;
 		}
@@ -399,7 +437,7 @@ public class PlayerController : MonoBehaviour {
 			hideTutorialText = StartCoroutine (tutorialText.GetComponent<HudTutorial> ().HideTimer ());
 		} 
 
-		if (other.tag == "Torando") {
+		if (other.tag == "Tornado") {
 			inTornado = false;
 		}
     }
