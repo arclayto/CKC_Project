@@ -3615,12 +3615,17 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114187317733356978, guid: 1ba6d7fbfe8908a4a9ff0cc1324adad0,
+        type: 2}
+      propertyPath: playerScript
+      value: 
+      objectReference: {fileID: 787980227}
     - target: {fileID: 114603714013471382, guid: 1ba6d7fbfe8908a4a9ff0cc1324adad0,
         type: 2}
       propertyPath: playerScript
       value: 
       objectReference: {fileID: 787980227}
-    - target: {fileID: 114531025353600668, guid: 1ba6d7fbfe8908a4a9ff0cc1324adad0,
+    - target: {fileID: 114106226370843390, guid: 1ba6d7fbfe8908a4a9ff0cc1324adad0,
         type: 2}
       propertyPath: playerScript
       value: 
@@ -3630,12 +3635,7 @@ Prefab:
       propertyPath: playerScript
       value: 
       objectReference: {fileID: 787980227}
-    - target: {fileID: 114187317733356978, guid: 1ba6d7fbfe8908a4a9ff0cc1324adad0,
-        type: 2}
-      propertyPath: playerScript
-      value: 
-      objectReference: {fileID: 787980227}
-    - target: {fileID: 114106226370843390, guid: 1ba6d7fbfe8908a4a9ff0cc1324adad0,
+    - target: {fileID: 114531025353600668, guid: 1ba6d7fbfe8908a4a9ff0cc1324adad0,
         type: 2}
       propertyPath: playerScript
       value: 

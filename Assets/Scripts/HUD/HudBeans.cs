@@ -16,7 +16,7 @@ public class HudBeans : MonoBehaviour {
     	beansText = GetComponent<Text>();
     	
     	Color tmp = beansImage.color;
-        tmp.a = 1f;
+        tmp.a = 0f;
         beansImage.color = tmp;
         beansText.color = tmp;
     }

@@ -464,7 +464,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Use the Arrow Keys or Left Stick to move
+  m_Text: 
 --- !u!222 &222144814573252016
 CanvasRenderer:
   m_ObjectHideFlags: 1

@@ -22,6 +22,7 @@ public class LightningMageController : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+		animator.Play("LightningMageCast", -1, 0.0f);
 	}
 	
 	void FixedUpdate() {
@@ -54,7 +55,7 @@ public class LightningMageController : MonoBehaviour {
 
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("LightningMageCast")) {
         	if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f) {
-                animator.Play("LightningMageIdle", -1, 0.0f);
+                animator.Play("LightningMageCast", -1, 0.0f);
             }
         }
 
