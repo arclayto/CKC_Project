@@ -7,6 +7,7 @@ public class LightningMageController : MonoBehaviour {
 	public float aggroRange;
 	public float teleportRange;
 	public GameObject target;
+    public GameObject nextMage;
 
 	private GameObject lightningSpell;
 	private bool aggro;
@@ -62,6 +63,16 @@ public class LightningMageController : MonoBehaviour {
             if (lightningSpell != null) {
 	            Destroy(lightningSpell);
 	        }
+
+            if (nextMage != null) {
+                // "Teleport" to the next location if it
+                nextMage.SetActive(true);
+
+                // Create smoke effect
+                GameObject smoke = (GameObject)Instantiate(Resources.Load("Smoke"));
+                smoke.transform.position = nextMage.transform.position;
+            }
+
             Destroy(gameObject);
 
             // Create smoke effect
