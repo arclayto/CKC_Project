@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
         // Flip player horizontally based on x direction
-      	if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
+      	if (canMove && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
             if (Input.GetAxis("Horizontal") > 0.0f) {
                 spriteRenderer.flipX = false;
             } else if (Input.GetAxis("Horizontal") < 0.0f) {
@@ -248,7 +248,12 @@ public class PlayerController : MonoBehaviour {
 
 		if (canMove) {
 			controller.Move (moveDirection * Time.deltaTime);
-		}
+
+            animator.enabled = true;
+		} else {
+            animator.enabled = false;
+        }
+
 		//ESC key quits the application
 		if(Input.GetKey(KeyCode.Escape))
 		{

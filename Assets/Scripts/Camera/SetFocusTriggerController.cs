@@ -6,6 +6,7 @@ public class SetFocusTriggerController : MonoBehaviour {
 
 	public Transform focusOn;
 	public GameObject mainCamera;
+	public float focusTime;
 
 	public bool hasBeenTriggered;
 	// Use this for initialization
@@ -21,7 +22,7 @@ public class SetFocusTriggerController : MonoBehaviour {
 	{
 		if ( Coll.gameObject.tag == "Player" && !hasBeenTriggered) {
 			hasBeenTriggered = true;
-			mainCamera.GetComponent<CameraSmoothFollow>().setFocus(focusOn);
+			mainCamera.GetComponent<CameraSmoothFollow>().setFocus(focusOn, focusTime);
 		}
 	}
 

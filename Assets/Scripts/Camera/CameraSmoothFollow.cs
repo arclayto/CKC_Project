@@ -44,25 +44,26 @@ public class CameraSmoothFollow : MonoBehaviour {
 		//transform.LookAt (target);
 	}
 
-	public void setFocus(Transform t)
+	public void setFocus(Transform t, float f)
 	{
-		StartCoroutine (changeFocus (t));
+		StartCoroutine (changeFocus (t, f));
 	}
 
-	IEnumerator changeFocus(Transform newTarget)
+	IEnumerator changeFocus(Transform newTarget, float focusTime)
 	{
 		Transform oldTarget = target;
 		oldTarget.GetComponentInParent<PlayerController> ().AllowMovement (false);
-		cameraSpeed = 0.5f;
+		cameraSpeed = focusTime;
 		target = newTarget;
 		yield return new WaitForSeconds (4);
 		target = oldTarget;
-		StartCoroutine (ChangeSpeedBack ());
+		StartCoroutine (ChangeSpeedBack (focusTime));
 	}
 
-	IEnumerator ChangeSpeedBack()
+	IEnumerator ChangeSpeedBack(float focusTime)
 	{
-		yield return new WaitForSeconds(0.55f);
+		cameraSpeed = 0.75f * focusTime;
+		yield return new WaitForSeconds(2.5f * focusTime);
 		target.GetComponentInParent<PlayerController> ().AllowMovement (true);
 		cameraSpeed = 0.1f;
 	}
