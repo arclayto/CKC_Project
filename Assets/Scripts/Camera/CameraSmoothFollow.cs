@@ -63,8 +63,9 @@ public class CameraSmoothFollow : MonoBehaviour {
 	IEnumerator ChangeSpeedBack(float focusTime)
 	{
 		cameraSpeed = 0.75f * focusTime;
-		yield return new WaitForSeconds(2.5f * focusTime);
+		yield return new WaitForSeconds(1.0f * focusTime);
 		target.GetComponentInParent<PlayerController> ().AllowMovement (true);
+		yield return new WaitForSeconds(1.5f * focusTime);
 		cameraSpeed = 0.1f;
 	}
 }
