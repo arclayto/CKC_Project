@@ -176,8 +176,13 @@ public class PlayerController : MonoBehaviour {
             umbrellaAttack.SetActive(true);
 
             if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f) {
-                // Key ability complete, return to idle state
-                animator.Play("PlumIdle", -1, 0.0f);
+                // Hold button to block longer
+                if (Input.GetButton("Ability")) {
+	                animator.Play("PlumBlock", -1, 0.0f);
+	            }
+	            else {
+	            	animator.Play("PlumIdle", -1, 0.0f);
+	            }
             }
         }
         else {
