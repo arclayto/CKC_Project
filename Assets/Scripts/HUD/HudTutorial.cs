@@ -6,14 +6,28 @@ using UnityEngine.UI;
 public class HudTutorial : MonoBehaviour {
 
     public PlayerController playerScript;
+    public bool shadow;
     private Text tutorialText;
+    private Text parentText;
 
     void Start() {
     	tutorialText = GetComponent<Text>();
+        parentText = transform.parent.GetComponent<Text>();
     	
     	Color tmp = tutorialText.color;
         tmp.a = 0f;
         tutorialText.color = tmp;
+    }
+
+    void Update() {
+        if (shadow) {
+
+            tutorialText.text = parentText.text;
+
+            Color tmp = tutorialText.color;
+            tmp.a = parentText.color.a;
+            tutorialText.color = tmp;
+        }
     }
 
     public IEnumerator ShowTimer() {

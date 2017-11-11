@@ -84,43 +84,45 @@ public class BellController : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player Attack") {
-            // Enemy hit by key attack, destroy
-            Destroy(gameObject);
-
             // Create smoke effect
             MakeSmoke();
+
+            // Enemy hit by key attack, destroy
+            Destroy(gameObject);
         }
 
         if (other.tag == "Cactus") {
-            // Enemy hit by cactus, destroy
-            Destroy(gameObject);
-
             // Create smoke effect
             MakeSmoke();
+
+            // Enemy hit by cactus, destroy
+            Destroy(gameObject);
         }
     }
 
     private void OnTriggerStay(Collider other) {
 		if (other.gameObject.tag == "Player Attack") {
-			// Enemy hit by key attack, destroy
-			Destroy (gameObject);
-
-            // Create smoke effect
+			// Create smoke effect
             MakeSmoke();
+
+            // Enemy hit by key attack, destroy
+            Destroy(gameObject);
 		}
 
         if (other.tag == "Cactus") {
-            // Enemy hit by cactus, destroy
-            Destroy(gameObject);
-
             // Create smoke effect
             MakeSmoke();
+
+            // Enemy hit by key attack, destroy
+            Destroy(gameObject);
         }
     }
 
     public void MakeSmoke() {
         // Create smoke effect
-        GameObject smoke = (GameObject)Instantiate(Resources.Load("Smoke"));
-        smoke.transform.position = transform.position;
+        Transform smoke = this.gameObject.transform.GetChild(0);
+        smoke.gameObject.SetActive(true);
+        smoke.gameObject.GetComponent<SmokeController>().enabled = true;
+        smoke.parent = null;
     }
 }
