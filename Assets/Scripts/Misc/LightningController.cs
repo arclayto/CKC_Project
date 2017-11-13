@@ -22,17 +22,22 @@ public class LightningController : MonoBehaviour {
             if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f) {
                 // Play lightning bolt animation after warning animation finishes
                 animator.Play("LightningBolt", -1, 0.0f);
-                hitbox.SetActive(true);
+
+                StartCoroutine("HitboxTimer");
             }
         }
 
 		if (animator.GetCurrentAnimatorStateInfo(0).IsName("LightningBolt")) {
-			hitbox.SetActive(false);
-
             if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f) {
                 // Destroy once lightning bolt animation finishes
                 Destroy(gameObject);
             }
         }
+    }
+
+    public IEnumerator HitboxTimer() {
+        hitbox.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        hitbox.SetActive(false);
     }
 }

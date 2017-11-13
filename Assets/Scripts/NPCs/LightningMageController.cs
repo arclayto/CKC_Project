@@ -6,9 +6,11 @@ public class LightningMageController : MonoBehaviour {
 
 	public float aggroRange;
 	public float teleportRange;
+    public bool canTeleport;
 	public GameObject target;
     public GameObject nextMage;
 
+    private int health;
 	private GameObject lightningSpell;
 	private bool aggro;
 	Rigidbody rb;
@@ -16,6 +18,7 @@ public class LightningMageController : MonoBehaviour {
     Animator animator;
 
 	void Start() {
+        health = 4;
 		lightningSpell = null;
 		aggro = false;
 
@@ -59,7 +62,7 @@ public class LightningMageController : MonoBehaviour {
             }
         }
 
-        if (magnitude < teleportRange) {
+        if (magnitude < teleportRange && canTeleport) {
             // Disappear when player gets too close
             if (lightningSpell != null) {
 	            Destroy(lightningSpell);
@@ -80,6 +83,21 @@ public class LightningMageController : MonoBehaviour {
             MakeSmoke();
         }
 	}
+
+    private void OnTriggerEnter(Collider other) {
+        if (other.gameObject.tag == "Fire") {
+            health--;
+
+            if (health <= 0) {
+                Destroy(gameObject);
+
+                // Create smoke effect
+                MakeSmoke();
+            }
+
+            //StartCoroutine(other.gameObject.GetComponent<FireController>().ActiveTimer());
+        }
+    }
 
 	public void MakeSmoke() {
         // Create smoke effect

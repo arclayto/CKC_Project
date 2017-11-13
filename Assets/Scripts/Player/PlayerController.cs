@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour {
             }
         }
 			
-        if (Input.GetButtonDown ("Jump") && controller.isGrounded && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
+        if (Input.GetButtonDown ("Jump") /*&& controller.isGrounded*/ && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
             // Jump if on ground
 			Jump();
 			//jumpCheck = true;
