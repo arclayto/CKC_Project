@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorController : MonoBehaviour {
-	
+public class StatueController : MonoBehaviour {
+
 	public PlayerController player;
 
 	// Use this for initialization
@@ -19,7 +19,7 @@ public class DoorController : MonoBehaviour {
 	//opening door by contact with player while holding key
 	void OnTriggerEnter(Collider col)
 	{
-		if (col.gameObject.tag == "Player" && player.GetEquippedItem () == 1) {
+		if (col.gameObject.tag == "Player" && player.GetEquippedItem () == 2) {
 			//animation for door goes here
 			//destroy door as placeholder for now
 			Animator animator = transform.GetComponentInParent<Animator>();
