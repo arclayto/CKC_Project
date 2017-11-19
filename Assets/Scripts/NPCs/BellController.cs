@@ -100,6 +100,7 @@ public class BellController : MonoBehaviour {
         }
     }
 
+    /*
     private void OnTriggerStay(Collider other) {
 		if (other.gameObject.tag == "Player Attack") {
 			// Create smoke effect
@@ -117,6 +118,7 @@ public class BellController : MonoBehaviour {
             Destroy(gameObject);
         }
     }
+    */
 
     public void MakeSmoke() {
         // Create smoke effect

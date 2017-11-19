@@ -89,6 +89,15 @@ public class LightningMageController : MonoBehaviour {
             health--;
 
             if (health <= 0) {
+                // Disappear when player gets too close
+                if (lightningSpell != null) {
+                    Destroy(lightningSpell);
+                }
+
+                if (nextMage != null) {
+                    // "Teleport" to the next location if it
+                    nextMage.SetActive(true);
+                }
                 Destroy(gameObject);
 
                 // Create smoke effect
