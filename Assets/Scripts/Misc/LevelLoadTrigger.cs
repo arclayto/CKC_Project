@@ -12,7 +12,7 @@ public class LevelLoadTrigger : MonoBehaviour {
 	public string levelToLoad;
 	public GameObject screenToTrigger;
 	public GameObject musicPlayer;
-
+	//public GameObject GM; 
 	private bool loadNext;
 
 	// Use this for initialization
@@ -27,6 +27,7 @@ public class LevelLoadTrigger : MonoBehaviour {
 			//Destroy(musicPlayer);
 
 			LevelLoader lv = screenToTrigger.GetComponent<LevelLoader>();
+			//LevelLoader lv = GetComponent<LevelLoader>();
 			lv.LoadLevel (levelToLoad);
 		}
 	}
@@ -34,5 +35,11 @@ public class LevelLoadTrigger : MonoBehaviour {
 	public void initiateLoad()
 	{
 		loadNext = true;
+	}
+
+	public void initiateLoad(string lvlToLoad)
+	{
+		loadNext = true;
+		levelToLoad = lvlToLoad;
 	}
 }
