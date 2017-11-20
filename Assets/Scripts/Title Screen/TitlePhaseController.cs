@@ -74,16 +74,16 @@ public class TitlePhaseController : MonoBehaviour {
 				currentPhase = 0;
 			}
 			canPress = false;
-		} else if (Input.GetButtonDown ("Submit") && moveStatus == 0) {
+		} else if (Input.GetButtonDown ("Jump") && moveStatus == 0 && moveOn == 0) {
 
 			moveOn = 1;
 			canPress = false;
 		}
-		if (moveOn == 1) {GetComponent<LevelLoadTrigger>().initiateLoad();}
+		//if (moveOn == 1) {GetComponent<LevelLoadTrigger>().initiateLoad();}
 		switch (currentPhase) 
 		{
 		case 0:	mAngle = 0 * Mathf.PI; mangleText.text = mAngle.ToString () + "\n0" ;
-			if (moveOn == 1) {GetComponent<LevelLoadTrigger>().initiateLoad("TutorialSceneWithMenu");}
+			if (moveOn == 1) {GetComponent<LevelLoadTrigger>().initiateLoad("PhysicsTEST"); moveOn = 2;}
 				break;
 		case 1:	mAngle =  Mathf.PI / 3; mangleText.text = mAngle.ToString ()  + "\n1/3";
 			if (moveOn == 1) {GetComponent<LevelLoadTrigger>().initiateLoad(sOption);}
@@ -103,7 +103,6 @@ public class TitlePhaseController : MonoBehaviour {
 		default: mAngle = 0 * Mathf.PI; mangleText.text = mAngle.ToString () + "\n0";
 				break;
 		}
-
 
 		if (horizontalInput == 0) 
 		{

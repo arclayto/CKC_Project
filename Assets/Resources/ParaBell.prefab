@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 54355404913796790}
   - component: {fileID: 212807898581673006}
   - component: {fileID: 95315562915775222}
-  - component: {fileID: 114089116113806308}
+  - component: {fileID: 114908774015197078}
   m_Layer: 0
   m_Name: ParaBell
   m_TagString: Enemy
@@ -85,7 +85,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1827262281680492}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.99, y: 13.35, z: 44.45}
+  m_LocalPosition: {x: -48.98, y: 16.43, z: 179.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4988897477082806}
@@ -119,7 +119,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!95 &95315562915775222
 Animator:
@@ -130,7 +130,7 @@ Animator:
   m_GameObject: {fileID: 1827262281680492}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ed15a8f624d41f34b98a2fb456c2e19d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 839ad2b5f18ed9249ae34bc8027a6d3e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -155,22 +155,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114089116113806308
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1827262281680492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13da4bc694e92c54aaacf597d4f767d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSpeed: 5
-  gravityForce: 5.5
-  aggroRange: 15
-  maxAggroRange: 50
-  target: {fileID: 0}
 --- !u!114 &114657935982168898
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -182,6 +166,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8922d1d6f0ae3684aa421db43a967f85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114908774015197078
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1827262281680492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f00cc02b7fe4dc74c8b8795299023e46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 5
+  gravityForce: 0
+  aggroRange: 15
+  maxAggroRange: 60
+  target: {fileID: 0}
 --- !u!119 &119543445522808300
 Projector:
   m_ObjectHideFlags: 1
@@ -287,7 +287,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2f68475015d149d45a264fe92a29463a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d8fbccafe31f62344b18c71f5f05fca9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

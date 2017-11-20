@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MusicPlayer : MonoBehaviour {
-	
+	/*
 	static MusicPlayer instance = null;
  
 	void Awake()
@@ -15,7 +15,8 @@ public class MusicPlayer : MonoBehaviour {
 		else
 		{
 			instance = this;
-			GameObject.DontDestroyOnLoad(gameObject);
+			//GameObject.DontDestroyOnLoad(gameObject);
 		}
 	}
+	*/
 }

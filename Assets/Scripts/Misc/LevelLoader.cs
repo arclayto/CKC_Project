@@ -15,7 +15,7 @@ public class LevelLoader : MonoBehaviour {
 		anim = GetComponent<Animator>();
 	}
 
-	void update()
+	void Update()
 	{
 		if (loadNext) {
 			LoadLevel (levelToLoad);
