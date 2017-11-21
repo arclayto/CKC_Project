@@ -119,7 +119,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aggroRange: 40
   teleportRange: 5
+  canTeleport: 1
   target: {fileID: 0}
+  nextMage: {fileID: 0}
 --- !u!119 &119092522905867776
 Projector:
   m_ObjectHideFlags: 1
