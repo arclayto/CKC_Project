@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 0
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: ff8cab6192b36b040903f54c0556990f, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: c146daf0163687f47b4c34424b41c4be, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.004779767, g: 0.0055911704, b: 0.06943528, a: 1}
+  m_IndirectSpecularColor: {r: 0.0012735772, g: 0.0025654589, b: 0.003070272, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -2239,6 +2239,7 @@ GameObject:
   - component: {fileID: 1364871939}
   - component: {fileID: 1364871938}
   - component: {fileID: 1364871942}
+  - component: {fileID: 1364871943}
   m_Layer: 0
   m_Name: Moon
   m_TagString: Untagged
@@ -2259,7 +2260,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: e02222ee7d83d394c95a35c56c6bac4b, type: 2}
+  - {fileID: 2100000, guid: a2da25d2a6adcc745b163ee798bac19c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2327,6 +2328,19 @@ MonoBehaviour:
   target: {fileID: 1295497114}
   radius: 2
   yVal: 3
+--- !u!114 &1364871943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1364871937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19977dbe1f085154fb50d9edee84768f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileX: 4
+  tileY: 2
 --- !u!1001 &1438521766
 Prefab:
   m_ObjectHideFlags: 0
