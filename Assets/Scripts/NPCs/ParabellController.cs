@@ -9,6 +9,7 @@ public class ParabellController : MonoBehaviour {
     public float aggroRange;
     public float maxAggroRange;
     public GameObject target;
+    public AudioClip sfxDefeat;
 
     private Vector3 moveDirection;
     private bool aggro;
@@ -16,6 +17,7 @@ public class ParabellController : MonoBehaviour {
     Rigidbody rb;
     SpriteRenderer spriteRenderer;
     Animator animator;
+    AudioSource audioSource;
 
     void Start() {
         aggro = false;
@@ -91,6 +93,14 @@ public class ParabellController : MonoBehaviour {
             Destroy(gameObject);
         }
 
+        if (other.gameObject.tag == "Feet Attack") {
+            // Create smoke effect
+            MakeSmoke();
+
+            // Enemy hit by key attack, destroy
+            Destroy(gameObject);
+        }
+
         if (other.tag == "Cactus") {
             // Create smoke effect
             MakeSmoke();
@@ -126,5 +136,8 @@ public class ParabellController : MonoBehaviour {
         smoke.gameObject.SetActive(true);
         smoke.gameObject.GetComponent<SmokeController>().enabled = true;
         smoke.parent = null;
+
+        target.GetComponent<AudioSource>().pitch = (Random.Range(0.9f, 1.1f));
+        target.GetComponent<AudioSource>().PlayOneShot(sfxDefeat, 1f);
     }
 }

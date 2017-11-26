@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class FireController : MonoBehaviour {
 
+	public AudioClip sfxBurning;
+
 	void OnEnable() {
+		AudioSource audioSource = GameObject.FindWithTag("Player").GetComponent<AudioSource>();
+		audioSource.pitch = (Random.Range(0.9f, 1.1f));
+        audioSource.PlayOneShot(sfxBurning, 1f);
+
     	StartCoroutine("ActiveTimer");
     }
 

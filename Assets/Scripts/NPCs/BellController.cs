@@ -9,6 +9,7 @@ public class BellController : MonoBehaviour {
     public float aggroRange;
     public float maxAggroRange;
     public GameObject target;
+    public AudioClip sfxDefeat;
 
     private Vector3 moveDirection;
     private bool aggro;
@@ -78,12 +79,23 @@ public class BellController : MonoBehaviour {
 
         if (collision.gameObject.tag == "Umbrella Attack") {
             // Rebound further while player is blocking
-            rb.AddForce(new Vector3(-velocity.x * 1.3f, rb.velocity.y, -velocity.z * 1.3f), ForceMode.Impulse);
+            rb.AddForce(new Vector3(-velocity.x, rb.velocity.y, -velocity.z), ForceMode.Impulse);
+
+            //target.GetComponent<AudioSource>().pitch = (Random.Range(0.9f, 1.1f));
+            target.GetComponent<AudioSource>().PlayOneShot(target.GetComponent<PlayerController>().sfxUmbrella, 0.25f);
         }
     }
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player Attack") {
+            // Create smoke effect
+            MakeSmoke();
+
+            // Enemy hit by key attack, destroy
+            Destroy(gameObject);
+        }
+
+        if (other.gameObject.tag == "Feet Attack") {
             // Create smoke effect
             MakeSmoke();
 
@@ -126,5 +138,8 @@ public class BellController : MonoBehaviour {
         smoke.gameObject.SetActive(true);
         smoke.gameObject.GetComponent<SmokeController>().enabled = true;
         smoke.parent = null;
+
+        target.GetComponent<AudioSource>().pitch = (Random.Range(0.9f, 1.1f));
+        target.GetComponent<AudioSource>().PlayOneShot(sfxDefeat, 1f);
     }
 }

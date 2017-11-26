@@ -6,6 +6,8 @@ public class LightningController : MonoBehaviour {
 
 	public GameObject target;
 	public GameObject hitbox;
+    public AudioClip sfxSpark;
+    public AudioClip sfxStrike;
 
 	Animator animator;
 	SpriteRenderer spriteRenderer;
@@ -13,6 +15,8 @@ public class LightningController : MonoBehaviour {
 	void Start () {
 		animator = GetComponent<Animator>();
 		animator.Play("LightningWarn", -1, 0.0f);
+
+        StartCoroutine("SparkSounds");
 	}
 	
 	void Update () {
@@ -23,6 +27,9 @@ public class LightningController : MonoBehaviour {
                 // Play lightning bolt animation after warning animation finishes
                 animator.Play("LightningBolt", -1, 0.0f);
 
+                target.GetComponent<AudioSource>().pitch = (Random.Range(0.9f, 1.1f));
+                target.GetComponent<AudioSource>().PlayOneShot(sfxStrike, 1.5f);
+
                 StartCoroutine("HitboxTimer");
             }
         }
@@ -32,6 +39,17 @@ public class LightningController : MonoBehaviour {
                 // Destroy once lightning bolt animation finishes
                 Destroy(gameObject);
             }
+        }
+    }
+
+    public IEnumerator SparkSounds() {
+        float delay = 0.5f;
+        while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.9f) {
+            target.GetComponent<AudioSource>().pitch = (Random.Range(0.9f, 1.1f));
+            target.GetComponent<AudioSource>().PlayOneShot(sfxSpark, 0.5f);
+            yield return new WaitForSeconds(delay);
+            delay -= 0.05f;
+            if (delay < 0.15f) {delay = 0.15f;}
         }
     }
 

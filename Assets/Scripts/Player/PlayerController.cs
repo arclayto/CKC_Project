@@ -15,6 +15,10 @@ public class PlayerController : MonoBehaviour {
 	public GameObject umbrellaAttack;
 	public GameObject beanCount;
     public GameObject tutorialText;
+    public AudioClip sfxHeal;
+    public AudioClip sfxKeyswing;
+    public AudioClip sfxUmbrella;
+    public AudioClip sfxTornado;
 
     private Vector3 moveDirection;
     private int health;
@@ -22,8 +26,10 @@ public class PlayerController : MonoBehaviour {
     private int beans;
     private bool invulnerable;
     private bool isFloating;
+    private GameObject bubble;
 	private bool inTornado;
 	private bool canMove;
+    private bool canBubblewand;
 	private Vector3 otherTornado;
 	private float lastSwitchedItem;
 
@@ -35,6 +41,7 @@ public class PlayerController : MonoBehaviour {
     Collider coll;
 	SpriteRenderer spriteRenderer;
 	Animator animator;
+    AudioSource audioSource;
 
     // Use this for initialization
     void Start() {
@@ -46,12 +53,15 @@ public class PlayerController : MonoBehaviour {
         equippedItem = 0;
         beans = 0;
         isFloating = false;
+        bubble = null;
 		lastSwitchedItem = Time.time;
+        canBubblewand = true;
 
 		controller = GetComponent<CharacterController>();
         coll = GetComponent<Collider>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
 		inTornado = false;
     }
 	
@@ -80,38 +90,41 @@ public class PlayerController : MonoBehaviour {
         if (controller.isGrounded) {
             if (moveDirection.x == 0.0f && moveDirection.z == 0.0f) {
                 // Idle animation when not moving in x or z
-                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumIdle") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
+                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumIdle") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleAim")) {
                     animator.Play("PlumIdle", -1, 0.0f);
                 }
             }
             else {
                 // Walk animation when moving in x and/or z
-                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumWalk") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
+                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumWalk") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleAim")) {
                     animator.Play("PlumWalk", -1, 0.0f);
                 }
             }
 
             // Stop floating
             isFloating = false;
+
+            // Reset bubblewand when grounded
+            canBubblewand = true;
         }
 
         // Aerial animations based on y movement
 		if (!controller.isGrounded) {
             if (moveDirection.y > 1.0f) {
                 // Jump animation when moving up in y
-                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumJump") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
+                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumJump") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleAim")) {
                     animator.Play("PlumJump", -1, 0.0f);
                 }
             }
             else if (moveDirection.y < -1.0f) {
                 // Fall animation when moving down in y
-                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumFall") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
+                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumFall") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleAim")) {
                     animator.Play("PlumFall", -1, 0.0f);
                 }
             }
         }
 			
-        if (Input.GetButtonDown ("Jump") /*&& controller.isGrounded*/ && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
+        if (Input.GetButtonDown ("Jump") && controller.isGrounded && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleAim")) {
             // Jump if on ground
 			Jump();
 			//jumpCheck = true;
@@ -138,6 +151,9 @@ public class PlayerController : MonoBehaviour {
 			if (equippedItem == 1) {
 				if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey")) {
 					animator.Play ("PlumKey", -1, 0.0f);
+
+                    audioSource.pitch = (Random.Range(0.9f, 1.1f));
+                    audioSource.PlayOneShot(sfxKeyswing, 1f);
 				}
 			} 
 			else if (equippedItem == 2) {
@@ -145,6 +161,11 @@ public class PlayerController : MonoBehaviour {
 					animator.Play ("PlumBlock", -1, 0.0f);
 				}
 			}
+            else if (equippedItem == 3) {
+                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleAim") && canBubblewand) {
+                    animator.Play("PlumBubbleAim", -1, 0.0f);
+                }
+            }
         }
 
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey")) {
@@ -188,6 +209,38 @@ public class PlayerController : MonoBehaviour {
         else {
             // Deactivate hitbox
             umbrellaAttack.SetActive(false);
+        }
+
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleAim")) {
+            // Stop movement while using bubblewand aim ability
+            moveDirection.x = 0;
+            moveDirection.z = 0;
+
+            if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f) {
+                if (Input.GetButton("Ability")) {
+                    // Hold button to aim longer
+                    animator.Play("PlumBubbleAim", -1, 0.0f);
+                }
+            }
+
+            if (Input.GetButtonUp("Ability")) {
+                // Shoot bubble where aiming
+                Vector3 aimDirection = new Vector3(Mathf.Round(Input.GetAxis("Horizontal")), 0f, Mathf.Round(Input.GetAxis("Vertical")));
+                if (aimDirection.x == 0f && aimDirection.z == 0f) {
+                    if (spriteRenderer.flipX == true) {
+                        aimDirection.x = -1f;
+                    } else {
+                        aimDirection.x = 1f;
+                    }
+                }
+                if (bubble != null) {
+                    Destroy(bubble);
+                }
+                bubble = (GameObject)Instantiate(Resources.Load("Bubble"), transform.position + aimDirection * 1.5f, transform.rotation);
+                bubble.GetComponent<Rigidbody>().AddForce(aimDirection * 10f, ForceMode.Impulse);
+                animator.Play("PlumIdle", -1, 0.0f);
+                canBubblewand = false;
+            }
         }
 
         if (Input.GetButton("Jump") && equippedItem == 2 && !isFloating && moveDirection.y < 0f) {
@@ -283,19 +336,41 @@ public class PlayerController : MonoBehaviour {
             // Ignore collision with enemy
             Physics.IgnoreCollision(collision.collider, coll);
         }
+
+        if (collision.gameObject.tag == "Bubble") {
+            if (controller.isGrounded) {
+                transform.Translate(0f, .1f, 0f);
+                moveDirection.y = jumpForce;
+            } else {
+                moveDirection.y = jumpForce;
+                Destroy (collision.gameObject);
+            }
+        }
     }
 
     private void OnCollisionStay(Collision collision) {
-        if (invulnerable == false && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
-            // Deal damage to player if not invulnerable, then make the player invulnerable for a short time
-            if (health > 1) {
-                health--;
-            }
-            else {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            }
+        if (collision.gameObject.tag == "Enemy") {
+            if (invulnerable == false && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
+                // Deal damage to player if not invulnerable, then make the player invulnerable for a short time
+                if (health > 1) {
+                    health--;
+                }
+                else {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                }
 
-            StartCoroutine("InvulnerabilityTimer");
+                StartCoroutine("InvulnerabilityTimer");
+            }
+        }
+
+        if (collision.gameObject.tag == "Bubble") {
+            if (controller.isGrounded) {
+                transform.Translate(0f, .1f, 0f);
+                moveDirection.y = jumpForce;
+            } else {
+                moveDirection.y = jumpForce;
+                Destroy (collision.gameObject);
+            }
         }
     }
 
@@ -313,6 +388,13 @@ public class PlayerController : MonoBehaviour {
 				equippedItem = 1;
 				Destroy (other.gameObject);
 			}
+            else if (equippedItem == 3 && (Time.time - lastSwitchedItem) > 1) {
+                Destroy (other.gameObject);
+                Instantiate (Resources.Load("Bubblewand"), other.transform.position, Quaternion.identity);
+                lastSwitchedItem = Time.time;
+                equippedItem = 1;
+                Destroy (other.gameObject);
+            }
         }
 
 		if (other.tag == "Umbrella") {
@@ -326,13 +408,43 @@ public class PlayerController : MonoBehaviour {
 				equippedItem = 2;
 				Destroy (other.gameObject);
 			}
+            else if (equippedItem == 3 && (Time.time - lastSwitchedItem) > 1) {
+                Destroy (other.gameObject);
+                Instantiate (Resources.Load("Bubblewand"), other.transform.position, Quaternion.identity);
+                lastSwitchedItem = Time.time;
+                equippedItem = 2;
+                Destroy (other.gameObject);
+            }
 		}
+
+        if (other.tag == "Bubblewand") {
+            if (equippedItem == 0) {
+                Destroy (other.gameObject);
+                equippedItem = 3;
+            }
+            else if (equippedItem == 1 && (Time.time - lastSwitchedItem) > 1.0f) {
+                Instantiate (Resources.Load("Key"), other.transform.position, Quaternion.identity);
+                lastSwitchedItem = Time.time;
+                equippedItem = 3;
+                Destroy (other.gameObject);
+            }
+            else if (equippedItem == 2 && (Time.time - lastSwitchedItem) > 1) {
+                Destroy (other.gameObject);
+                Instantiate (Resources.Load("Umbrella"), other.transform.position, Quaternion.identity);
+                lastSwitchedItem = Time.time;
+                equippedItem = 3;
+                Destroy (other.gameObject);
+            }
+        }
 
         if (other.tag == "Healthup") {
             // Heal and destroy item when colliding with it
 			if (health < 2) {
 				Destroy (other.gameObject);
 				health = 2;
+
+                audioSource.pitch = (Random.Range(0.9f, 1.1f));
+                audioSource.PlayOneShot(sfxHeal, 0.3f);
 			}
         }
 
@@ -378,6 +490,9 @@ public class PlayerController : MonoBehaviour {
 			if (moveDirection.y > 2f) {
 				moveDirection.y = 2f;
 			}
+
+            audioSource.pitch = (Random.Range(0.9f, 1.1f));
+            audioSource.PlayOneShot(sfxTornado, 1f);
 		}
 
         if (other.tag == "Lightning") {
@@ -394,7 +509,15 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
-
+        if (other.tag == "Bubble") {
+            if (controller.isGrounded) {
+                transform.Translate(0f, .1f, 0f);
+                moveDirection.y = jumpForce;
+            } else {
+                moveDirection.y = jumpForce;
+                Destroy (other.gameObject);
+            }
+        }
     }
 
     private void OnTriggerStay(Collider other) {
@@ -437,6 +560,16 @@ public class PlayerController : MonoBehaviour {
                 }
 
                 StartCoroutine("InvulnerabilityTimer");
+            }
+        }
+
+        if (other.tag == "Bubble") {
+            if (controller.isGrounded) {
+                transform.Translate(0f, .1f, 0f);
+                moveDirection.y = jumpForce;
+            } else {
+                moveDirection.y = jumpForce;
+                Destroy (other.gameObject);
             }
         }
     }

@@ -23,6 +23,8 @@ TagManager:
   - Lightning
   - GameMusic
   - Fire
+  - Bubblewand
+  - Bubble
   layers:
   - Default
   - TransparentFX

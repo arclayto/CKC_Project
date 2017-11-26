@@ -1,11 +1,12 @@
 fileFormatVersion: 2
 guid: 98ce411200adaed4e856f18bf582c115
-timeCreated: 1507843524
+timeCreated: 1511549042
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: hud_item_0
     21300002: hud_item_1
+    21300004: hud_item_2
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -95,6 +96,20 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hud_item_2
+      rect:
+        serializedVersion: 2
+        x: 128
         y: 0
         width: 64
         height: 64

@@ -103,6 +103,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   hitbox: {fileID: 1029381413961774}
+  sfxSpark: {fileID: 8300000, guid: 6366dd12e7568f74786e3807aec8c54b, type: 3}
+  sfxStrike: {fileID: 8300000, guid: 6d84622a75e11194580c66d4a5aef1f9, type: 3}
 --- !u!135 &135849230316634484
 SphereCollider:
   m_ObjectHideFlags: 1

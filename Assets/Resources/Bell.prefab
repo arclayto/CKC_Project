@@ -71,8 +71,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1421436046535968}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.99, y: 10.35, z: 44.45}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -69.49, y: 16.93, z: 199.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4676962007602776}
@@ -182,6 +182,7 @@ MonoBehaviour:
   aggroRange: 15
   maxAggroRange: 50
   target: {fileID: 0}
+  sfxDefeat: {fileID: 8300000, guid: 5846550fad427b340b2b36b78fb41ba9, type: 3}
 --- !u!119 &119455555185838784
 Projector:
   m_ObjectHideFlags: 1

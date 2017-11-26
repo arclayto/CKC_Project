@@ -244,6 +244,7 @@ MonoBehaviour:
   itemImage: {fileID: 114931359546149588}
   keySprite: {fileID: 21300000, guid: 98ce411200adaed4e856f18bf582c115, type: 3}
   umbrellaSprite: {fileID: 21300002, guid: 98ce411200adaed4e856f18bf582c115, type: 3}
+  bubblewandSprite: {fileID: 0}
 --- !u!114 &114187317733356978
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -272,6 +273,7 @@ MonoBehaviour:
   itemImage: {fileID: 114038307888161242}
   keySprite: {fileID: 21300000, guid: 98ce411200adaed4e856f18bf582c115, type: 3}
   umbrellaSprite: {fileID: 21300002, guid: 98ce411200adaed4e856f18bf582c115, type: 3}
+  bubblewandSprite: {fileID: 21300004, guid: 98ce411200adaed4e856f18bf582c115, type: 3}
 --- !u!114 &114265300264124376
 MonoBehaviour:
   m_ObjectHideFlags: 1
