@@ -1,0 +1,1096 @@
+fileFormatVersion: 2
+guid: 989a2e851d960be41a3a38c61f137d3f
+timeCreated: 1511838574
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: Big Suspicious Button - Bottom
+    100002: Big Suspicious Button - Button
+    100004: Blue Key Door
+    100006: Boss Door Border
+    100008: Boss Door Hallway
+    100010: Box002
+    100012: Box003
+    100014: Box004
+    100016: Box005
+    100018: Box006
+    100020: Box007
+    100022: Box011
+    100024: Box012
+    100026: Box013
+    100028: Box016
+    100030: Box017
+    100032: Box018
+    100034: Box019
+    100036: Box021
+    100038: Box022
+    100040: Box023
+    100042: Box024
+    100044: Box026
+    100046: Box028
+    100048: Box029
+    100050: Box032
+    100052: Box034
+    100054: Box035
+    100056: Box036
+    100058: Box037
+    100060: Box038
+    100062: Box039
+    100064: Box040
+    100066: Box041
+    100068: Box042
+    100070: Box043
+    100072: Box044
+    100074: Box045
+    100076: Box046
+    100078: Box047
+    100080: Box048
+    100082: Box049
+    100084: Box050
+    100086: Box051
+    100088: Box052
+    100090: Box053
+    100092: Box054
+    100094: Box055
+    100096: Box056
+    100098: Box057
+    100100: Box058
+    100102: Box059
+    100104: Box060
+    100106: Box061
+    100108: Box062
+    100110: Box063
+    100112: Box064
+    100114: Box065
+    100116: Box066
+    100118: Box067
+    100120: Box068
+    100122: Box069
+    100124: Box070
+    100126: Box071
+    100128: Box073
+    100130: Box074
+    100132: Box075
+    100134: Box076
+    100136: Box077
+    100138: Box078
+    100140: Box079
+    100142: Box080
+    100144: Box081
+    100146: Box082
+    100148: Box083
+    100150: Box084
+    100152: Box085
+    100154: Box086
+    100156: Box087
+    100158: Box088
+    100160: Box089
+    100162: Box090
+    100164: Box091
+    100166: Box092
+    100168: Box093
+    100170: Box094
+    100172: Box095
+    100174: Box096
+    100176: Box097
+    100178: Box098
+    100180: Box099
+    100182: Box100
+    100184: Box101
+    100186: Box102
+    100188: Box103
+    100190: Box104
+    100192: Box105
+    100194: Box106
+    100196: Box107
+    100198: Box108
+    100200: Box109
+    100202: Box110
+    100204: Box111
+    100206: Box112
+    100208: Box113
+    100210: Box114
+    100212: Box115
+    100214: Box116
+    100216: Box117
+    100218: Box118
+    100220: Box119
+    100222: Box120
+    100224: Box121
+    100226: Box122
+    100228: Box123
+    100230: Box124
+    100232: Box125
+    100234: Box126
+    100236: Box127
+    100238: Box128
+    100240: Box129
+    100242: Box130
+    100244: Box131
+    100246: Box132
+    100248: Box133
+    100250: Box134
+    100252: Box135
+    100254: Box136
+    100256: Box137
+    100258: Box138
+    100260: Box139
+    100262: Box140
+    100264: Box141
+    100266: Box142
+    100268: Box143
+    100270: Box144
+    100272: Box145
+    100274: Box146
+    100276: Box147
+    100278: Box148
+    100280: Box149
+    100282: Box150
+    100284: Box151
+    100286: Box152
+    100288: Box153
+    100290: Box154
+    100292: Box157
+    100294: Box158
+    100296: Box159
+    100298: Box160
+    100300: Box161
+    100302: Box162
+    100304: Box163
+    100306: Box164
+    100308: Box165
+    100310: Box166
+    100312: Box167
+    100314: Box168
+    100316: Box169
+    100318: Box170
+    100320: Bridge
+    100322: Bridge - Start and End
+    100324: Door and Wall001
+    100326: Door and Wall002
+    100328: Door and Wall003
+    100330: Door and Wall004
+    100332: Door and Wall005
+    100334: Floors
+    100336: Hole
+    100338: Iron Bars
+    100340: Iron Bars 0
+    100342: Iron Bars 1
+    100344: Iron Bars 1 1
+    100346: Iron Bars 2
+    100348: Iron Bars001
+    100350: Iron Bars002
+    100352: Line001
+    100354: Line002
+    100356: Line003
+    100358: Line004
+    100360: Line006
+    100362: Line007
+    100364: Line009
+    100366: Line010
+    100368: Line011
+    100370: Line012
+    100372: Line013
+    100374: Line014
+    100376: Line016
+    100378: Line017
+    100380: Line018
+    100382: Line019
+    100384: Line020
+    100386: Line021
+    100388: Line022
+    100390: Line023
+    100392: Line024
+    100394: Line026
+    100396: Pit - Fits One Box
+    100398: Red Key Door
+    100400: Stairs - Key Item
+    100402: Stairs - To Boss Room
+    100404: //RootNode
+    100406: Texture Black or Something
+    100408: Tornado Room Depth
+    100410: Tornado Room Platforms
+    100412: Tornado Room Wall
+    100414: Walls
+    100416: Winding Bridge
+    100418: Zelda Door Wall
+    100420: Zelda-Style Dungeon Door
+    400000: Big Suspicious Button - Bottom
+    400002: Big Suspicious Button - Button
+    400004: Blue Key Door
+    400006: Boss Door Border
+    400008: Boss Door Hallway
+    400010: Box002
+    400012: Box003
+    400014: Box004
+    400016: Box005
+    400018: Box006
+    400020: Box007
+    400022: Box011
+    400024: Box012
+    400026: Box013
+    400028: Box016
+    400030: Box017
+    400032: Box018
+    400034: Box019
+    400036: Box021
+    400038: Box022
+    400040: Box023
+    400042: Box024
+    400044: Box026
+    400046: Box028
+    400048: Box029
+    400050: Box032
+    400052: Box034
+    400054: Box035
+    400056: Box036
+    400058: Box037
+    400060: Box038
+    400062: Box039
+    400064: Box040
+    400066: Box041
+    400068: Box042
+    400070: Box043
+    400072: Box044
+    400074: Box045
+    400076: Box046
+    400078: Box047
+    400080: Box048
+    400082: Box049
+    400084: Box050
+    400086: Box051
+    400088: Box052
+    400090: Box053
+    400092: Box054
+    400094: Box055
+    400096: Box056
+    400098: Box057
+    400100: Box058
+    400102: Box059
+    400104: Box060
+    400106: Box061
+    400108: Box062
+    400110: Box063
+    400112: Box064
+    400114: Box065
+    400116: Box066
+    400118: Box067
+    400120: Box068
+    400122: Box069
+    400124: Box070
+    400126: Box071
+    400128: Box073
+    400130: Box074
+    400132: Box075
+    400134: Box076
+    400136: Box077
+    400138: Box078
+    400140: Box079
+    400142: Box080
+    400144: Box081
+    400146: Box082
+    400148: Box083
+    400150: Box084
+    400152: Box085
+    400154: Box086
+    400156: Box087
+    400158: Box088
+    400160: Box089
+    400162: Box090
+    400164: Box091
+    400166: Box092
+    400168: Box093
+    400170: Box094
+    400172: Box095
+    400174: Box096
+    400176: Box097
+    400178: Box098
+    400180: Box099
+    400182: Box100
+    400184: Box101
+    400186: Box102
+    400188: Box103
+    400190: Box104
+    400192: Box105
+    400194: Box106
+    400196: Box107
+    400198: Box108
+    400200: Box109
+    400202: Box110
+    400204: Box111
+    400206: Box112
+    400208: Box113
+    400210: Box114
+    400212: Box115
+    400214: Box116
+    400216: Box117
+    400218: Box118
+    400220: Box119
+    400222: Box120
+    400224: Box121
+    400226: Box122
+    400228: Box123
+    400230: Box124
+    400232: Box125
+    400234: Box126
+    400236: Box127
+    400238: Box128
+    400240: Box129
+    400242: Box130
+    400244: Box131
+    400246: Box132
+    400248: Box133
+    400250: Box134
+    400252: Box135
+    400254: Box136
+    400256: Box137
+    400258: Box138
+    400260: Box139
+    400262: Box140
+    400264: Box141
+    400266: Box142
+    400268: Box143
+    400270: Box144
+    400272: Box145
+    400274: Box146
+    400276: Box147
+    400278: Box148
+    400280: Box149
+    400282: Box150
+    400284: Box151
+    400286: Box152
+    400288: Box153
+    400290: Box154
+    400292: Box157
+    400294: Box158
+    400296: Box159
+    400298: Box160
+    400300: Box161
+    400302: Box162
+    400304: Box163
+    400306: Box164
+    400308: Box165
+    400310: Box166
+    400312: Box167
+    400314: Box168
+    400316: Box169
+    400318: Box170
+    400320: Bridge
+    400322: Bridge - Start and End
+    400324: Door and Wall001
+    400326: Door and Wall002
+    400328: Door and Wall003
+    400330: Door and Wall004
+    400332: Door and Wall005
+    400334: Floors
+    400336: Hole
+    400338: Iron Bars
+    400340: Iron Bars 0
+    400342: Iron Bars 1
+    400344: Iron Bars 1 1
+    400346: Iron Bars 2
+    400348: Iron Bars001
+    400350: Iron Bars002
+    400352: Line001
+    400354: Line002
+    400356: Line003
+    400358: Line004
+    400360: Line006
+    400362: Line007
+    400364: Line009
+    400366: Line010
+    400368: Line011
+    400370: Line012
+    400372: Line013
+    400374: Line014
+    400376: Line016
+    400378: Line017
+    400380: Line018
+    400382: Line019
+    400384: Line020
+    400386: Line021
+    400388: Line022
+    400390: Line023
+    400392: Line024
+    400394: Line026
+    400396: Pit - Fits One Box
+    400398: Red Key Door
+    400400: Stairs - Key Item
+    400402: Stairs - To Boss Room
+    400404: //RootNode
+    400406: Texture Black or Something
+    400408: Tornado Room Depth
+    400410: Tornado Room Platforms
+    400412: Tornado Room Wall
+    400414: Walls
+    400416: Winding Bridge
+    400418: Zelda Door Wall
+    400420: Zelda-Style Dungeon Door
+    2300000: Big Suspicious Button - Bottom
+    2300002: Big Suspicious Button - Button
+    2300004: Boss Door Border
+    2300006: Boss Door Hallway
+    2300008: Box002
+    2300010: Box003
+    2300012: Box004
+    2300014: Box005
+    2300016: Box006
+    2300018: Box007
+    2300020: Box011
+    2300022: Box012
+    2300024: Box013
+    2300026: Box016
+    2300028: Box017
+    2300030: Box018
+    2300032: Box019
+    2300034: Box021
+    2300036: Box022
+    2300038: Box023
+    2300040: Box024
+    2300042: Box026
+    2300044: Box028
+    2300046: Box029
+    2300048: Box032
+    2300050: Box034
+    2300052: Box035
+    2300054: Box036
+    2300056: Box037
+    2300058: Box038
+    2300060: Box039
+    2300062: Box040
+    2300064: Box041
+    2300066: Box042
+    2300068: Box043
+    2300070: Box044
+    2300072: Box045
+    2300074: Box046
+    2300076: Box047
+    2300078: Box048
+    2300080: Box049
+    2300082: Box050
+    2300084: Box051
+    2300086: Box052
+    2300088: Box053
+    2300090: Box054
+    2300092: Box055
+    2300094: Box056
+    2300096: Box057
+    2300098: Box058
+    2300100: Box059
+    2300102: Box060
+    2300104: Box061
+    2300106: Box062
+    2300108: Box063
+    2300110: Box064
+    2300112: Box065
+    2300114: Box066
+    2300116: Box067
+    2300118: Box068
+    2300120: Box069
+    2300122: Box070
+    2300124: Box071
+    2300126: Box073
+    2300128: Box074
+    2300130: Box075
+    2300132: Box076
+    2300134: Box077
+    2300136: Box078
+    2300138: Box079
+    2300140: Box080
+    2300142: Box081
+    2300144: Box082
+    2300146: Box083
+    2300148: Box084
+    2300150: Box085
+    2300152: Box086
+    2300154: Box087
+    2300156: Box088
+    2300158: Box089
+    2300160: Box090
+    2300162: Box091
+    2300164: Box092
+    2300166: Box093
+    2300168: Box094
+    2300170: Box095
+    2300172: Box096
+    2300174: Box097
+    2300176: Box098
+    2300178: Box099
+    2300180: Box100
+    2300182: Box101
+    2300184: Box102
+    2300186: Box103
+    2300188: Box104
+    2300190: Box105
+    2300192: Box106
+    2300194: Box107
+    2300196: Box108
+    2300198: Box109
+    2300200: Box110
+    2300202: Box111
+    2300204: Box112
+    2300206: Box113
+    2300208: Box114
+    2300210: Box115
+    2300212: Box116
+    2300214: Box117
+    2300216: Box118
+    2300218: Box119
+    2300220: Box120
+    2300222: Box121
+    2300224: Box122
+    2300226: Box123
+    2300228: Box124
+    2300230: Box125
+    2300232: Box126
+    2300234: Box127
+    2300236: Box128
+    2300238: Box129
+    2300240: Box130
+    2300242: Box131
+    2300244: Box132
+    2300246: Box133
+    2300248: Box134
+    2300250: Box135
+    2300252: Box136
+    2300254: Box137
+    2300256: Box138
+    2300258: Box139
+    2300260: Box140
+    2300262: Box141
+    2300264: Box142
+    2300266: Box143
+    2300268: Box144
+    2300270: Box145
+    2300272: Box146
+    2300274: Box147
+    2300276: Box148
+    2300278: Box149
+    2300280: Box150
+    2300282: Box151
+    2300284: Box152
+    2300286: Box153
+    2300288: Box154
+    2300290: Box157
+    2300292: Box158
+    2300294: Box159
+    2300296: Box160
+    2300298: Box161
+    2300300: Box162
+    2300302: Box163
+    2300304: Box164
+    2300306: Box165
+    2300308: Box166
+    2300310: Box167
+    2300312: Box168
+    2300314: Box169
+    2300316: Box170
+    2300318: Bridge
+    2300320: Hole
+    2300322: Iron Bars 0
+    2300324: Iron Bars 1
+    2300326: Iron Bars 1 1
+    2300328: Iron Bars 2
+    2300330: Iron Bars001
+    2300332: Iron Bars002
+    2300334: Line001
+    2300336: Line002
+    2300338: Line003
+    2300340: Line004
+    2300342: Line006
+    2300344: Line007
+    2300346: Line009
+    2300348: Line010
+    2300350: Line011
+    2300352: Line012
+    2300354: Line013
+    2300356: Line014
+    2300358: Line016
+    2300360: Line017
+    2300362: Line018
+    2300364: Line019
+    2300366: Line020
+    2300368: Line021
+    2300370: Line022
+    2300372: Line023
+    2300374: Line024
+    2300376: Line026
+    2300378: Pit - Fits One Box
+    2300380: Stairs - Key Item
+    2300382: Stairs - To Boss Room
+    2300384: Texture Black or Something
+    2300386: Tornado Room Wall
+    2300388: Winding Bridge
+    2300390: Zelda Door Wall
+    2300392: Zelda-Style Dungeon Door
+    3300000: Big Suspicious Button - Bottom
+    3300002: Big Suspicious Button - Button
+    3300004: Boss Door Border
+    3300006: Boss Door Hallway
+    3300008: Box002
+    3300010: Box003
+    3300012: Box004
+    3300014: Box005
+    3300016: Box006
+    3300018: Box007
+    3300020: Box011
+    3300022: Box012
+    3300024: Box013
+    3300026: Box016
+    3300028: Box017
+    3300030: Box018
+    3300032: Box019
+    3300034: Box021
+    3300036: Box022
+    3300038: Box023
+    3300040: Box024
+    3300042: Box026
+    3300044: Box028
+    3300046: Box029
+    3300048: Box032
+    3300050: Box034
+    3300052: Box035
+    3300054: Box036
+    3300056: Box037
+    3300058: Box038
+    3300060: Box039
+    3300062: Box040
+    3300064: Box041
+    3300066: Box042
+    3300068: Box043
+    3300070: Box044
+    3300072: Box045
+    3300074: Box046
+    3300076: Box047
+    3300078: Box048
+    3300080: Box049
+    3300082: Box050
+    3300084: Box051
+    3300086: Box052
+    3300088: Box053
+    3300090: Box054
+    3300092: Box055
+    3300094: Box056
+    3300096: Box057
+    3300098: Box058
+    3300100: Box059
+    3300102: Box060
+    3300104: Box061
+    3300106: Box062
+    3300108: Box063
+    3300110: Box064
+    3300112: Box065
+    3300114: Box066
+    3300116: Box067
+    3300118: Box068
+    3300120: Box069
+    3300122: Box070
+    3300124: Box071
+    3300126: Box073
+    3300128: Box074
+    3300130: Box075
+    3300132: Box076
+    3300134: Box077
+    3300136: Box078
+    3300138: Box079
+    3300140: Box080
+    3300142: Box081
+    3300144: Box082
+    3300146: Box083
+    3300148: Box084
+    3300150: Box085
+    3300152: Box086
+    3300154: Box087
+    3300156: Box088
+    3300158: Box089
+    3300160: Box090
+    3300162: Box091
+    3300164: Box092
+    3300166: Box093
+    3300168: Box094
+    3300170: Box095
+    3300172: Box096
+    3300174: Box097
+    3300176: Box098
+    3300178: Box099
+    3300180: Box100
+    3300182: Box101
+    3300184: Box102
+    3300186: Box103
+    3300188: Box104
+    3300190: Box105
+    3300192: Box106
+    3300194: Box107
+    3300196: Box108
+    3300198: Box109
+    3300200: Box110
+    3300202: Box111
+    3300204: Box112
+    3300206: Box113
+    3300208: Box114
+    3300210: Box115
+    3300212: Box116
+    3300214: Box117
+    3300216: Box118
+    3300218: Box119
+    3300220: Box120
+    3300222: Box121
+    3300224: Box122
+    3300226: Box123
+    3300228: Box124
+    3300230: Box125
+    3300232: Box126
+    3300234: Box127
+    3300236: Box128
+    3300238: Box129
+    3300240: Box130
+    3300242: Box131
+    3300244: Box132
+    3300246: Box133
+    3300248: Box134
+    3300250: Box135
+    3300252: Box136
+    3300254: Box137
+    3300256: Box138
+    3300258: Box139
+    3300260: Box140
+    3300262: Box141
+    3300264: Box142
+    3300266: Box143
+    3300268: Box144
+    3300270: Box145
+    3300272: Box146
+    3300274: Box147
+    3300276: Box148
+    3300278: Box149
+    3300280: Box150
+    3300282: Box151
+    3300284: Box152
+    3300286: Box153
+    3300288: Box154
+    3300290: Box157
+    3300292: Box158
+    3300294: Box159
+    3300296: Box160
+    3300298: Box161
+    3300300: Box162
+    3300302: Box163
+    3300304: Box164
+    3300306: Box165
+    3300308: Box166
+    3300310: Box167
+    3300312: Box168
+    3300314: Box169
+    3300316: Box170
+    3300318: Bridge
+    3300320: Hole
+    3300322: Iron Bars 0
+    3300324: Iron Bars 1
+    3300326: Iron Bars 1 1
+    3300328: Iron Bars 2
+    3300330: Iron Bars001
+    3300332: Iron Bars002
+    3300334: Line001
+    3300336: Line002
+    3300338: Line003
+    3300340: Line004
+    3300342: Line006
+    3300344: Line007
+    3300346: Line009
+    3300348: Line010
+    3300350: Line011
+    3300352: Line012
+    3300354: Line013
+    3300356: Line014
+    3300358: Line016
+    3300360: Line017
+    3300362: Line018
+    3300364: Line019
+    3300366: Line020
+    3300368: Line021
+    3300370: Line022
+    3300372: Line023
+    3300374: Line024
+    3300376: Line026
+    3300378: Pit - Fits One Box
+    3300380: Stairs - Key Item
+    3300382: Stairs - To Boss Room
+    3300384: Texture Black or Something
+    3300386: Tornado Room Wall
+    3300388: Winding Bridge
+    3300390: Zelda Door Wall
+    3300392: Zelda-Style Dungeon Door
+    4300000: Hole
+    4300002: Stairs - Key Item
+    4300004: Bridge
+    4300006: Pit - Fits One Box
+    4300008: Box018
+    4300010: Box019
+    4300012: Box021
+    4300014: Box022
+    4300016: Box023
+    4300018: Box024
+    4300020: Box028
+    4300022: Box029
+    4300024: Box032
+    4300026: Box034
+    4300028: Box035
+    4300030: Box036
+    4300032: Boss Door Border
+    4300034: Stairs - To Boss Room
+    4300036: Texture Black or Something
+    4300038: Box017
+    4300040: Box016
+    4300042: Box002
+    4300044: Box003
+    4300046: Box004
+    4300048: Box005
+    4300050: Box006
+    4300052: Box007
+    4300054: Box011
+    4300056: Box012
+    4300058: Box013
+    4300060: Line001
+    4300062: Line002
+    4300064: Line003
+    4300066: Line004
+    4300068: Line006
+    4300070: Line007
+    4300072: Line009
+    4300074: Line010
+    4300076: Line011
+    4300078: Line012
+    4300080: Line013
+    4300082: Line014
+    4300084: Line016
+    4300086: Line017
+    4300088: Line018
+    4300090: Line019
+    4300092: Line020
+    4300094: Line021
+    4300096: Line022
+    4300098: Line023
+    4300100: Line024
+    4300102: Zelda-Style Dungeon Door
+    4300104: Box026
+    4300106: Iron Bars
+    4300108: Iron Bars001
+    4300110: Iron Bars002
+    4300112: Boss Door Hallway
+    4300114: Iron Bars 1
+    4300116: Iron Bars 0
+    4300118: Iron Bars 2
+    4300120: Tornado Room Wall
+    4300122: Zelda Door Wall
+    4300124: Winding Bridge
+    4300126: Box080
+    4300128: Box081
+    4300130: Box082
+    4300132: Box037
+    4300134: Box038
+    4300136: Box039
+    4300138: Box040
+    4300140: Box041
+    4300142: Box042
+    4300144: Box043
+    4300146: Box044
+    4300148: Box045
+    4300150: Box046
+    4300152: Box047
+    4300154: Box048
+    4300156: Box049
+    4300158: Box050
+    4300160: Box051
+    4300162: Box052
+    4300164: Box053
+    4300166: Box054
+    4300168: Box055
+    4300170: Box056
+    4300172: Box057
+    4300174: Box058
+    4300176: Box059
+    4300178: Box060
+    4300180: Box061
+    4300182: Box062
+    4300184: Box063
+    4300186: Box064
+    4300188: Box065
+    4300190: Box066
+    4300192: Box067
+    4300194: Box068
+    4300196: Box069
+    4300198: Box070
+    4300200: Box071
+    4300202: Box073
+    4300204: Box074
+    4300206: Box075
+    4300208: Box076
+    4300210: Box077
+    4300212: Box078
+    4300214: Box079
+    4300216: Box083
+    4300218: Box084
+    4300220: Box085
+    4300222: Box086
+    4300224: Box087
+    4300226: Box088
+    4300228: Box089
+    4300230: Box090
+    4300232: Box091
+    4300234: Box092
+    4300236: Box093
+    4300238: Box094
+    4300240: Box095
+    4300242: Box096
+    4300244: Box097
+    4300246: Box098
+    4300248: Box099
+    4300250: Box100
+    4300252: Box101
+    4300254: Box102
+    4300256: Box103
+    4300258: Box104
+    4300260: Box105
+    4300262: Box106
+    4300264: Box107
+    4300266: Box108
+    4300268: Box109
+    4300270: Box110
+    4300272: Box111
+    4300274: Box112
+    4300276: Box113
+    4300278: Box114
+    4300280: Box115
+    4300282: Box116
+    4300284: Box117
+    4300286: Box118
+    4300288: Box119
+    4300290: Box120
+    4300292: Box121
+    4300294: Box122
+    4300296: Box123
+    4300298: Box124
+    4300300: Box125
+    4300302: Box126
+    4300304: Box127
+    4300306: Box128
+    4300308: Box129
+    4300310: Box130
+    4300312: Box131
+    4300314: Box132
+    4300316: Box133
+    4300318: Box134
+    4300320: Box135
+    4300322: Box136
+    4300324: Box137
+    4300326: Box138
+    4300328: Box139
+    4300330: Box140
+    4300332: Box141
+    4300334: Box142
+    4300336: Box143
+    4300338: Box144
+    4300340: Box145
+    4300342: Box146
+    4300344: Box147
+    4300346: Box148
+    4300348: Box149
+    4300350: Box157
+    4300352: Box158
+    4300354: Box159
+    4300356: Box160
+    4300358: Box161
+    4300360: Box162
+    4300362: Box163
+    4300364: Box164
+    4300366: Box165
+    4300368: Box166
+    4300370: Box167
+    4300372: Box168
+    4300374: Box169
+    4300376: Box170
+    4300378: Box150
+    4300380: Box151
+    4300382: Box152
+    4300384: Box153
+    4300386: Box154
+    4300388: Line026
+    4300390: Big Suspicious Button - Bottom
+    4300392: Big Suspicious Button - Button
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

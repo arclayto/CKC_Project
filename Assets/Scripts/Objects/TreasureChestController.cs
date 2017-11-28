@@ -5,6 +5,7 @@ using UnityEngine;
 public class TreasureChestController : MonoBehaviour {
 
 	public GameObject treasure;
+	public bool destroyTreasure = false;
 
 	void Start () {
 		
@@ -16,8 +17,13 @@ public class TreasureChestController : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player Attack") {
-	        treasure.SetActive(true);
-	        treasure.transform.parent = null;
+        	if (destroyTreasure) {
+        		treasure.SetActive(false);
+        	}
+        	else {
+		        treasure.SetActive(true);
+		        treasure.transform.parent = null;
+	    	}
 
             // Enemy hit by key attack, destroy
             Destroy(gameObject);
@@ -26,8 +32,13 @@ public class TreasureChestController : MonoBehaviour {
 
     private void OnTriggerStay(Collider other) {
         if (other.gameObject.tag == "Player Attack") {
-	        treasure.SetActive(true);
-	        treasure.transform.parent = null;
+	        if (destroyTreasure) {
+        		treasure.SetActive(false);
+        	}
+        	else {
+		        treasure.SetActive(true);
+		        treasure.transform.parent = null;
+	    	}
 
             // Enemy hit by key attack, destroy
             Destroy(gameObject);

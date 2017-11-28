@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BubbleController : MonoBehaviour {
 
+	public AudioClip sfxPop;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -14,6 +16,9 @@ public class BubbleController : MonoBehaviour {
 		
 	}
 
-	void OnCollisionEnter(Collision collision) {
-    }
+	void OnDestroy() {
+		AudioSource audioSource = GameObject.FindWithTag("Player").GetComponent<AudioSource>();
+		audioSource.pitch = (Random.Range(0.9f, 1.1f));
+        audioSource.PlayOneShot(sfxPop, 0.5f);
+	}
 }

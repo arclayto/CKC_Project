@@ -90,13 +90,15 @@ public class PlayerController : MonoBehaviour {
         if (controller.isGrounded) {
             if (moveDirection.x == 0.0f && moveDirection.z == 0.0f) {
                 // Idle animation when not moving in x or z
-                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumIdle") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleAim")) {
+                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumIdle") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")
+                	&& !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleAim") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleSwing")) {
                     animator.Play("PlumIdle", -1, 0.0f);
                 }
             }
             else {
                 // Walk animation when moving in x and/or z
-                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumWalk") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleAim")) {
+                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumWalk") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")
+                	&& !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleAim") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleSwing")) {
                     animator.Play("PlumWalk", -1, 0.0f);
                 }
             }
@@ -112,13 +114,15 @@ public class PlayerController : MonoBehaviour {
 		if (!controller.isGrounded) {
             if (moveDirection.y > 1.0f) {
                 // Jump animation when moving up in y
-                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumJump") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleAim")) {
+                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumJump") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")
+                	&& !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleAim") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleSwing")) {
                     animator.Play("PlumJump", -1, 0.0f);
                 }
             }
             else if (moveDirection.y < -1.0f) {
                 // Fall animation when moving down in y
-                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumFall") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleAim")) {
+                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumFall") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")
+                	&& !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleAim") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleSwing")) {
                     animator.Play("PlumFall", -1, 0.0f);
                 }
             }
@@ -162,7 +166,7 @@ public class PlayerController : MonoBehaviour {
 				}
 			}
             else if (equippedItem == 3) {
-                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleAim") && canBubblewand) {
+                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleAim") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleSwing") && canBubblewand) {
                     animator.Play("PlumBubbleAim", -1, 0.0f);
                 }
             }
@@ -236,10 +240,21 @@ public class PlayerController : MonoBehaviour {
                 if (bubble != null) {
                     Destroy(bubble);
                 }
-                bubble = (GameObject)Instantiate(Resources.Load("Bubble"), transform.position + aimDirection * 1.5f, transform.rotation);
+                bubble = (GameObject)Instantiate(Resources.Load("Bubble"), transform.position + aimDirection * 1.75f, transform.rotation);
                 bubble.GetComponent<Rigidbody>().AddForce(aimDirection * 10f, ForceMode.Impulse);
-                animator.Play("PlumIdle", -1, 0.0f);
+                animator.Play("PlumBubbleSwing", -1, 0.0f);
                 canBubblewand = false;
+            }
+        }
+
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleSwing")) {
+            // Slow movement while using bubble swing ability
+            moveDirection.x /= 2;
+            moveDirection.z /= 2;
+
+            if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.85f) {
+                // Key ability complete, return to idle state
+                animator.Play("PlumIdle", -1, 0.0f);
             }
         }
 

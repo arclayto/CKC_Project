@@ -1,0 +1,469 @@
+fileFormatVersion: 2
+guid: f024cebdf06d1c241af060dab703dffe
+timeCreated: 1511881557
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: Big Suspicious Button - Bottom
+    100002: Big Suspicious Button - Button
+    100004: Blue Key Door
+    100006: Boss Door Border
+    100008: Boss Door Hallway
+    100010: Box002
+    100012: Box003
+    100014: Box004
+    100016: Box005
+    100018: Box006
+    100020: Box007
+    100022: Box011
+    100024: Box012
+    100026: Box013
+    100028: Box016
+    100030: Box017
+    100032: Box018
+    100034: Box019
+    100036: Box021
+    100038: Box022
+    100040: Box023
+    100042: Box024
+    100044: Box026
+    100046: Box028
+    100048: Box029
+    100050: Box032
+    100052: Box034
+    100054: Box035
+    100056: Box036
+    100058: Box150
+    100060: Box151
+    100062: Box152
+    100064: Box153
+    100066: Box154
+    100068: Bridge
+    100070: Bridge - Start and End
+    100072: Door and Wall001
+    100074: Door and Wall002
+    100076: Door and Wall003
+    100078: Door and Wall004
+    100080: Door and Wall005
+    100082: Floors
+    100084: Hole
+    100086: Iron Bars
+    100088: Iron Bars 0
+    100090: Iron Bars 1
+    100092: Iron Bars 1 1
+    100094: Iron Bars 2
+    100096: Iron Bars001
+    100098: Iron Bars002
+    100100: Line001
+    100102: Line002
+    100104: Line003
+    100106: Line004
+    100108: Line006
+    100110: Line007
+    100112: Line009
+    100114: Line010
+    100116: Line011
+    100118: Line012
+    100120: Line013
+    100122: Line014
+    100124: Line016
+    100126: Line017
+    100128: Line018
+    100130: Line019
+    100132: Line020
+    100134: Line021
+    100136: Line022
+    100138: Line023
+    100140: Line024
+    100142: Line026
+    100144: Pit - Fits One Box
+    100146: Red Key Door
+    100148: Stairs - Key Item
+    100150: Stairs - To Boss Room
+    100152: //RootNode
+    100154: Texture Black or Something
+    100156: Tornado Room Depth
+    100158: Tornado Room Platforms
+    100160: Tornado Room Wall
+    100162: Walls
+    100164: Winding Bridge
+    100166: Zelda Door Wall
+    100168: Zelda-Style Dungeon Door
+    400000: Big Suspicious Button - Bottom
+    400002: Big Suspicious Button - Button
+    400004: Blue Key Door
+    400006: Boss Door Border
+    400008: Boss Door Hallway
+    400010: Box002
+    400012: Box003
+    400014: Box004
+    400016: Box005
+    400018: Box006
+    400020: Box007
+    400022: Box011
+    400024: Box012
+    400026: Box013
+    400028: Box016
+    400030: Box017
+    400032: Box018
+    400034: Box019
+    400036: Box021
+    400038: Box022
+    400040: Box023
+    400042: Box024
+    400044: Box026
+    400046: Box028
+    400048: Box029
+    400050: Box032
+    400052: Box034
+    400054: Box035
+    400056: Box036
+    400058: Box150
+    400060: Box151
+    400062: Box152
+    400064: Box153
+    400066: Box154
+    400068: Bridge
+    400070: Bridge - Start and End
+    400072: Door and Wall001
+    400074: Door and Wall002
+    400076: Door and Wall003
+    400078: Door and Wall004
+    400080: Door and Wall005
+    400082: Floors
+    400084: Hole
+    400086: Iron Bars
+    400088: Iron Bars 0
+    400090: Iron Bars 1
+    400092: Iron Bars 1 1
+    400094: Iron Bars 2
+    400096: Iron Bars001
+    400098: Iron Bars002
+    400100: Line001
+    400102: Line002
+    400104: Line003
+    400106: Line004
+    400108: Line006
+    400110: Line007
+    400112: Line009
+    400114: Line010
+    400116: Line011
+    400118: Line012
+    400120: Line013
+    400122: Line014
+    400124: Line016
+    400126: Line017
+    400128: Line018
+    400130: Line019
+    400132: Line020
+    400134: Line021
+    400136: Line022
+    400138: Line023
+    400140: Line024
+    400142: Line026
+    400144: Pit - Fits One Box
+    400146: Red Key Door
+    400148: Stairs - Key Item
+    400150: Stairs - To Boss Room
+    400152: //RootNode
+    400154: Texture Black or Something
+    400156: Tornado Room Depth
+    400158: Tornado Room Platforms
+    400160: Tornado Room Wall
+    400162: Walls
+    400164: Winding Bridge
+    400166: Zelda Door Wall
+    400168: Zelda-Style Dungeon Door
+    2300000: Big Suspicious Button - Bottom
+    2300002: Big Suspicious Button - Button
+    2300004: Boss Door Border
+    2300006: Boss Door Hallway
+    2300008: Box002
+    2300010: Box003
+    2300012: Box004
+    2300014: Box005
+    2300016: Box006
+    2300018: Box007
+    2300020: Box011
+    2300022: Box012
+    2300024: Box013
+    2300026: Box016
+    2300028: Box017
+    2300030: Box018
+    2300032: Box019
+    2300034: Box021
+    2300036: Box022
+    2300038: Box023
+    2300040: Box024
+    2300042: Box026
+    2300044: Box028
+    2300046: Box029
+    2300048: Box032
+    2300050: Box034
+    2300052: Box035
+    2300054: Box036
+    2300056: Box150
+    2300058: Box151
+    2300060: Box152
+    2300062: Box153
+    2300064: Box154
+    2300066: Bridge
+    2300068: Hole
+    2300070: Iron Bars 0
+    2300072: Iron Bars 1
+    2300074: Iron Bars 1 1
+    2300076: Iron Bars 2
+    2300078: Iron Bars001
+    2300080: Iron Bars002
+    2300082: Line001
+    2300084: Line002
+    2300086: Line003
+    2300088: Line004
+    2300090: Line006
+    2300092: Line007
+    2300094: Line009
+    2300096: Line010
+    2300098: Line011
+    2300100: Line012
+    2300102: Line013
+    2300104: Line014
+    2300106: Line016
+    2300108: Line017
+    2300110: Line018
+    2300112: Line019
+    2300114: Line020
+    2300116: Line021
+    2300118: Line022
+    2300120: Line023
+    2300122: Line024
+    2300124: Line026
+    2300126: Pit - Fits One Box
+    2300128: Stairs - Key Item
+    2300130: Stairs - To Boss Room
+    2300132: Texture Black or Something
+    2300134: Tornado Room Wall
+    2300136: Walls
+    2300138: Winding Bridge
+    2300140: Zelda Door Wall
+    2300142: Zelda-Style Dungeon Door
+    3300000: Big Suspicious Button - Bottom
+    3300002: Big Suspicious Button - Button
+    3300004: Boss Door Border
+    3300006: Boss Door Hallway
+    3300008: Box002
+    3300010: Box003
+    3300012: Box004
+    3300014: Box005
+    3300016: Box006
+    3300018: Box007
+    3300020: Box011
+    3300022: Box012
+    3300024: Box013
+    3300026: Box016
+    3300028: Box017
+    3300030: Box018
+    3300032: Box019
+    3300034: Box021
+    3300036: Box022
+    3300038: Box023
+    3300040: Box024
+    3300042: Box026
+    3300044: Box028
+    3300046: Box029
+    3300048: Box032
+    3300050: Box034
+    3300052: Box035
+    3300054: Box036
+    3300056: Box150
+    3300058: Box151
+    3300060: Box152
+    3300062: Box153
+    3300064: Box154
+    3300066: Bridge
+    3300068: Hole
+    3300070: Iron Bars 0
+    3300072: Iron Bars 1
+    3300074: Iron Bars 1 1
+    3300076: Iron Bars 2
+    3300078: Iron Bars001
+    3300080: Iron Bars002
+    3300082: Line001
+    3300084: Line002
+    3300086: Line003
+    3300088: Line004
+    3300090: Line006
+    3300092: Line007
+    3300094: Line009
+    3300096: Line010
+    3300098: Line011
+    3300100: Line012
+    3300102: Line013
+    3300104: Line014
+    3300106: Line016
+    3300108: Line017
+    3300110: Line018
+    3300112: Line019
+    3300114: Line020
+    3300116: Line021
+    3300118: Line022
+    3300120: Line023
+    3300122: Line024
+    3300124: Line026
+    3300126: Pit - Fits One Box
+    3300128: Stairs - Key Item
+    3300130: Stairs - To Boss Room
+    3300132: Texture Black or Something
+    3300134: Tornado Room Wall
+    3300136: Walls
+    3300138: Winding Bridge
+    3300140: Zelda Door Wall
+    3300142: Zelda-Style Dungeon Door
+    4300000: Hole
+    4300002: Stairs - Key Item
+    4300004: Bridge
+    4300006: Pit - Fits One Box
+    4300008: Box018
+    4300010: Box019
+    4300012: Box021
+    4300014: Box022
+    4300016: Box023
+    4300018: Box024
+    4300020: Box028
+    4300022: Box029
+    4300024: Box032
+    4300026: Box034
+    4300028: Box035
+    4300030: Box036
+    4300032: Boss Door Border
+    4300034: Stairs - To Boss Room
+    4300036: Texture Black or Something
+    4300038: Box017
+    4300040: Box016
+    4300042: Box002
+    4300044: Box003
+    4300046: Box004
+    4300048: Box005
+    4300050: Box006
+    4300052: Box007
+    4300054: Box011
+    4300056: Box012
+    4300058: Box013
+    4300060: Line001
+    4300062: Line002
+    4300064: Line003
+    4300066: Line004
+    4300068: Line006
+    4300070: Line007
+    4300072: Line009
+    4300074: Line010
+    4300076: Line011
+    4300078: Line012
+    4300080: Line013
+    4300082: Line014
+    4300084: Line016
+    4300086: Line017
+    4300088: Line018
+    4300090: Line019
+    4300092: Line020
+    4300094: Line021
+    4300096: Line022
+    4300098: Line023
+    4300100: Line024
+    4300102: Zelda-Style Dungeon Door
+    4300104: Box026
+    4300106: Iron Bars
+    4300108: Iron Bars001
+    4300110: Iron Bars002
+    4300112: Boss Door Hallway
+    4300114: Iron Bars 1
+    4300116: Iron Bars 0
+    4300118: Iron Bars 2
+    4300120: Tornado Room Wall
+    4300122: Zelda Door Wall
+    4300124: Winding Bridge
+    4300126: Box150
+    4300128: Box151
+    4300130: Box152
+    4300132: Box153
+    4300134: Box154
+    4300136: Line026
+    4300138: Big Suspicious Button - Bottom
+    4300140: Big Suspicious Button - Button
+    4300142: Walls
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

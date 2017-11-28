@@ -1691,7 +1691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55cc63948d4c3024f923ebc3c148c1c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialString: When unarmed, it's best to run away from enemies
+  tutorialString: When unarmed, it's best to run away from enemies!
 --- !u!23 &765480602
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2271,7 +2271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55cc63948d4c3024f923ebc3c148c1c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialString: Here's a Key, your first weapon! Attack with X!
+  tutorialString: Here's a Key, your first weapon! Attack with X
 --- !u!23 &960870596
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2682,7 +2682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55cc63948d4c3024f923ebc3c148c1c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialString: Use the Z key to jump (hold to jump higher)
+  tutorialString: Use the Z key to jump (hold to jump higher!)
 --- !u!23 &1134350119
 MeshRenderer:
   m_ObjectHideFlags: 0

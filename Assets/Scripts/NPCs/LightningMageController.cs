@@ -112,5 +112,6 @@ public class LightningMageController : MonoBehaviour {
         // Create smoke effect
         GameObject smoke = (GameObject)Instantiate(Resources.Load("Smoke"));
         smoke.transform.position = transform.position;
+        smoke.transform.localScale = new Vector3(2f, 2f, 2f); 
     }
 }
