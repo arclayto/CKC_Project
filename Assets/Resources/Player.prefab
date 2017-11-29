@@ -344,9 +344,10 @@ MonoBehaviour:
   beanCount: {fileID: 0}
   tutorialText: {fileID: 0}
   sfxHeal: {fileID: 8300000, guid: 344a2626b5920224bb5307214b894faf, type: 3}
+  sfxBean: {fileID: 8300000, guid: 0a7c61f28dbadeb4e99c1c0fbe6c0196, type: 3}
   sfxKeyswing: {fileID: 8300000, guid: cf62683d9f7abb74ba8b5237cbc78254, type: 3}
   sfxUmbrella: {fileID: 8300000, guid: df8708947d24c4e409367fcdfb3a07b8, type: 3}
-  sfxTornado: {fileID: 8300000, guid: 804d184110d6801499c02a2e8d6e8fd5, type: 3}
+  sfxTornado: {fileID: 8300000, guid: cf62683d9f7abb74ba8b5237cbc78254, type: 3}
 --- !u!114 &114511252073165366
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour {
 	public GameObject beanCount;
     public GameObject tutorialText;
     public AudioClip sfxHeal;
+    public AudioClip sfxBean;
     public AudioClip sfxKeyswing;
     public AudioClip sfxUmbrella;
     public AudioClip sfxTornado;
@@ -467,6 +468,10 @@ public class PlayerController : MonoBehaviour {
             // Increment bean counter and destroy item when colliding with it
 			Destroy (other.gameObject);
 			beans++;
+
+			audioSource.pitch = (Random.Range(0.9f, 1.1f));
+            audioSource.PlayOneShot(sfxBean, 1f);
+
 			if (beanFade != null) {
 				StopCoroutine(beanFade);
 			}
