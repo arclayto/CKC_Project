@@ -5,7 +5,6 @@ using UnityEngine;
 public class DoorController : MonoBehaviour {
 	
 	public PlayerController player;
-	public AudioClip sfxOpen;
 
 	// Use this for initialization
 	void Start () {
@@ -28,10 +27,6 @@ public class DoorController : MonoBehaviour {
 			player.SetEquippedItem (0);
 
 			GetComponent<LevelLoadTrigger>().initiateLoad();
-
-			col.gameObject.GetComponent<AudioSource>().pitch = 1.5f;
-			col.gameObject.GetComponent<AudioSource>().time = 0.5f;
-        	col.gameObject.GetComponent<AudioSource>().PlayOneShot(sfxOpen, 0.5f);
 		}
 	}
 }

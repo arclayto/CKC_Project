@@ -240,6 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   treasure: {fileID: 1697167431}
+  destroyTreasure: 0
 --- !u!65 &127584665
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -340,6 +341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   treasure: {fileID: 976598498}
+  destroyTreasure: 0
 --- !u!65 &168055544
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -873,6 +875,10 @@ Prefab:
       propertyPath: HUDCanvas
       value: 
       objectReference: {fileID: 873677310}
+    - target: {fileID: 1428216029736370, guid: 4ab2b2249fa945848ad3bdeb4fb033d1, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4ab2b2249fa945848ad3bdeb4fb033d1, type: 2}
   m_IsPrefabParent: 0
@@ -993,6 +999,10 @@ Prefab:
       propertyPath: GM
       value: 
       objectReference: {fileID: 826907787}
+    - target: {fileID: 1422618676190548, guid: ebcc43b060638184fb279d2e30faefb8, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ebcc43b060638184fb279d2e30faefb8, type: 2}
   m_IsPrefabParent: 0
@@ -1653,6 +1663,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1113813408538658, guid: 343363d4256a3ce4180bf94511dfca20, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 343363d4256a3ce4180bf94511dfca20, type: 2}
   m_IsPrefabParent: 0
@@ -1789,6 +1803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   treasure: {fileID: 702808421}
+  destroyTreasure: 0
 --- !u!65 &787444527
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5692,7 +5707,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4883307270756490, guid: 81a3c47269787794183357b59b7ba9bb, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 12.5
+      value: 12.14
       objectReference: {fileID: 0}
     - target: {fileID: 4883307270756490, guid: 81a3c47269787794183357b59b7ba9bb, type: 2}
       propertyPath: m_LocalPosition.y
@@ -5700,7 +5715,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4883307270756490, guid: 81a3c47269787794183357b59b7ba9bb, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 84.9
+      value: 83.84
       objectReference: {fileID: 0}
     - target: {fileID: 4883307270756490, guid: 81a3c47269787794183357b59b7ba9bb, type: 2}
       propertyPath: m_LocalRotation.x
@@ -5708,7 +5723,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4883307270756490, guid: 81a3c47269787794183357b59b7ba9bb, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.38268343
       objectReference: {fileID: 0}
     - target: {fileID: 4883307270756490, guid: 81a3c47269787794183357b59b7ba9bb, type: 2}
       propertyPath: m_LocalRotation.z
@@ -5716,7 +5731,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4883307270756490, guid: 81a3c47269787794183357b59b7ba9bb, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.92387956
       objectReference: {fileID: 0}
     - target: {fileID: 4883307270756490, guid: 81a3c47269787794183357b59b7ba9bb, type: 2}
       propertyPath: m_RootOrder
@@ -5832,7 +5847,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4883307270756490, guid: 81a3c47269787794183357b59b7ba9bb, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 81a3c47269787794183357b59b7ba9bb, type: 2}
