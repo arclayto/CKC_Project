@@ -26,6 +26,7 @@ TagManager:
   - Bubblewand
   - Bubble
   - Teleporter
+  - Firespot
   layers:
   - Default
   - TransparentFX

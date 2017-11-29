@@ -437,7 +437,7 @@ Prefab:
     - target: {fileID: 224932906595757284, guid: d75527fcc56b3a143a2dcd7e34c45cf4,
         type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 224932906595757284, guid: d75527fcc56b3a143a2dcd7e34c45cf4,
         type: 2}
@@ -7610,7 +7610,7 @@ ParticleSystemRenderer:
   m_LengthScale: 2
   m_SortingFudge: 0
   m_NormalDirection: 1
-  m_RenderAlignment: 0
+  m_RenderAlignment: 1
   m_Pivot: {x: 0, y: 0, z: 0}
   m_UseCustomVertexStreams: 0
   m_VertexStreams: 00010304
@@ -7628,7 +7628,7 @@ ParticleSystem:
   serializedVersion: 5
   lengthInSec: 1
   simulationSpeed: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -7678,7 +7678,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 608625321
+  randomSeed: -1872077934
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -14485,6 +14485,11 @@ Prefab:
       propertyPath: nextMage
       value: 
       objectReference: {fileID: 874420108}
+    - target: {fileID: 114050963530968028, guid: c5fed51195f9f9a4f862b8d262679129,
+        type: 2}
+      propertyPath: canTeleport
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5fed51195f9f9a4f862b8d262679129, type: 2}
   m_IsPrefabParent: 0

@@ -506,6 +506,19 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
+        if (other.tag == "Firespot") {
+            if (invulnerable == false) {
+                // Deal damage to player if not invulnerable and not spinning, then make the player invulnerable for a short time
+                if (health > 1) {
+                    health--;
+                } else {
+                    SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
+                }
+
+                StartCoroutine ("InvulnerabilityTimer");
+            } 
+        }
+
 		if (other.tag == "Tornado") {
 			if (moveDirection.y > 2f) {
 				moveDirection.y = 2f;
@@ -552,6 +565,19 @@ public class PlayerController : MonoBehaviour {
 
 				StartCoroutine ("InvulnerabilityTimer");
 			} 
+        }
+
+        if (other.tag == "Firespot") {
+            if (invulnerable == false) {
+                // Deal damage to player if not invulnerable and not spinning, then make the player invulnerable for a short time
+                if (health > 1) {
+                    health--;
+                } else {
+                    SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
+                }
+
+                StartCoroutine ("InvulnerabilityTimer");
+            } 
         }
 	 	
 		if (other.tag == "Tornado") {
