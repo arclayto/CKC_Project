@@ -45,7 +45,7 @@ public class TitlePhaseController : MonoBehaviour {
 
 		angle = 0;
 		// radius = 3;
-		mSeconds = 10; //num of seconds to complete a circle;
+		mSeconds = 5; //num of seconds to complete a circle;
 		cspeed = (2 * Mathf.PI) / mSeconds;
 		mAngle = 2 * Mathf.PI;
 		transform.LookAt(target);
@@ -60,21 +60,21 @@ public class TitlePhaseController : MonoBehaviour {
 
 		//bool isAnimating = false;
 
-		if (leftPress == true && canPress == true) {
+		if (leftPress == true && moveStatus == 0 && canPress == true) {
 			currentPhase -= 1;
 			moveStatus = -1;
 			if (currentPhase < 0) {
 				currentPhase = 5;
 			}
 			canPress = false;
-		} else if (rightPress == true && canPress == true) {
+		} else if (rightPress == true && moveStatus == 0 &&canPress == true) {
 			currentPhase += 1;
 			moveStatus = 1;
 			if (currentPhase > 5) {
 				currentPhase = 0;
 			}
 			canPress = false;
-		} else if (Input.GetButtonDown ("Jump") && moveStatus == 0 && moveOn == 0) {
+		} else if (Input.GetButtonDown ("Jump") && moveOn == 0) {
 
 			moveOn = 1;
 			canPress = false;
@@ -86,19 +86,19 @@ public class TitlePhaseController : MonoBehaviour {
 			if (moveOn == 1) {GetComponent<LevelLoadTrigger>().initiateLoad("PhysicsTEST"); moveOn = 2;}
 				break;
 		case 1:	mAngle =  Mathf.PI / 3; mangleText.text = mAngle.ToString ()  + "\n1/3";
-			if (moveOn == 1) {GetComponent<LevelLoadTrigger>().initiateLoad(sOption);}
+			if (moveOn == 1) {GetComponent<LevelLoadTrigger>().initiateLoad("TitleScreen"); moveOn = 2;}
 				break;
 		case 2: mAngle =  2 * (Mathf.PI / 3); mangleText.text = mAngle.ToString () + "\n2/3";
-			if (moveOn == 1) {GetComponent<LevelLoadTrigger>().initiateLoad(sOption);}
+			if (moveOn == 1) {GetComponent<LevelLoadTrigger>().initiateLoad("TitleScreen"); moveOn = 2;}
 				break;
 		case 3: mAngle = (1) * Mathf.PI; mangleText.text = mAngle.ToString () + "\n1";
-			if (moveOn == 1) {GetComponent<LevelLoadTrigger>().initiateLoad(sOption);}
+			if (moveOn == 1) {Application.Quit ();}
 				break;
 		case 4: mAngle = (4 * Mathf.PI) / 3; mangleText.text = mAngle.ToString () + "\n4/3";
-			if (moveOn == 1) {GetComponent<LevelLoadTrigger>().initiateLoad(sOption);}
+			if (moveOn == 1) {GetComponent<LevelLoadTrigger>().initiateLoad("TitleScreen"); moveOn = 2;}
 				break;
-		case 5: mAngle = (3) * Mathf.PI / 2; mangleText.text = mAngle.ToString () + "\n3/2";
-			if (moveOn == 1) {GetComponent<LevelLoadTrigger>().initiateLoad(sOption);}
+		case 5: mAngle = (5) * Mathf.PI / 3; mangleText.text = mAngle.ToString () + "\n5/3";
+			if (moveOn == 1) {GetComponent<LevelLoadTrigger>().initiateLoad("TitleScreen"); moveOn = 2;}
 				break;
 		default: mAngle = 0 * Mathf.PI; mangleText.text = mAngle.ToString () + "\n0";
 				break;
@@ -108,14 +108,6 @@ public class TitlePhaseController : MonoBehaviour {
 		{
 			canPress = true;
 		}
-
-
-	}
-
-	void FixedUpdate ()
-	{
-		
-
 
 		//float vAngle = mAngle / mSeconds;
 		float cx, cz, ccx, ccz;
@@ -201,7 +193,7 @@ public class TitlePhaseController : MonoBehaviour {
 		
 	}
 
-	bool isInRange(float nIn, float nMid, float nRange = 0.005f)
+	bool isInRange(float nIn, float nMid, float nRange = 0.1f)
 	{
 		bool inRange = false;
 		float upperBound = (nMid + nRange) % (2*Mathf.PI);
