@@ -26,7 +26,12 @@ public class DoorController : MonoBehaviour {
 			animator.SetTrigger("Open");
 			player.SetEquippedItem (0);
 
-			GetComponent<LevelLoadTrigger>().initiateLoad();
+			StartCoroutine("FadeoutTimer");
 		}
 	}
+
+	IEnumerator FadeoutTimer() {
+        yield return new WaitForSeconds(1f);
+        GetComponent<LevelLoadTrigger>().initiateLoad();
+    }
 }

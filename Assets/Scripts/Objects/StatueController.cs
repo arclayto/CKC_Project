@@ -5,6 +5,7 @@ using UnityEngine;
 public class StatueController : MonoBehaviour {
 
 	public PlayerController player;
+	public GameObject umbrellaObject;
 
 	// Use this for initialization
 	void Start () {
@@ -25,8 +26,14 @@ public class StatueController : MonoBehaviour {
 			Animator animator = GetComponentInParent<Animator>();
 			animator.SetTrigger("Open");
 			player.SetEquippedItem (0);
+			umbrellaObject.SetActive(true);
 
-			GetComponent<LevelLoadTrigger>().initiateLoad();
+			StartCoroutine("FadeoutTimer");
 		}
 	}
+
+	IEnumerator FadeoutTimer() {
+        yield return new WaitForSeconds(1f);
+        GetComponent<LevelLoadTrigger>().initiateLoad();
+    }
 }

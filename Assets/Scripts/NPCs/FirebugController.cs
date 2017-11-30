@@ -48,7 +48,7 @@ public class FirebugController : MonoBehaviour {
         }
 
         RaycastHit hit;
-        if (Physics.SphereCast(transform.position + capsuleCollider.center + new Vector3(0f, -0.1f, 0f), 0.4f, Vector3.down, out hit, 0.1f))
+        if (Physics.SphereCast(transform.position + capsuleCollider.center + new Vector3(0f, -0.2f, 0f), 0.35f, Vector3.down, out hit, 0.1f))
         {
             if (hit.collider.tag == "Untagged")
             {
@@ -77,7 +77,7 @@ public class FirebugController : MonoBehaviour {
 
         if (aggro == true && magnitude > maxAggroRange) {
             // Become passive when player is out of chasing range
-            aggro = false;
+            //aggro = false;
         }
 
         if (aggro) {
