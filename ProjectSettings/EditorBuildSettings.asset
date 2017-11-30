@@ -20,3 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TitleScreen.unity
     guid: c7a98bb5f0d474a45a1202bd1ab61be7
+  - enabled: 1
+    path: Assets/Scenes/Temple.unity
+    guid: 72483a7d87194f843ae5737dfa2ea334
