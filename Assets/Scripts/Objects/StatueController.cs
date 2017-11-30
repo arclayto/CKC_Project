@@ -22,7 +22,7 @@ public class StatueController : MonoBehaviour {
 		if (col.gameObject.tag == "Player" && player.GetEquippedItem () == 2) {
 			//animation for door goes here
 			//destroy door as placeholder for now
-			Animator animator = transform.GetComponentInParent<Animator>();
+			Animator animator = GetComponentInParent<Animator>();
 			animator.SetTrigger("Open");
 			player.SetEquippedItem (0);
 
