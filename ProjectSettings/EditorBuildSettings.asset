@@ -6,20 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/TitleScreen.unity
+    guid: c7a98bb5f0d474a45a1202bd1ab61be7
+  - enabled: 1
     path: Assets/Scenes/PhysicsTEST.unity
     guid: be5b68a3fcbedd247a8eda26e18c771b
-  - enabled: 1
-    path: Assets/Scenes/LoadingScreen.unity
-    guid: cd180667513277241b64c028dea3a42c
   - enabled: 1
     path: Assets/Scenes/Desert.unity
     guid: 2f4d0ec3bbd153e4caaa91ad0e3a70aa
   - enabled: 1
-    path: Assets/Scenes/TutorialSceneWithMenu.unity
-    guid: 7e2968d51d8dec141858140f8d4dcc88
-  - enabled: 1
-    path: Assets/Scenes/TitleScreen.unity
-    guid: c7a98bb5f0d474a45a1202bd1ab61be7
-  - enabled: 1
     path: Assets/Scenes/Temple.unity
     guid: 72483a7d87194f843ae5737dfa2ea334
+  - enabled: 1
+    path: Assets/Scenes/LoadingScreen.unity
+    guid: cd180667513277241b64c028dea3a42c
+  - enabled: 0
+    path: Assets/Scenes/TutorialSceneWithMenu.unity
+    guid: 7e2968d51d8dec141858140f8d4dcc88
