@@ -411,6 +411,9 @@ public class PlayerController : MonoBehaviour {
                 equippedItem = 1;
                 Destroy (other.gameObject);
             }
+
+            audioSource.pitch = (Random.Range(0.9f, 1.1f));
+            audioSource.PlayOneShot(sfxBean, 1f);
         }
 
 		if (other.tag == "Umbrella") {
@@ -431,6 +434,9 @@ public class PlayerController : MonoBehaviour {
                 equippedItem = 2;
                 Destroy (other.gameObject);
             }
+
+            audioSource.pitch = (Random.Range(0.9f, 1.1f));
+            audioSource.PlayOneShot(sfxBean, 1f);
 		}
 
         if (other.tag == "Bubblewand") {
@@ -451,6 +457,9 @@ public class PlayerController : MonoBehaviour {
                 equippedItem = 3;
                 Destroy (other.gameObject);
             }
+
+            audioSource.pitch = (Random.Range(0.9f, 1.1f));
+            audioSource.PlayOneShot(sfxBean, 1f);
         }
 
         if (other.tag == "Healthup") {
