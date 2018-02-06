@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour {
 	public GameObject feetAttack;
 	public GameObject umbrellaAttack;
 	public GameObject beanCount;
+    public int maxHealth;
     public GameObject tutorialText;
     public AudioClip sfxHeal;
     public AudioClip sfxBean;
@@ -50,7 +51,7 @@ public class PlayerController : MonoBehaviour {
 		Cursor.visible = false;
 		canMove = true;
 
-        health = 2;
+        health = 2 + maxHealth;
         equippedItem = 0;
         beans = 0;
         isFloating = false;
@@ -471,6 +472,13 @@ public class PlayerController : MonoBehaviour {
                 audioSource.pitch = (Random.Range(0.9f, 1.1f));
                 audioSource.PlayOneShot(sfxHeal, 0.3f);
 			}
+            else
+            {
+                health++;
+                maxHealth++;
+                audioSource.pitch = (Random.Range(0.9f, 1.1f));
+                audioSource.PlayOneShot(sfxHeal, 0.3f);
+            }
         }
 
         if (other.tag == "Bean") {
