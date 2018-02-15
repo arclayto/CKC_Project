@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour {
         }
         else
         {
-            health = 2 + healthBonus * 2;
+            health = 2 + healthBonus;
         }
         equippedItem = 0;
         beans = 0;
