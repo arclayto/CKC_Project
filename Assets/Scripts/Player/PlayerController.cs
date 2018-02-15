@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour {
 
     private Vector3 moveDirection;
     private int health;
+    private int healthBonus;
     private int equippedItem;
     private int beans;
     private bool invulnerable;
@@ -49,8 +50,14 @@ public class PlayerController : MonoBehaviour {
 		//hide the cursor
 		Cursor.visible = false;
 		canMove = true;
-
-        health = 2;
+        if(healthBonus == 0)
+        {
+            health = 2;
+        }
+        else
+        {
+            health = 2 + healthBonus;
+        }
         equippedItem = 0;
         beans = 0;
         isFloating = false;
@@ -610,6 +617,7 @@ public class PlayerController : MonoBehaviour {
 			//otherTornado.z = other.transform.position.z;
 			//moveDirection.z += other.transform.position.z * 10;
 			//moveDirection.x += other.transform.position.x * 10;
+            
 		}
 
         if (other.tag == "Lightning") {
