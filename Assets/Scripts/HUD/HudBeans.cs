@@ -11,6 +11,9 @@ public class HudBeans : MonoBehaviour {
     private Image beansImage;
     private Text beansText;
 
+    private int beansCurrent;
+    public int beansTotal;
+
     void Start() {
     	beansImage = beansImageObj.GetComponent<Image>();
     	beansText = GetComponent<Text>();
@@ -22,7 +25,12 @@ public class HudBeans : MonoBehaviour {
     }
 
     void Update() {
-        beansText.text = playerScript.GetBeans().ToString();
+    	beansCurrent = playerScript.GetBeans();
+    	if (beansCurrent < 10) {
+	        beansText.text = "0" + beansCurrent.ToString() + " / " + beansTotal.ToString();
+	    } else {
+	    	beansText.text = beansCurrent.ToString() + " / " + beansTotal.ToString();
+	    }
     }
 
     public IEnumerator VisibilityTimer() {

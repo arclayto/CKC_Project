@@ -70,14 +70,15 @@ public class PlayerController : MonoBehaviour {
 	void Update() {
         // Flip player horizontally based on x direction
       	if (canMove && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
-            if (Input.GetAxis("Horizontal") > 0.0f) {
+            if (Input.GetAxisRaw("Horizontal") > 0.0f) {
                 spriteRenderer.flipX = false;
-            } else if (Input.GetAxis("Horizontal") < 0.0f) {
+            } else if (Input.GetAxisRaw("Horizontal") < 0.0f) {
                 spriteRenderer.flipX = true;
             }
         }
 
 		moveDirection = new Vector3(Input.GetAxis("Horizontal") * movementSpeed, moveDirection.y, Input.GetAxis("Vertical") * movementSpeed);
+        Debug.Log(new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical")));
 
 		//broken code for tornados, just leave it for now
 		/*if (inTornado == true) {
