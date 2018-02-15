@@ -49,6 +49,26 @@ public class CameraSmoothFollow : MonoBehaviour {
 		StartCoroutine (changeFocus (t, f));
 	}
 
+	public void setInstantFocus(Transform t, Vector3 tempOffset)
+	{
+		StartCoroutine (changeInstantFocus(t,tempOffset));
+	}
+
+	IEnumerator changeInstantFocus(Transform newTarget, Vector3 tempOffset)
+	{
+		Transform oldTarget = target;
+		Vector3 oldOffset = offset;
+		oldTarget.GetComponentInParent<PlayerController> ().AllowMovement (false);
+		target = newTarget;
+		transform.position = target.position - tempOffset;
+		offset = tempOffset;
+		yield return new WaitForSeconds (4);
+		oldTarget.GetComponentInParent<PlayerController> ().AllowMovement (true);
+		target = oldTarget;
+		offset = oldOffset;
+		transform.position = target.position - offset;
+	}
+
 	IEnumerator changeFocus(Transform newTarget, float focusTime)
 	{
 		Transform oldTarget = target;
@@ -68,4 +88,5 @@ public class CameraSmoothFollow : MonoBehaviour {
 		yield return new WaitForSeconds(1.5f * focusTime);
 		cameraSpeed = 0.1f;
 	}
+		
 }

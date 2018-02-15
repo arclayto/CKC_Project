@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour {
 
     private Vector3 moveDirection;
     private int health;
+    private int healthBonus;
     private int equippedItem;
     private int beans;
     private bool invulnerable;
@@ -49,8 +50,14 @@ public class PlayerController : MonoBehaviour {
 		//hide the cursor
 		Cursor.visible = false;
 		canMove = true;
-
-        health = 2;
+        if(healthBonus == 0)
+        {
+            health = 2;
+        }
+        else
+        {
+            health = 2 + healthBonus;
+        }
         equippedItem = 0;
         beans = 0;
         isFloating = false;
@@ -478,6 +485,14 @@ public class PlayerController : MonoBehaviour {
             // Increment bean counter and destroy item when colliding with it
 			Destroy (other.gameObject);
 			beans++;
+			//beans = 50;
+			if(beans >= 50){
+				GameObject Beanstalk = GameObject.Find ("Beanstalk");
+				Animator BeanstalkAnim = Beanstalk.GetComponent<Animator> ();
+				GameObject Camera = GameObject.Find ("Main Camera");
+				Camera.GetComponent<CameraSmoothFollow> ().setInstantFocus(Beanstalk.transform, new Vector3(0, -6, 14));
+				BeanstalkAnim.SetTrigger ("Rise");
+			}
 
 			audioSource.pitch = (Random.Range(0.9f, 1.1f));
             audioSource.PlayOneShot(sfxBean, 1f);
@@ -603,6 +618,7 @@ public class PlayerController : MonoBehaviour {
 			//otherTornado.z = other.transform.position.z;
 			//moveDirection.z += other.transform.position.z * 10;
 			//moveDirection.x += other.transform.position.x * 10;
+            
 		}
 
         if (other.tag == "Lightning") {

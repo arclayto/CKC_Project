@@ -1,0 +1,294 @@
+fileFormatVersion: 2
+guid: 78d397e690930784e9564bb184ba906f
+timeCreated: 1517957345
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Beanstalk Leaf002
+    100004: Beanstalk Leaf003
+    100006: Beanstalk Leaf004
+    100008: Beanstalk Leaf005
+    100010: Beanstalk Leaf006
+    100012: Beanstalk Leaf007
+    100014: Beanstalk Leaf008
+    100016: Beanstalk Leaf009
+    100018: Beanstalk Leaf010
+    100020: Beanstalk Leaf011
+    100022: Beanstalk Leaf012
+    100024: Beanstalk Leaf013
+    100026: Beanstalk Leaf014
+    100028: Beanstalk Leaf015
+    100030: Beanstalk Leaf016
+    100032: Beanstalk Leaf017
+    100034: Beanstalk Leaf1
+    100036: Leaf Stem002
+    100038: Leaf Stem003
+    100040: Leaf Stem004
+    100042: Leaf Stem005
+    100044: Leaf Stem006
+    100046: Leaf Stem007
+    100048: Leaf Stem008
+    100050: Leaf Stem009
+    100052: Leaf Stem010
+    100054: Leaf Stem011
+    100056: Leaf Stem012
+    100058: Leaf Stem013
+    100060: Leaf Stem014
+    100062: Leaf Stem015
+    100064: Leaf Stem016
+    100066: Leaf Stem017
+    100068: Leaf Stem1
+    100070: Leaf002
+    100072: Leaf003
+    100074: Leaf004
+    100076: Leaf005
+    100078: Leaf006
+    100080: Leaf007
+    100082: Leaf008
+    100084: Leaf009
+    100086: Leaf010
+    100088: Leaf011
+    100090: Leaf012
+    100092: Leaf013
+    100094: Leaf014
+    100096: Leaf015
+    100098: Leaf016
+    100100: Leaf017
+    100102: Leaf1
+    100104: Stalk
+    400000: //RootNode
+    400002: Beanstalk Leaf002
+    400004: Beanstalk Leaf003
+    400006: Beanstalk Leaf004
+    400008: Beanstalk Leaf005
+    400010: Beanstalk Leaf006
+    400012: Beanstalk Leaf007
+    400014: Beanstalk Leaf008
+    400016: Beanstalk Leaf009
+    400018: Beanstalk Leaf010
+    400020: Beanstalk Leaf011
+    400022: Beanstalk Leaf012
+    400024: Beanstalk Leaf013
+    400026: Beanstalk Leaf014
+    400028: Beanstalk Leaf015
+    400030: Beanstalk Leaf016
+    400032: Beanstalk Leaf017
+    400034: Beanstalk Leaf1
+    400036: Leaf Stem002
+    400038: Leaf Stem003
+    400040: Leaf Stem004
+    400042: Leaf Stem005
+    400044: Leaf Stem006
+    400046: Leaf Stem007
+    400048: Leaf Stem008
+    400050: Leaf Stem009
+    400052: Leaf Stem010
+    400054: Leaf Stem011
+    400056: Leaf Stem012
+    400058: Leaf Stem013
+    400060: Leaf Stem014
+    400062: Leaf Stem015
+    400064: Leaf Stem016
+    400066: Leaf Stem017
+    400068: Leaf Stem1
+    400070: Leaf002
+    400072: Leaf003
+    400074: Leaf004
+    400076: Leaf005
+    400078: Leaf006
+    400080: Leaf007
+    400082: Leaf008
+    400084: Leaf009
+    400086: Leaf010
+    400088: Leaf011
+    400090: Leaf012
+    400092: Leaf013
+    400094: Leaf014
+    400096: Leaf015
+    400098: Leaf016
+    400100: Leaf017
+    400102: Leaf1
+    400104: Stalk
+    2300000: Leaf Stem002
+    2300002: Leaf Stem003
+    2300004: Leaf Stem004
+    2300006: Leaf Stem005
+    2300008: Leaf Stem006
+    2300010: Leaf Stem007
+    2300012: Leaf Stem008
+    2300014: Leaf Stem009
+    2300016: Leaf Stem010
+    2300018: Leaf Stem011
+    2300020: Leaf Stem012
+    2300022: Leaf Stem013
+    2300024: Leaf Stem014
+    2300026: Leaf Stem015
+    2300028: Leaf Stem016
+    2300030: Leaf Stem017
+    2300032: Leaf Stem1
+    2300034: Leaf002
+    2300036: Leaf003
+    2300038: Leaf004
+    2300040: Leaf005
+    2300042: Leaf006
+    2300044: Leaf007
+    2300046: Leaf008
+    2300048: Leaf009
+    2300050: Leaf010
+    2300052: Leaf011
+    2300054: Leaf012
+    2300056: Leaf013
+    2300058: Leaf014
+    2300060: Leaf015
+    2300062: Leaf016
+    2300064: Leaf017
+    2300066: Leaf1
+    2300068: Stalk
+    3300000: Leaf Stem002
+    3300002: Leaf Stem003
+    3300004: Leaf Stem004
+    3300006: Leaf Stem005
+    3300008: Leaf Stem006
+    3300010: Leaf Stem007
+    3300012: Leaf Stem008
+    3300014: Leaf Stem009
+    3300016: Leaf Stem010
+    3300018: Leaf Stem011
+    3300020: Leaf Stem012
+    3300022: Leaf Stem013
+    3300024: Leaf Stem014
+    3300026: Leaf Stem015
+    3300028: Leaf Stem016
+    3300030: Leaf Stem017
+    3300032: Leaf Stem1
+    3300034: Leaf002
+    3300036: Leaf003
+    3300038: Leaf004
+    3300040: Leaf005
+    3300042: Leaf006
+    3300044: Leaf007
+    3300046: Leaf008
+    3300048: Leaf009
+    3300050: Leaf010
+    3300052: Leaf011
+    3300054: Leaf012
+    3300056: Leaf013
+    3300058: Leaf014
+    3300060: Leaf015
+    3300062: Leaf016
+    3300064: Leaf017
+    3300066: Leaf1
+    3300068: Stalk
+    4300000: Stalk
+    4300002: Leaf015
+    4300004: Leaf Stem015
+    4300006: Leaf013
+    4300008: Leaf Stem013
+    4300010: Leaf017
+    4300012: Leaf Stem017
+    4300014: Leaf1
+    4300016: Leaf Stem1
+    4300018: Leaf009
+    4300020: Leaf Stem009
+    4300022: Leaf010
+    4300024: Leaf Stem010
+    4300026: Leaf012
+    4300028: Leaf Stem012
+    4300030: Leaf011
+    4300032: Leaf Stem011
+    4300034: Leaf014
+    4300036: Leaf Stem014
+    4300038: Leaf006
+    4300040: Leaf Stem006
+    4300042: Leaf004
+    4300044: Leaf Stem004
+    4300046: Leaf005
+    4300048: Leaf Stem005
+    4300050: Leaf007
+    4300052: Leaf Stem007
+    4300054: Leaf002
+    4300056: Leaf Stem002
+    4300058: Leaf008
+    4300060: Leaf Stem008
+    4300062: Leaf016
+    4300064: Leaf Stem016
+    4300066: Leaf003
+    4300068: Leaf Stem003
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
