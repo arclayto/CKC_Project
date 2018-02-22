@@ -23,7 +23,8 @@ public class PlayerController : MonoBehaviour {
 
     private Vector3 moveDirection;
     private int health;
-    private int healthBonus;
+    private static int healthBonus = 0;
+    private float restartTime = 1.0f;
     private int equippedItem;
     private int beans;
     private bool invulnerable;
@@ -50,14 +51,7 @@ public class PlayerController : MonoBehaviour {
 		//hide the cursor
 		Cursor.visible = false;
 		canMove = true;
-        if(healthBonus == 0)
-        {
-            health = 2;
-        }
-        else
-        {
-            health = 2 + healthBonus;
-        }
+        health = 2 + healthBonus;
         equippedItem = 0;
         beans = 0;
         isFloating = false;
@@ -76,7 +70,7 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
         // Flip player horizontally based on x direction
-      	if (canMove && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
+      	if (canMove && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumCry")) {
             if (Input.GetAxisRaw("Horizontal") > 0.0f) {
                 spriteRenderer.flipX = false;
             } else if (Input.GetAxisRaw("Horizontal") < 0.0f) {
@@ -100,14 +94,14 @@ public class PlayerController : MonoBehaviour {
             if (moveDirection.x == 0.0f && moveDirection.z == 0.0f) {
                 // Idle animation when not moving in x or z
                 if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumIdle") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")
-                	&& !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleAim") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleSwing")) {
+                	&& !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleAim") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleSwing") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumCry")) {
                     animator.Play("PlumIdle", -1, 0.0f);
                 }
             }
             else {
                 // Walk animation when moving in x and/or z
                 if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumWalk") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")
-                	&& !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleAim") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleSwing")) {
+                	&& !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleAim") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleSwing") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumCry")) {
                     animator.Play("PlumWalk", -1, 0.0f);
                 }
             }
@@ -124,20 +118,21 @@ public class PlayerController : MonoBehaviour {
             if (moveDirection.y > 1.0f) {
                 // Jump animation when moving up in y
                 if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumJump") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")
-                	&& !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleAim") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleSwing")) {
+                	&& !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleAim") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleSwing") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumCry")) {
                     animator.Play("PlumJump", -1, 0.0f);
                 }
             }
             else if (moveDirection.y < -1.0f) {
                 // Fall animation when moving down in y
                 if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumFall") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")
-                	&& !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleAim") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleSwing")) {
+                	&& !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleAim") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleSwing") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumCry")) {
                     animator.Play("PlumFall", -1, 0.0f);
                 }
             }
         }
 			
-        if (Input.GetButtonDown ("Jump") && controller.isGrounded && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleAim")) {
+        if (Input.GetButtonDown("Jump") && controller.isGrounded && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleAim")
+             && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumCry")) {
             // Jump if on ground
 			Jump();
 			//jumpCheck = true;
@@ -159,7 +154,7 @@ public class PlayerController : MonoBehaviour {
 			}
 		}
 
-        if (Input.GetButtonDown("Ability")) {
+        if (Input.GetButtonDown("Ability") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumCry")) {
             // Use ability
 			if (equippedItem == 1) {
 				if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey")) {
@@ -329,7 +324,9 @@ public class PlayerController : MonoBehaviour {
 		*/
 
 		if (canMove) {
-			controller.Move (moveDirection * Time.deltaTime);
+            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumCry")) {
+    			controller.Move (moveDirection * Time.deltaTime);
+            }
 
             animator.enabled = true;
 		} else {
@@ -345,16 +342,18 @@ public class PlayerController : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.tag == "Enemy") {
-            if (invulnerable == false && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
+            if (invulnerable == false && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumCry")) {
                 // Deal damage to player if not invulnerable and not spinning, then make the player invulnerable for a short time
                 if (health > 1) {
                     health--;
+                    StartCoroutine("InvulnerabilityTimer");
                 }
                 else {
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                    health--;
+                    animator.Play("PlumCry", -1, 0.0f);
+                    StartCoroutine("RestartTimer");
+                    //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 }
-
-                StartCoroutine("InvulnerabilityTimer");
             }
 
             // Ignore collision with enemy
@@ -374,16 +373,18 @@ public class PlayerController : MonoBehaviour {
 
     private void OnCollisionStay(Collision collision) {
         if (collision.gameObject.tag == "Enemy") {
-            if (invulnerable == false && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
+            if (invulnerable == false && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumCry")) {
                 // Deal damage to player if not invulnerable, then make the player invulnerable for a short time
                 if (health > 1) {
                     health--;
+                    StartCoroutine("InvulnerabilityTimer");
                 }
                 else {
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                    health--;
+                    animator.Play("PlumCry", -1, 0.0f);
+                    StartCoroutine("RestartTimer");
+                    //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 }
-
-                StartCoroutine("InvulnerabilityTimer");
             }
         }
 
@@ -472,9 +473,9 @@ public class PlayerController : MonoBehaviour {
 
         if (other.tag == "Healthup") {
             // Heal and destroy item when colliding with it
-			if (health < 2) {
+			if (health < (2 + healthBonus)) {
 				Destroy (other.gameObject);
-				health = 2;
+				health = 2 + healthBonus;
 
                 audioSource.pitch = (Random.Range(0.9f, 1.1f));
                 audioSource.PlayOneShot(sfxHeal, 0.3f);
@@ -503,6 +504,16 @@ public class PlayerController : MonoBehaviour {
 			beanFade = StartCoroutine(beanCount.GetComponent<HudBeans>().VisibilityTimer());
         }
 
+        if (other.tag == "HealthBonus") {
+            // Increase maximum health by 1 and destroy item when colliding with it
+            Destroy (other.gameObject);
+            healthBonus++;
+            health = 2 + healthBonus;
+
+            audioSource.pitch = (Random.Range(0.9f, 1.1f));
+            audioSource.PlayOneShot(sfxHeal, 0.3f);
+        }
+
         if (other.tag == "Tutorial") {
             // Change tutorial text to collider's string
             tutorialText.GetComponent<Text>().text = other.gameObject.GetComponent<TutorialTextController>().tutorialString;
@@ -518,29 +529,33 @@ public class PlayerController : MonoBehaviour {
         }
 
         if (other.tag == "Cactus") {
-            if (invulnerable == false) {
+            if (invulnerable == false && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumCry")) {
                 // Deal damage to player if not invulnerable and not spinning, then make the player invulnerable for a short time
                 if (health > 1) {
                     health--;
+                    StartCoroutine("InvulnerabilityTimer");
                 }
                 else {
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                    health--;
+                    animator.Play("PlumCry", -1, 0.0f);
+                    StartCoroutine("RestartTimer");
+                    //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 }
-
-                StartCoroutine("InvulnerabilityTimer");
             }
         }
 
-        if (other.tag == "Firespot") {
+        if (other.tag == "Firespot" && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumCry")) {
             if (invulnerable == false) {
                 // Deal damage to player if not invulnerable and not spinning, then make the player invulnerable for a short time
                 if (health > 1) {
                     health--;
+                    StartCoroutine("InvulnerabilityTimer");
                 } else {
-                    SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
+                    health--;
+                    animator.Play("PlumCry", -1, 0.0f);
+                    StartCoroutine("RestartTimer");
+                    //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 }
-
-                StartCoroutine ("InvulnerabilityTimer");
             } 
         }
 
@@ -554,16 +569,18 @@ public class PlayerController : MonoBehaviour {
 		}
 
         if (other.tag == "Lightning") {
-            if (invulnerable == false && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
+            if (invulnerable == false && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumCry")) {
                 // Deal damage to player if not invulnerable and not spinning, then make the player invulnerable for a short time
                 if (health > 1) {
                     health--;
+                    StartCoroutine("InvulnerabilityTimer");
                 }
                 else {
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                    health--;
+                    animator.Play("PlumCry", -1, 0.0f);
+                    StartCoroutine("RestartTimer");
+                    //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 }
-
-                StartCoroutine("InvulnerabilityTimer");
             }
         }
 
@@ -580,28 +597,32 @@ public class PlayerController : MonoBehaviour {
 
     private void OnTriggerStay(Collider other) {
     	if (other.tag == "Cactus") {
-			if (invulnerable == false) {
+			if (invulnerable == false && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumCry")) {
 				// Deal damage to player if not invulnerable and not spinning, then make the player invulnerable for a short time
 				if (health > 1) {
 					health--;
+                    StartCoroutine("InvulnerabilityTimer");
 				} else {
-					SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
+					health--;
+                    animator.Play("PlumCry", -1, 0.0f);
+                    StartCoroutine("RestartTimer");
+                    //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 				}
-
-				StartCoroutine ("InvulnerabilityTimer");
 			} 
         }
 
         if (other.tag == "Firespot") {
-            if (invulnerable == false) {
+            if (invulnerable == false && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumCry")) {
                 // Deal damage to player if not invulnerable and not spinning, then make the player invulnerable for a short time
                 if (health > 1) {
                     health--;
+                    StartCoroutine("InvulnerabilityTimer");
                 } else {
-                    SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
+                    health--;
+                    animator.Play("PlumCry", -1, 0.0f);
+                    StartCoroutine("RestartTimer");
+                    //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 }
-
-                StartCoroutine ("InvulnerabilityTimer");
             } 
         }
 	 	
@@ -622,16 +643,18 @@ public class PlayerController : MonoBehaviour {
 		}
 
         if (other.tag == "Lightning") {
-            if (invulnerable == false && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")) {
+            if (invulnerable == false && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumCry")) {
                 // Deal damage to player if not invulnerable and not spinning, then make the player invulnerable for a short time
                 if (health > 1) {
                     health--;
+                    StartCoroutine("InvulnerabilityTimer");
                 }
                 else {
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                    health--;
+                    animator.Play("PlumCry", -1, 0.0f);
+                    StartCoroutine("RestartTimer");
+                    //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 }
-
-                StartCoroutine("InvulnerabilityTimer");
             }
         }
 
@@ -703,5 +726,11 @@ public class PlayerController : MonoBehaviour {
         tmp = spriteRenderer.color;
         tmp.a = 1.0f;
         spriteRenderer.color = tmp;
+    }
+
+    IEnumerator RestartTimer() {
+        yield return new WaitForSeconds(invulnerableTime);
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

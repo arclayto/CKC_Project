@@ -27,6 +27,7 @@ TagManager:
   - Bubble
   - Teleporter
   - Firespot
+  - HealthBonus
   layers:
   - Default
   - TransparentFX

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: bdf7681b85944104ca1ff1a0cb727fe7
-timeCreated: 1511837293
+timeCreated: 1519339360
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -27,6 +27,9 @@ TextureImporter:
     21300040: plum_20
     21300042: plum_21
     21300044: plum_22
+    21300046: plum_23
+    21300048: plum_24
+  externalObjects: {}
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -80,20 +83,24 @@ TextureImporter:
   platformSettings:
   - buildTarget: DefaultTexturePlatform
     maxTextureSize: 8192
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    androidETC2FallbackOverride: 0
   - buildTarget: Standalone
     maxTextureSize: 8192
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -102,7 +109,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 3200
+        y: 3840
         width: 640
         height: 640
       alignment: 9
@@ -116,7 +123,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 640
-        y: 3200
+        y: 3840
         width: 640
         height: 640
       alignment: 9
@@ -130,7 +137,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 2560
+        y: 3200
         width: 640
         height: 640
       alignment: 9
@@ -144,7 +151,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 640
-        y: 2560
+        y: 3200
         width: 640
         height: 640
       alignment: 9
@@ -158,7 +165,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1280
-        y: 2560
+        y: 3200
         width: 640
         height: 640
       alignment: 9
@@ -172,7 +179,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1920
-        y: 2560
+        y: 3200
         width: 640
         height: 640
       alignment: 9
@@ -186,7 +193,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2560
-        y: 2560
+        y: 3200
         width: 640
         height: 640
       alignment: 9
@@ -200,7 +207,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3200
-        y: 2560
+        y: 3200
         width: 640
         height: 640
       alignment: 9
@@ -214,7 +221,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1920
+        y: 2560
         width: 640
         height: 640
       alignment: 9
@@ -228,7 +235,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 640
-        y: 1920
+        y: 2560
         width: 640
         height: 640
       alignment: 9
@@ -242,7 +249,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1280
-        y: 1920
+        y: 2560
         width: 640
         height: 640
       alignment: 9
@@ -256,7 +263,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1920
-        y: 1920
+        y: 2560
         width: 640
         height: 640
       alignment: 9
@@ -270,7 +277,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2560
-        y: 1920
+        y: 2560
         width: 640
         height: 640
       alignment: 9
@@ -284,7 +291,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1280
+        y: 1920
         width: 640
         height: 640
       alignment: 9
@@ -298,7 +305,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 640
-        y: 1280
+        y: 1920
         width: 640
         height: 640
       alignment: 9
@@ -312,7 +319,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1280
-        y: 1280
+        y: 1920
         width: 640
         height: 640
       alignment: 9
@@ -326,7 +333,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1920
-        y: 1280
+        y: 1920
         width: 640
         height: 640
       alignment: 9
@@ -340,7 +347,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 640
+        y: 1280
         width: 640
         height: 640
       alignment: 9
@@ -354,7 +361,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 640
-        y: 640
+        y: 1280
         width: 640
         height: 640
       alignment: 9
@@ -368,7 +375,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 640
         width: 640
         height: 640
       alignment: 9
@@ -382,7 +389,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 640
-        y: 0
+        y: 640
         width: 640
         height: 640
       alignment: 9
@@ -396,7 +403,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1280
-        y: 0
+        y: 640
         width: 640
         height: 640
       alignment: 9
@@ -410,6 +417,34 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1920
+        y: 640
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.49, y: 0.52}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plum_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.49, y: 0.52}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plum_24
+      rect:
+        serializedVersion: 2
+        x: 640
         y: 0
         width: 640
         height: 640
