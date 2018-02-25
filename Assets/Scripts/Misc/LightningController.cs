@@ -46,7 +46,7 @@ public class LightningController : MonoBehaviour {
         float delay = 0.5f;
         while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.9f) {
             target.GetComponent<AudioSource>().pitch = (Random.Range(0.9f, 1.1f));
-            target.GetComponent<AudioSource>().PlayOneShot(sfxSpark, 0.5f);
+            target.GetComponent<AudioSource>().PlayOneShot(sfxSpark, 0.25f);
             yield return new WaitForSeconds(delay);
             delay -= 0.05f;
             if (delay < 0.15f) {delay = 0.15f;}

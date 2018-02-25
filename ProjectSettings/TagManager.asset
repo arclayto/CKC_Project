@@ -28,6 +28,7 @@ TagManager:
   - Teleporter
   - Firespot
   - HealthBonus
+  - Night
   layers:
   - Default
   - TransparentFX

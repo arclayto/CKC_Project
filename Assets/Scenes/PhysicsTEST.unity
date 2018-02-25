@@ -4121,11 +4121,6 @@ Prefab:
       propertyPath: tutorialText
       value: 
       objectReference: {fileID: 422257217}
-    - target: {fileID: 119613309436506460, guid: e9eec65b9d77c4e438da375c623c76d2,
-        type: 2}
-      propertyPath: m_Orthographic
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e9eec65b9d77c4e438da375c623c76d2, type: 2}
   m_IsPrefabParent: 0
@@ -5566,17 +5561,7 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114531025353600668, guid: 1ba6d7fbfe8908a4a9ff0cc1324adad0,
-        type: 2}
-      propertyPath: playerScript
-      value: 
-      objectReference: {fileID: 787980227}
-    - target: {fileID: 114211669872383452, guid: 1ba6d7fbfe8908a4a9ff0cc1324adad0,
-        type: 2}
-      propertyPath: playerScript
-      value: 
-      objectReference: {fileID: 787980227}
-    - target: {fileID: 114106226370843390, guid: 1ba6d7fbfe8908a4a9ff0cc1324adad0,
+    - target: {fileID: 114187317733356978, guid: 1ba6d7fbfe8908a4a9ff0cc1324adad0,
         type: 2}
       propertyPath: playerScript
       value: 
@@ -5586,7 +5571,17 @@ Prefab:
       propertyPath: playerScript
       value: 
       objectReference: {fileID: 787980227}
-    - target: {fileID: 114187317733356978, guid: 1ba6d7fbfe8908a4a9ff0cc1324adad0,
+    - target: {fileID: 114106226370843390, guid: 1ba6d7fbfe8908a4a9ff0cc1324adad0,
+        type: 2}
+      propertyPath: playerScript
+      value: 
+      objectReference: {fileID: 787980227}
+    - target: {fileID: 114211669872383452, guid: 1ba6d7fbfe8908a4a9ff0cc1324adad0,
+        type: 2}
+      propertyPath: playerScript
+      value: 
+      objectReference: {fileID: 787980227}
+    - target: {fileID: 114531025353600668, guid: 1ba6d7fbfe8908a4a9ff0cc1324adad0,
         type: 2}
       propertyPath: playerScript
       value: 
