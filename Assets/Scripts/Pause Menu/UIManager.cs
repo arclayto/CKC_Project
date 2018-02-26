@@ -19,7 +19,7 @@ public class UIManager : MonoBehaviour {
 	void ScanForKeyStroke()
 	{
 		if (Input.GetButtonDown ("Pause")) {
-			GM.TogglePauseMenu ();
+			//GM.TogglePauseMenu ();
 		} else if (Input.GetButtonDown ("Quit")) {
 			if (GM.getIsPaused () == 1) {
 				GM.QuitToTitle (2);

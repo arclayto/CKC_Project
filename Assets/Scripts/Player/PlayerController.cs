@@ -122,8 +122,8 @@ public class PlayerController : MonoBehaviour {
 		if (!controller.isGrounded) {
             if (moveDirection.y > 1.0f) {
                 // Jump animation when moving up in y
-                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumJump") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock")
-                	&& !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleAim") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleSwing") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumCry")) {
+                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumJump") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumKey") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleAim")
+                     && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleSwing") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumCry")) {
                     animator.Play("PlumJump", -1, 0.0f);
                 }
             }
@@ -136,8 +136,7 @@ public class PlayerController : MonoBehaviour {
             }
         }
 			
-        if (Input.GetButtonDown("Jump") && controller.isGrounded && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleAim")
-             && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumCry")) {
+        if (Input.GetButtonDown("Jump") && controller.isGrounded && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleAim") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumCry")) {
             // Jump if on ground
 			Jump();
 		} 
@@ -176,6 +175,15 @@ public class PlayerController : MonoBehaviour {
             else if (equippedItem == 3) {
                 if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleAim") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBubbleSwing") && canBubblewand) {
                     animator.Play("PlumBubbleAim", -1, 0.0f);
+                }
+            }
+        }
+
+        if (Input.GetButton("Ability")) {
+            // Use ability
+            if (equippedItem == 2) {
+                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumBlock") && controller.isGrounded) {
+                    animator.Play ("PlumBlock", -1, 0.0f);
                 }
             }
         }
