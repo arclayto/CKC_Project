@@ -29,6 +29,7 @@ TagManager:
   - Firespot
   - HealthBonus
   - Night
+  - Gem
   layers:
   - Default
   - TransparentFX

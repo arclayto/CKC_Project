@@ -84,7 +84,6 @@ public class PlayerController : MonoBehaviour {
         }
 
 		moveDirection = new Vector3(Input.GetAxis("Horizontal") * movementSpeed, moveDirection.y, Input.GetAxis("Vertical") * movementSpeed);
-        Debug.Log(new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical")));
 
 		//broken code for tornados, just leave it for now
 		/*if (inTornado == true) {
@@ -478,10 +477,11 @@ public class PlayerController : MonoBehaviour {
 
         if (other.tag == "Bean") {
             // Increment bean counter and destroy item when colliding with it
+            HudBeans hudBeans = beanCount.GetComponent<HudBeans>();
 			Destroy (other.gameObject);
 			beans++;
 			//beans = 50;
-			if(beans >= 50){
+			if (beans >= hudBeans.beansTotal){
 				GameObject Beanstalk = GameObject.Find ("Beanstalk");
 				Animator BeanstalkAnim = Beanstalk.GetComponent<Animator> ();
 				GameObject Camera = GameObject.Find ("Main Camera");
@@ -495,7 +495,7 @@ public class PlayerController : MonoBehaviour {
 			if (beanFade != null) {
 				StopCoroutine(beanFade);
 			}
-			beanFade = StartCoroutine(beanCount.GetComponent<HudBeans>().VisibilityTimer());
+			beanFade = StartCoroutine(hudBeans.VisibilityTimer());
         }
 
         if (other.tag == "HealthBonus") {
@@ -558,6 +558,11 @@ public class PlayerController : MonoBehaviour {
                 moveDirection.y = jumpForce;
                 Destroy (other.gameObject);
             }
+        }
+
+        if (other.tag == "Gem") {
+        	other.gameObject.GetComponent<GemController>().bossDoor.gems++;
+            Destroy (other.gameObject);
         }
     }
 
@@ -640,8 +645,10 @@ public class PlayerController : MonoBehaviour {
 	public void Jump() {
 		moveDirection.y = jumpForce;
 
-        audioSource.pitch = (Random.Range(0.9f, 1.1f));
-        audioSource.PlayOneShot(sfxJump, 1.5f);
+		if (canMove) {
+	        audioSource.pitch = (Random.Range(0.9f, 1.1f));
+	        audioSource.PlayOneShot(sfxJump, 1.5f);
+	    }
 	}
 
 	public void ShortenJump() {
