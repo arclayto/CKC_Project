@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour {
 	public GameObject beanCount;
     public GameObject tutorialText;
     public AudioClip sfxJump;
+    public AudioClip sfxHurt;
     public AudioClip sfxHeal;
     public AudioClip sfxBean;
     public AudioClip sfxKeyswing;
@@ -647,7 +648,7 @@ public class PlayerController : MonoBehaviour {
 
 		if (canMove) {
 	        audioSource.pitch = (Random.Range(0.9f, 1.1f));
-	        audioSource.PlayOneShot(sfxJump, 1.5f);
+	        audioSource.PlayOneShot(sfxJump, 2.0f);
 	    }
 	}
 
@@ -675,6 +676,9 @@ public class PlayerController : MonoBehaviour {
             animator.Play("PlumCry", -1, 0.0f);
             StartCoroutine("RestartTimer");
         }
+
+        audioSource.pitch = (Random.Range(0.9f, 1.1f));
+        audioSource.PlayOneShot(sfxHurt, 1.5f);
     }
 
     IEnumerator InvulnerabilityTimer() {
