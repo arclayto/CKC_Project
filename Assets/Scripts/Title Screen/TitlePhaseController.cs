@@ -60,6 +60,8 @@ public class TitlePhaseController : MonoBehaviour {
 
 		//bool isAnimating = false;
 
+		RenderSettings.skybox.SetFloat ("_Rotation", Time.time * 2f);
+
 		if (leftPress == true && moveStatus == 0 && canPress == true) {
 			currentPhase -= 1;
 			moveStatus = -1;
