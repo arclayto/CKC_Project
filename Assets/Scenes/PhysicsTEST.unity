@@ -1561,36 +1561,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b9025ec4aced31946be93758acccc20d, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &661780189 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1149707610580088, guid: e8912587a5555c747af3a481115dc6e0,
-    type: 2}
-  m_PrefabInternal: {fileID: 337073361}
---- !u!114 &661780193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 661780189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94ecf4a61d0f4ff4d98cb176e8cb6a34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleportCoordinates: {x: 1, y: 250, z: 100}
---- !u!136 &661780194
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 661780189}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.8724731
-  m_Height: 6.023178
-  m_Direction: 1
-  m_Center: {x: 0.044033766, y: 1.9191418, z: -0.32843935}
 --- !u!1001 &675438207
 Prefab:
   m_ObjectHideFlags: 0
