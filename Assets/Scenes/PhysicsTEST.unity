@@ -789,7 +789,7 @@ Prefab:
     - target: {fileID: 54355404913796790, guid: 8010cada068d59449b3b86cef91e04f7,
         type: 2}
       propertyPath: m_Constraints
-      value: 116
+      value: 112
       objectReference: {fileID: 0}
     - target: {fileID: 114908774015197078, guid: 8010cada068d59449b3b86cef91e04f7,
         type: 2}
@@ -5472,7 +5472,7 @@ Prefab:
     - target: {fileID: 54355404913796790, guid: 8010cada068d59449b3b86cef91e04f7,
         type: 2}
       propertyPath: m_Constraints
-      value: 116
+      value: 112
       objectReference: {fileID: 0}
     - target: {fileID: 114908774015197078, guid: 8010cada068d59449b3b86cef91e04f7,
         type: 2}

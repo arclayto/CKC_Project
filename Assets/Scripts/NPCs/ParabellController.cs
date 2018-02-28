@@ -6,6 +6,7 @@ public class ParabellController : MonoBehaviour {
 
     public float maxSpeed;
     public float gravityForce;
+    public float swoopTime;
     public float aggroRange;
     public float maxAggroRange;
     public GameObject target;
@@ -14,6 +15,8 @@ public class ParabellController : MonoBehaviour {
     private Vector3 moveDirection;
     private bool aggro;
     private Vector3 velocity;
+    private bool canSwoop;
+    private Vector3 startPosition;
     Rigidbody rb;
     SpriteRenderer spriteRenderer;
     Animator animator;
@@ -21,10 +24,13 @@ public class ParabellController : MonoBehaviour {
 
     void Start() {
         aggro = false;
+        canSwoop = true;
 
         rb = GetComponent<Rigidbody>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+
+        startPosition = transform.position;
     }
 
     void FixedUpdate() {
@@ -53,19 +59,29 @@ public class ParabellController : MonoBehaviour {
             aggro = false;
         }
 
-        if (aggro) {
+        if (aggro && canSwoop) {
             // Move towards player when in aggro range
-            rb.AddForce(new Vector3(velocity.x, rb.velocity.y, velocity.z), ForceMode.Force);
+            rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
+            rb.AddForce(new Vector3(velocity.x * 2, -4.0f, velocity.z * 2), ForceMode.Impulse);
+            canSwoop = false;
+            StartCoroutine("SwoopTimer");
         }
 
-        // Idle & Walk animation aggro
+        // Return to starting height
+        if (transform.position.y < startPosition.y) {
+            rb.AddForce(new Vector3(0.0f, 3.5f, 0.0f), ForceMode.Force);
+        } else {
+            rb.velocity = new Vector3(rb.velocity.x, 0.0f, rb.velocity.z);
+        }
+
+        // Idle & Fly animation aggro
         if (aggro == false) {
             // Idle animation when not aggro'd, standing around
             if (!animator.GetCurrentAnimatorStateInfo(0).IsName("ParabellIdle")) {
                 animator.Play("ParabellIdle", -1, 0.0f);
             }
         } else {
-            // Walk animation when aggro'd, chasing player
+            // Fly animation when aggro'd, chasing player
             if (!animator.GetCurrentAnimatorStateInfo(0).IsName("ParabellFly")) {
                 animator.Play("ParabellFly", -1, 0.0f);
             }
@@ -139,5 +155,11 @@ public class ParabellController : MonoBehaviour {
 
         target.GetComponent<AudioSource>().pitch = (Random.Range(0.9f, 1.1f));
         target.GetComponent<AudioSource>().PlayOneShot(sfxDefeat, 1f);
+    }
+
+    IEnumerator SwoopTimer() {
+        yield return new WaitForSeconds(swoopTime);
+
+        canSwoop = true;
     }
 }
