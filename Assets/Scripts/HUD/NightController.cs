@@ -7,13 +7,22 @@ public class NightController : MonoBehaviour {
 	public float nightAlpha;
 	public float fadeTime;
 	public bool isNight;
+	public float nightThreshold;
 
+	private float time;
 	CanvasGroup canvasGroup;
 	IEnumerator coroutine;
 
 	void Start() {
 		canvasGroup = GetComponent<CanvasGroup>();
 		isNight = false;
+		time = 0;
+
+		if (nightThreshold == 0) {
+			nightThreshold = 90f;
+		}
+
+		InvokeRepeating ("Timer", 1.0f, 1.0f);
 	}
 
 	void Update() {
@@ -39,6 +48,15 @@ public class NightController : MonoBehaviour {
 		}
 	}
 
+	void Timer(){
+		time++;
+		if (time == nightThreshold) {
+			isNight = true;
+			coroutine = FadeNight ();
+			StartCoroutine (coroutine);
+		}
+	}
+		
 	IEnumerator FadeNight() {
 		while (canvasGroup.alpha < nightAlpha) {
 			canvasGroup.alpha = Mathf.Lerp(canvasGroup.alpha, nightAlpha, fadeTime);
