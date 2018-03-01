@@ -505,9 +505,11 @@ public class PlayerController : MonoBehaviour {
         if (other.tag == "HealthBonus") {
             // Increase maximum health by 1 and destroy item when colliding with it
             Destroy (other.gameObject);
+            HealthBonusController healthBonusController = other.GetComponent<HealthBonusController>();
 
-            if (other.GetComponent<HealthBonusController>().alreadyObtained == false) {
+            if (healthBonusController.alreadyObtained == false) {
 	            healthBonus++;
+                HealthBonusController.obtainedBonuses[healthBonusController.stageIndex] = true;
             }
             health = 2 + healthBonus;
 
@@ -542,6 +544,8 @@ public class PlayerController : MonoBehaviour {
 				GameObject smoke = (GameObject)Instantiate(Resources.Load("Smoke"));
 				smoke.transform.position = transform.position;
 				smoke.transform.localScale = new Vector3(2f, 2f, 2f);
+
+                health = 2 + healthBonus;
             } else {
 	            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	        }
@@ -747,6 +751,9 @@ public class PlayerController : MonoBehaviour {
 			GameObject smoke = (GameObject)Instantiate(Resources.Load("Smoke"));
 			smoke.transform.position = transform.position;
 			smoke.transform.localScale = new Vector3(2f, 2f, 2f);
+
+            health = 2 + healthBonus;
+            animator.Play("PlumIdle", -1, 0.0f);
         } else {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
