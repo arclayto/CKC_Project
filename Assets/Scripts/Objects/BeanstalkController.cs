@@ -8,25 +8,27 @@ public class BeanstalkController : MonoBehaviour {
 
 	private GameObject player;
 	private PlayerController playerController;
+	private bool canTeleport;
 
-	// Use this for initialization
 	void Start () {
-		//player = GameObject.Find ("Player");
-		//playerController = player.GetComponent<PlayerController>;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+		player = GameObject.Find ("Player");
+		playerController = player.GetComponent<PlayerController>();
+
+		canTeleport = true;
 	}
 
 	void OnTriggerEnter(Collider other) {
 		if (teleportCoordinates == Vector3.zero) {
 			return;
 		}
-		else if (other.gameObject.tag == "Player") {
+		else if (other.gameObject.tag == "Player" && canTeleport) {
+			// Return point when player goes to bonus stage
+			playerController.returnPosition = other.gameObject.transform.position;
+
 			// Teleport player to specified coordinates
+			playerController.retryPosition = teleportCoordinates;
 			other.gameObject.transform.position = teleportCoordinates;
+			playerController.inBonus = true;
 
 			Vector3 cameraCoordinates = teleportCoordinates;
 			CameraSmoothFollow cam = Camera.main.GetComponent<CameraSmoothFollow>();
@@ -38,7 +40,9 @@ public class BeanstalkController : MonoBehaviour {
 
 			GameObject smoke = (GameObject)Instantiate(Resources.Load("Smoke"));
 			smoke.transform.position = other.gameObject.transform.position;
-			smoke.transform.localScale = new Vector3(2f, 2f, 2f); 
+			smoke.transform.localScale = new Vector3(2f, 2f, 2f);
+
+			canTeleport = false;
 		}
 	}
 }

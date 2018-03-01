@@ -22,10 +22,13 @@ public class PlayerController : MonoBehaviour {
     public AudioClip sfxKeyswing;
     public AudioClip sfxUmbrella;
     public AudioClip sfxTornado;
+    public Vector3 returnPosition;
+    public Vector3 retryPosition;
+    public bool inBonus;
 
     private Vector3 moveDirection;
     private int health;
-    private static int healthBonus = 0;
+    public static int healthBonus = 0;
     private float restartTime = 1.0f;
     private int equippedItem;
     private int beans;
@@ -502,11 +505,16 @@ public class PlayerController : MonoBehaviour {
         if (other.tag == "HealthBonus") {
             // Increase maximum health by 1 and destroy item when colliding with it
             Destroy (other.gameObject);
-            healthBonus++;
+
+            if (other.GetComponent<HealthBonusController>().alreadyObtained == false) {
+	            healthBonus++;
+            }
             health = 2 + healthBonus;
 
             audioSource.pitch = (Random.Range(0.9f, 1.1f));
             audioSource.PlayOneShot(sfxHeal, 0.3f);
+
+            StartCoroutine("ReturnTimer");
         }
 
         if (other.tag == "Tutorial") {
@@ -520,7 +528,23 @@ public class PlayerController : MonoBehaviour {
 
         if (other.tag == "Kill Zone") {
             // Restart the scene when colliding with a kill zone
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            if (inBonus) {
+            	transform.position = retryPosition;
+
+				Vector3 cameraCoordinates = retryPosition;
+				CameraSmoothFollow cam = Camera.main.GetComponent<CameraSmoothFollow>();
+				cameraCoordinates.x -= cam.offset.x;
+				cameraCoordinates.y -= cam.offset.y;
+				cameraCoordinates.z -= cam.offset.z;
+				Camera.main.transform.position = cameraCoordinates;
+				//Debug.Log(Camera.main.transform.position);
+
+				GameObject smoke = (GameObject)Instantiate(Resources.Load("Smoke"));
+				smoke.transform.position = transform.position;
+				smoke.transform.localScale = new Vector3(2f, 2f, 2f);
+            } else {
+	            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+	        }
         }
 
         if (other.tag == "Cactus") {
@@ -652,6 +676,15 @@ public class PlayerController : MonoBehaviour {
 	    }
 	}
 
+	public void Bounce() {
+		moveDirection.y = jumpForce + 2.5f;
+
+		if (canMove) {
+	        audioSource.pitch = (Random.Range(0.9f, 1.1f));
+	        audioSource.PlayOneShot(sfxJump, 2.0f);
+	    }
+	}
+
 	public void ShortenJump() {
 		moveDirection.y /= 1.5f;
 	}
@@ -700,6 +733,42 @@ public class PlayerController : MonoBehaviour {
     IEnumerator RestartTimer() {
         yield return new WaitForSeconds(invulnerableTime);
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if (inBonus) {
+        	transform.position = retryPosition;
+
+			Vector3 cameraCoordinates = retryPosition;
+			CameraSmoothFollow cam = Camera.main.GetComponent<CameraSmoothFollow>();
+			cameraCoordinates.x -= cam.offset.x;
+			cameraCoordinates.y -= cam.offset.y;
+			cameraCoordinates.z -= cam.offset.z;
+			Camera.main.transform.position = cameraCoordinates;
+			//Debug.Log(Camera.main.transform.position);
+
+			GameObject smoke = (GameObject)Instantiate(Resources.Load("Smoke"));
+			smoke.transform.position = transform.position;
+			smoke.transform.localScale = new Vector3(2f, 2f, 2f);
+        } else {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
+
+    IEnumerator ReturnTimer() {
+        yield return new WaitForSeconds(invulnerableTime);
+
+        transform.position = returnPosition;
+
+		Vector3 cameraCoordinates = returnPosition;
+		CameraSmoothFollow cam = Camera.main.GetComponent<CameraSmoothFollow>();
+		cameraCoordinates.x -= cam.offset.x;
+		cameraCoordinates.y -= cam.offset.y;
+		cameraCoordinates.z -= cam.offset.z;
+		Camera.main.transform.position = cameraCoordinates;
+		//Debug.Log(Camera.main.transform.position);
+
+		GameObject smoke = (GameObject)Instantiate(Resources.Load("Smoke"));
+		smoke.transform.position = transform.position;
+		smoke.transform.localScale = new Vector3(2f, 2f, 2f);
+
+		inBonus = false;
     }
 }
