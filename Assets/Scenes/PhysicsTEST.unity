@@ -2474,56 +2474,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1749336757424854, guid: e9eec65b9d77c4e438da375c623c76d2,
     type: 2}
   m_PrefabInternal: {fileID: 1631679997}
---- !u!108 &590045472
-Light:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 590045466}
-  m_Enabled: 1
-  serializedVersion: 8
-  m_Type: 2
-  m_Color: {r: 1, g: 1, b: 0.597, a: 1}
-  m_Intensity: 0
-  m_Range: 10
-  m_SpotAngle: 30
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 1
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Lightmapping: 4
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_FalloffTable:
-    m_Table[0]: 0
-    m_Table[1]: 0
-    m_Table[2]: 0
-    m_Table[3]: 0
-    m_Table[4]: 0
-    m_Table[5]: 0
-    m_Table[6]: 0
-    m_Table[7]: 0
-    m_Table[8]: 0
-    m_Table[9]: 0
-    m_Table[10]: 0
-    m_Table[11]: 0
-    m_Table[12]: 0
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
 --- !u!1 &620821609
 GameObject:
   m_ObjectHideFlags: 0
@@ -3524,7 +3474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 526a4b4531da2d544bb40d8ecac1b706, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxBonus: 0
+  stageIndex: 0
   alreadyObtained: 0
 --- !u!1 &841095806 stripped
 GameObject:
@@ -7361,11 +7311,6 @@ Prefab:
       propertyPath: tutorialText
       value: 
       objectReference: {fileID: 422257217}
-    - target: {fileID: 114155902896333684, guid: e9eec65b9d77c4e438da375c623c76d2,
-        type: 2}
-      propertyPath: sfxHurt
-      value: 
-      objectReference: {fileID: 8300000, guid: 87a87f67ac04ac24a8142e5320f9a623, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e9eec65b9d77c4e438da375c623c76d2, type: 2}
   m_IsPrefabParent: 0
