@@ -24,6 +24,8 @@ public class CameraSmoothFollow : MonoBehaviour {
 			transform.LookAt (target);
 		}
 
+		GetComponent<Skybox> ().material.SetFloat ("_Blend", 0);
+
 		cameraSpeed = 0.1f;
 	}
 
