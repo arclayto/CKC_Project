@@ -11,6 +11,7 @@ public class NightController : MonoBehaviour {
 
 	private float time;
 	private Color nightColor;
+	private Color dayColor;
 	CanvasGroup canvasGroup;
 	IEnumerator coroutine;
 
@@ -64,8 +65,8 @@ public class NightController : MonoBehaviour {
 			canvasGroup.alpha = Mathf.Lerp(canvasGroup.alpha, nightAlpha, fadeTime);
 			yield return new WaitForEndOfFrame();
 		}*/
-		Color spriteHue = new Vector4 (220f, 220f, 220f, 1);
 
+		Color spriteHue = new Vector4 (220f, 220f, 220f, 1);
 		GameObject player = GameObject.Find ("Player");
 		Skybox cSkybox = GameObject.Find ("Main Camera").GetComponent<Skybox>();
 
