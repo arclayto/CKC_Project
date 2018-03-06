@@ -485,7 +485,7 @@ public class PlayerController : MonoBehaviour {
 			Destroy (other.gameObject);
 			beans++;
 			//beans = 50;
-			if (beans >= hudBeans.beansTotal){
+			if (beans == hudBeans.beansTotal){
 				GameObject Beanstalk = GameObject.Find ("Beanstalk");
 				Animator BeanstalkAnim = Beanstalk.GetComponent<Animator> ();
 				GameObject Camera = GameObject.Find ("Main Camera");
@@ -501,6 +501,28 @@ public class PlayerController : MonoBehaviour {
 			}
 			beanFade = StartCoroutine(hudBeans.VisibilityTimer());
         }
+
+		if (other.tag == "Bean50") {
+
+			HudBeans hudBeans = beanCount.GetComponent<HudBeans>();
+			beans = hudBeans.beansTotal;
+			Destroy (other.gameObject);
+
+			GameObject Beanstalk = GameObject.Find ("Beanstalk");
+			Animator BeanstalkAnim = Beanstalk.GetComponent<Animator> ();
+			GameObject Camera = GameObject.Find ("Main Camera");
+			Camera.GetComponent<CameraSmoothFollow> ().setInstantFocus(Beanstalk.transform, new Vector3(0, -6, 14));
+			BeanstalkAnim.SetTrigger ("Rise");
+
+
+			audioSource.pitch = (Random.Range(0.9f, 1.1f));
+			audioSource.PlayOneShot(sfxBean, 1f);
+
+			if (beanFade != null) {
+				StopCoroutine(beanFade);
+			}
+			beanFade = StartCoroutine(hudBeans.VisibilityTimer());
+		}
 
         if (other.tag == "HealthBonus") {
             // Increase maximum health by 1 and destroy item when colliding with it
