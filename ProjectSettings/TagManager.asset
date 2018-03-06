@@ -30,6 +30,7 @@ TagManager:
   - HealthBonus
   - Night
   - Gem
+  - Bean50
   layers:
   - Default
   - TransparentFX
