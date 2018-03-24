@@ -148,6 +148,16 @@ public class FirebugController : MonoBehaviour {
             // Enemy hit by cactus, destroy
             Destroy(gameObject);
         }
+
+        if (other.tag == "Gumball") {
+            if (other.transform.parent.gameObject.GetComponent<Rigidbody>().velocity.magnitude > 0.0f) {
+                // Create smoke effect
+                MakeSmoke();
+
+                // Enemy hit by key attack, destroy
+                Destroy(gameObject);
+            }
+        }
     }
 
     public void MakeSmoke() {

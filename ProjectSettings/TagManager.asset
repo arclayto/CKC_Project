@@ -32,6 +32,7 @@ TagManager:
   - Gem
   - Bean50
   - GumballSwitch
+  - Gumball
   layers:
   - Default
   - TransparentFX
