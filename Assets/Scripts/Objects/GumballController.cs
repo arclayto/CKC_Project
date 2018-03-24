@@ -28,6 +28,15 @@ public class GumballController : MonoBehaviour {
 			rb.isKinematic = true;
 			Debug.Log("Stop!");
         }
+
+        if (other.gameObject.tag == "GumballSwitch") {
+        	GumballSwitchController gumballSwitch = other.gameObject.GetComponent<GumballSwitchController>();
+        	if (gumballSwitch.isActivated == false) {
+        		other.transform.Translate(0.0f, -0.19f, 0.0f);
+        		gumballSwitch.isActivated = true;
+        		gumballSwitch.ActivateTarget();
+        	}
+        }
     }
 
 	private void OnTriggerEnter(Collider other) {
