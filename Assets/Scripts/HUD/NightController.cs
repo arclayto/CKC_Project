@@ -8,8 +8,8 @@ public class NightController : MonoBehaviour {
 	public float fadeTime;
 	public bool isNight;
 	public float nightThreshold;
-
-	private float time;
+	public float time;
+	
 	private Color nightColor;
 	private Color dayColor;
 	CanvasGroup canvasGroup;

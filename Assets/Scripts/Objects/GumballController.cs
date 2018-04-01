@@ -4,29 +4,34 @@ using UnityEngine;
 
 public class GumballController : MonoBehaviour {
 
+	public AudioClip sfxBumper;
+
+    Vector3 startPosition;
 	Rigidbody rb;
+	AudioSource audioSource;
 	GameObject player;
 
 	void Start() {
 		rb = GetComponent<Rigidbody>();
+		audioSource = GetComponent<AudioSource>();
 		player = GameObject.FindWithTag("Player");
 		Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>());
 		Physics.IgnoreCollision(gameObject.transform.GetChild(0).gameObject.GetComponent<Collider>(), GetComponent<Collider>());
+
+        startPosition = transform.position;
 	}
 
 	void FixedUpdate() {
 		if (rb.velocity.magnitude <= 0.1f && rb.velocity.magnitude > 0.0f) {
 			rb.velocity = Vector3.zero;
 			rb.isKinematic = true;
-			Debug.Log("Stop!");
 		}
 	}
 
 	private void OnCollisionEnter(Collision other) {
-        if (other.gameObject.tag == "Player" && rb.velocity.magnitude <= 0.5f) {
+        if (other.gameObject.tag == "Player" && rb.velocity.magnitude <= 4.0f) {
             rb.velocity = Vector3.zero;
 			rb.isKinematic = true;
-			Debug.Log("Stop!");
         }
 
         if (other.gameObject.tag == "GumballSwitch") {
@@ -37,6 +42,16 @@ public class GumballController : MonoBehaviour {
         		gumballSwitch.ActivateTarget();
         	}
         }
+
+        if (other.gameObject.tag == "Bumper") {
+            rb.isKinematic = false;
+            Vector3 dir = (transform.position - other.transform.position).normalized;
+            dir.y = 0.0f;
+            rb.AddForce(dir * 10.0f, ForceMode.Impulse);
+
+            audioSource.pitch = (Random.Range(0.9f, 1.1f));
+            audioSource.PlayOneShot(sfxBumper, 1f);
+        }
     }
 
 	private void OnTriggerEnter(Collider other) {
@@ -45,7 +60,10 @@ public class GumballController : MonoBehaviour {
             Vector3 dir = (transform.position - other.transform.position).normalized;
             dir.y = 0.0f;
             rb.AddForce(dir * 7.5f, ForceMode.Impulse);
-            Debug.Log("Hit!");
+        }
+
+        if (other.gameObject.tag == "Kill Zone") {
+            transform.position = startPosition;
         }
     }
 }

@@ -33,6 +33,7 @@ TagManager:
   - Bean50
   - GumballSwitch
   - Gumball
+  - Bumper
   layers:
   - Default
   - TransparentFX
