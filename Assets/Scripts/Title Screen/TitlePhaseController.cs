@@ -91,7 +91,7 @@ public class TitlePhaseController : MonoBehaviour {
 			if (moveOn == 1) {GetComponent<LevelLoadTrigger>().initiateLoad("Temple"); moveOn = 2;}
 				break;
 		case 2: mAngle =  2 * (Mathf.PI / 3); mangleText.text = mAngle.ToString () + "\n2/3";
-			if (moveOn == 1) {GetComponent<LevelLoadTrigger>().initiateLoad("TitleScreen"); moveOn = 2;}
+			if (moveOn == 1) {GetComponent<LevelLoadTrigger>().initiateLoad("Candyland"); moveOn = 2;}
 				break;
 		case 3: mAngle = (1) * Mathf.PI; mangleText.text = mAngle.ToString () + "\n1";
 			if (moveOn == 1) {Application.Quit ();}
