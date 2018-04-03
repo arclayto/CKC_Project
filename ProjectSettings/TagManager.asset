@@ -31,6 +31,10 @@ TagManager:
   - Night
   - Gem
   - Bean50
+  - GumballSwitch
+  - Gumball
+  - Bumper
+  - Target
   layers:
   - Default
   - TransparentFX
