@@ -16,6 +16,9 @@ EditorBuildSettings:
     guid: 2f4d0ec3bbd153e4caaa91ad0e3a70aa
   - enabled: 1
     path: Assets/Scenes/Temple.unity
+    guid: 008790f0945fd4c40957a60a33a6bee6
+  - enabled: 0
+    path: Assets/Scenes/Temple_OLD.unity
     guid: 72483a7d87194f843ae5737dfa2ea334
   - enabled: 1
     path: Assets/Scenes/LoadingScreen.unity

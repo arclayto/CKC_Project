@@ -6,6 +6,7 @@ public class TreasureChestController : MonoBehaviour {
 
 	public GameObject treasure;
 	public bool destroyTreasure = false;
+	public bool triggerAnimation = false;
 
 	void Start () {
 		
@@ -17,7 +18,11 @@ public class TreasureChestController : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player Attack") {
-        	if (destroyTreasure) {
+			if (triggerAnimation) {
+				Animator animTreasure = treasure.GetComponent<Animator> ();
+				animTreasure.SetTrigger ("objectTrigger"); 					//use objectTrigger for triggering Animation from objects
+			}
+        	else if (destroyTreasure) {
         		treasure.SetActive(false);
         	}
         	else {
@@ -32,7 +37,11 @@ public class TreasureChestController : MonoBehaviour {
 
     private void OnTriggerStay(Collider other) {
         if (other.gameObject.tag == "Player Attack") {
-	        if (destroyTreasure) {
+			if (triggerAnimation) {
+				Animator animTreasure = treasure.GetComponent<Animator> ();
+				animTreasure.SetTrigger ("objectTrigger");
+			}
+			else if (destroyTreasure) {
         		treasure.SetActive(false);
         	}
         	else {
