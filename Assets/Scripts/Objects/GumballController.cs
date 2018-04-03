@@ -65,5 +65,10 @@ public class GumballController : MonoBehaviour {
         if (other.gameObject.tag == "Kill Zone") {
             transform.position = startPosition;
         }
+
+        if (other.gameObject.tag == "Target") {
+            TargetController tc = other.gameObject.GetComponent<TargetController>();
+            tc.Activate();
+        }
     }
 }
