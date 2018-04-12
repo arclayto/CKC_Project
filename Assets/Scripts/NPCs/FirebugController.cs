@@ -48,7 +48,7 @@ public class FirebugController : MonoBehaviour {
         }
 
         RaycastHit hit;
-        if (Physics.SphereCast(transform.position + capsuleCollider.center + new Vector3(0f, -0.2f, 0f), 0.35f, Vector3.down, out hit, 0.1f))
+        if (Physics.SphereCast(transform.position + capsuleCollider.center + new Vector3(0f, -0.2f, 0f), 0.3f, Vector3.down, out hit, 0.1f))
         {
             if (hit.collider.tag == "Untagged")
             {
@@ -56,6 +56,7 @@ public class FirebugController : MonoBehaviour {
             		StartCoroutine("JumpTimer");
             	}
             	grounded = true;
+            	Debug.Log("Grounded");
             }
             else
             {
