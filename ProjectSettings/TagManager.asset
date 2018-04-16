@@ -35,6 +35,10 @@ TagManager:
   - Gumball
   - Bumper
   - Target
+  - Castella
+  - Castella Projectile
+  - Castella Bounds
+  - Castella Pillar
   layers:
   - Default
   - TransparentFX
