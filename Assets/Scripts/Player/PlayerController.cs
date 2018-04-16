@@ -590,10 +590,15 @@ public class PlayerController : MonoBehaviour {
                 TakeDamage();
             }
 
+            CastellaProjectileController castellaProjectile = other.gameObject.GetComponent<CastellaProjectileController>();
+            castellaProjectile.castellaC.projectileVolleys = 2 * (4 - castellaProjectile.castellaC.health);
+
+            castellaProjectile.MakeSmoke();
             Destroy(other.gameObject);
 
             CastellaController castella = GameObject.FindWithTag("Castella").GetComponent<CastellaController>();
             castella.StartCoroutine("AttackTimer");
+            Debug.Log("Set attack timer on player hurt");
         }
 
         if (other.tag == "Castella Pillar" && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlumCry")) {
