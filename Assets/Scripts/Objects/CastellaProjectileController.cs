@@ -11,7 +11,9 @@ public class CastellaProjectileController : MonoBehaviour {
 	private Transform targetPosition;
 	private float speed;
 	private float speedIncrement;
+	private float hits;
 
+	public AudioClip sfxProjectile;
 	public AudioClip sfxHurt;
 	public AudioClip sfxDefeat;
 
@@ -26,8 +28,12 @@ public class CastellaProjectileController : MonoBehaviour {
 
 		speed = 15.0f;
 		speedIncrement = 1.5f;
+		hits = 1;
 
 		rb = GetComponent<Rigidbody>();
+
+		player.GetComponent<AudioSource>().pitch = 0.5f + (0.1f * hits);
+		player.GetComponent<AudioSource>().PlayOneShot(sfxProjectile, 1f);
 	}
 	
 	void Update () {
@@ -43,6 +49,10 @@ public class CastellaProjectileController : MonoBehaviour {
             targetPosition = target.transform;
             transform.LookAt(targetPosition);
             speed += speedIncrement;
+            hits++;
+
+            player.GetComponent<AudioSource>().pitch = 0.5f + (0.1f * hits);
+			player.GetComponent<AudioSource>().PlayOneShot(sfxProjectile, 1f);
         }
 
         if (other.gameObject.tag == "Castella") {
@@ -50,6 +60,11 @@ public class CastellaProjectileController : MonoBehaviour {
         		// Volley the projectile back to the player
         		if (target == castella) {
 	            	castellaC.projectileVolleys--;
+	            	castellaC.animator.Play("CastellaAttack", -1, 0.0f);
+	            	hits++;
+
+	            	player.GetComponent<AudioSource>().pitch = 0.5f + (0.1f * hits);
+        			player.GetComponent<AudioSource>().PlayOneShot(sfxProjectile, 1f);
 	            }
 
 	            target = player;
@@ -61,17 +76,17 @@ public class CastellaProjectileController : MonoBehaviour {
 
 	        	if (castellaC.health == 0) {
 	        		// Castella defeated
-	        		target.SetActive(false);
+	        		castellaC.animator.Play("CastellaHurt", -1, 0.0f);
 
-			        player.GetComponent<AudioSource>().pitch = (Random.Range(0.9f, 1.1f));
+			        player.GetComponent<AudioSource>().pitch = 1.0f;
         			player.GetComponent<AudioSource>().PlayOneShot(sfxDefeat, 1f);
 	        	} else {
 		        	castellaC.projectileVolleys = 2 * (4 - castellaC.health);
-		        	CastellaController castella = GameObject.FindWithTag("Castella").GetComponent<CastellaController>();
-			        castella.StartCoroutine("AttackTimer");
+		        	castellaC.animator.Play("CastellaHurt", -1, 0.0f);
+			        castellaC.StartCoroutine("AttackTimer");
 			        Debug.Log("Set attack timer on Castella hurt");
 
-			        player.GetComponent<AudioSource>().pitch = (Random.Range(0.9f, 1.1f));
+			        player.GetComponent<AudioSource>().pitch = 1.0f;
         			player.GetComponent<AudioSource>().PlayOneShot(sfxHurt, 1f);
 			    }
 

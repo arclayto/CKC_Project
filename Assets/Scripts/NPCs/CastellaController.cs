@@ -20,10 +20,11 @@ public class CastellaController : MonoBehaviour {
 
 	private IEnumerator cutsceneCoroutine;
 
+	public AudioClip sfxAppear;
 	public AudioClip sfxLaugh;
 
 	SpriteRenderer spriteRenderer;
-    Animator animator;
+    public Animator animator;
 
     void Start() {
     	target = GameObject.FindWithTag("Player");
@@ -35,7 +36,7 @@ public class CastellaController : MonoBehaviour {
 		cutscene = false;
 		attackType = 0;
 		projectileVolleys = 2 * (4 - health);
-		laughs = 5;
+		laughs = 4;
 
 		audio = target.GetComponent<AudioSource>();
 
@@ -61,20 +62,26 @@ public class CastellaController : MonoBehaviour {
         	cutscene = true;
         }
 
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("CastellaLaugh")) {
-            if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f) {
-            	// Laugh loop
-                if (laughs == 0) {
-                	// Start fight
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("CastellaAttack")) {
+            if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f) {
+                // Attack complete, return to idle state
+                animator.Play("CastellaIdle", -1, 0.0f);
+            }
+        }
+
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("CastellaHurt")) {
+            if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f) {
+                // Hurt complete, return to idle state
+                if (health > 0) {
                 	animator.Play("CastellaIdle", -1, 0.0f);
-                	cutscene = false;
-			        music.SetActive(true);
-                } else {
-                	// Keep laughing
-                	animator.Play("CastellaLaugh", -1, 0.0f);
-                	audio.PlayOneShot(sfxLaugh, 1.0f);
-                	laughs--;
-                }
+            	} else {
+            		// Create smoke effect
+			        GameObject smoke = (GameObject)Instantiate(Resources.Load("Smoke"));
+			        smoke.transform.position = transform.position;
+			        smoke.transform.localScale = new Vector3(3f, 3f, 3f);
+
+            		Destroy(gameObject);
+            	}
             }
         }
     }
@@ -84,6 +91,7 @@ public class CastellaController : MonoBehaviour {
 
         // Create smoke effect
         smoke.SetActive(true);
+        audio.PlayOneShot(sfxAppear, 1.0f);
 
         yield return new WaitForSeconds(0.1f);
         spriteRenderer.enabled = true;
@@ -93,12 +101,23 @@ public class CastellaController : MonoBehaviour {
         StartCoroutine(bossText.GetComponent<HudBossText>().ShowTimer());
 
         // Laughing animation
-        animator.Play("CastellaLaugh", -1, 0.0f);
-        audio.PlayOneShot(sfxLaugh, 1.0f);
-        laughs--;
+        while (laughs > 0) {
+	        animator.Play("CastellaLaugh", -1, 0.0f);
+	        audio.PlayOneShot(sfxLaugh, 1.0f);
+	        laughs--;
+	        yield return new WaitForSeconds(0.25f);
+	    }
 
-        yield return new WaitForSeconds(3f);
+	    yield return new WaitForSeconds(0.1f);
+	    animator.Play("CastellaIdle", -1, 0.0f);
+    	cutscene = false;
+        music.SetActive(true);
+
+        yield return new WaitForSeconds(1.5f);
         StartCoroutine(bossText.GetComponent<HudBossText>().HideTimer());
+
+        yield return new WaitForSeconds(1f);
+        // Start fight
         StartCoroutine("AttackTimer");
         Debug.Log("Set attack timer on cutscene end");
     }
@@ -111,9 +130,11 @@ public class CastellaController : MonoBehaviour {
 	        for (int i = 4 - health; i > 0; i--) {
 	        	GameObject pillar = (GameObject)Instantiate(Resources.Load("Castella Pillar Light"));
 	        	pillar.transform.position = new Vector3(target.transform.position.x, 5.02f, target.transform.position.z);
+	        	animator.Play("CastellaAttack", -1, 0.0f);
 
 	        	if (i == 1) {
 	        		pillar.GetComponent<CastellaPillarController>().finalPillarInAttack = true;
+	        		animator.Play("CastellaAttack", -1, 0.0f);
         		} else {
         			yield return new WaitForSeconds(1.0f);
         		}
@@ -124,6 +145,7 @@ public class CastellaController : MonoBehaviour {
         	// Second attack type: dead man's volley
 	        GameObject projectile = (GameObject)Instantiate(Resources.Load("Castella Projectile"));
 	        projectile.transform.position = transform.position;
+	        animator.Play("CastellaAttack", -1, 0.0f);
 
 	        attackType = 0;
 	    }

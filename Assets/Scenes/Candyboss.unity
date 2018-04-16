@@ -5869,11 +5869,6 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 82766840081093668, guid: 821eb49c18bb74e41a4c8380ca9d7536,
-        type: 2}
-      propertyPath: spreadCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 821eb49c18bb74e41a4c8380ca9d7536, type: 2}
   m_IsPrefabParent: 0
@@ -8075,7 +8070,9 @@ MonoBehaviour:
   bossText: {fileID: 1329384637}
   health: 0
   projectileVolleys: 0
+  sfxAppear: {fileID: 8300000, guid: 5846550fad427b340b2b36b78fb41ba9, type: 3}
   sfxLaugh: {fileID: 8300000, guid: bd6a72b397120984b8f875b837088fd1, type: 3}
+  animator: {fileID: 0}
 --- !u!1 &1767958397
 GameObject:
   m_ObjectHideFlags: 0
@@ -9115,7 +9112,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -50}
+  m_AnchoredPosition: {x: 0, y: -60}
   m_SizeDelta: {x: 640, y: 640}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2038052415
@@ -9130,7 +9127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 2, y: -2}
+  m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
 --- !u!114 &2038052416
 MonoBehaviour:
@@ -9144,7 +9141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 2, y: -2}
+  m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
 --- !u!114 &2038052417
 MonoBehaviour:

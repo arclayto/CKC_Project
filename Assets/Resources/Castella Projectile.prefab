@@ -111,6 +111,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b4534996d33dfa40a38318ff5376b12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  castellaC: {fileID: 0}
+  sfxProjectile: {fileID: 8300000, guid: 9b06471600df76248992910d837e8cbd, type: 3}
   sfxHurt: {fileID: 8300000, guid: 5846550fad427b340b2b36b78fb41ba9, type: 3}
   sfxDefeat: {fileID: 8300000, guid: 9e04f586adf0bfe489db8023543c5840, type: 3}
 --- !u!135 &135960718663614738
