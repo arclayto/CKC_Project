@@ -26,7 +26,7 @@ public class CastellaProjectileController : MonoBehaviour {
 		target = player;
 		targetPosition = target.transform;
 
-		speed = 15.0f;
+		speed = 12.5f;
 		speedIncrement = 1.5f;
 		hits = 1;
 
@@ -81,7 +81,7 @@ public class CastellaProjectileController : MonoBehaviour {
 			        player.GetComponent<AudioSource>().pitch = 1.0f;
         			player.GetComponent<AudioSource>().PlayOneShot(sfxDefeat, 1f);
 	        	} else {
-		        	castellaC.projectileVolleys = 2 * (4 - castellaC.health);
+		        	castellaC.projectileVolleys = 2 * (5 - castellaC.health);
 		        	castellaC.animator.Play("CastellaHurt", -1, 0.0f);
 			        castellaC.StartCoroutine("AttackTimer");
 			        Debug.Log("Set attack timer on Castella hurt");

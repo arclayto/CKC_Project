@@ -30,12 +30,12 @@ public class CastellaController : MonoBehaviour {
     	target = GameObject.FindWithTag("Player");
     	smoke = transform.GetChild(0).gameObject;
     	startY = transform.position.y;
-    	health = 3;
+    	health = 4;
         aggro = false;
 		aggroRange = 30;
 		cutscene = false;
 		attackType = 0;
-		projectileVolleys = 2 * (4 - health);
+		projectileVolleys = 2 * (5 - health);
 		laughs = 4;
 
 		audio = target.GetComponent<AudioSource>();
@@ -125,29 +125,57 @@ public class CastellaController : MonoBehaviour {
     IEnumerator AttackTimer() {
         yield return new WaitForSeconds(2.5f);
 
-        if (attackType == 0) {
-	    	// First attack type: dark pillar
-	        for (int i = 4 - health; i > 0; i--) {
-	        	GameObject pillar = (GameObject)Instantiate(Resources.Load("Castella Pillar Light"));
-	        	pillar.transform.position = new Vector3(target.transform.position.x, 5.02f, target.transform.position.z);
-	        	animator.Play("CastellaAttack", -1, 0.0f);
+        if (health > 1) {
+            if (attackType == 0) {
+    	    	// First attack type: dark pillar
+    	        for (int i = 5 - health; i > 0; i--) {
+    	        	GameObject pillar = (GameObject)Instantiate(Resources.Load("Castella Pillar Light"));
+    	        	pillar.transform.position = new Vector3(target.transform.position.x, 5.02f, target.transform.position.z);
+    	        	animator.Play("CastellaAttack", -1, 0.0f);
 
-	        	if (i == 1) {
-	        		pillar.GetComponent<CastellaPillarController>().finalPillarInAttack = true;
-	        		animator.Play("CastellaAttack", -1, 0.0f);
-        		} else {
-        			yield return new WaitForSeconds(1.0f);
-        		}
-	        }
+    	        	if (i == 1) {
+    	        		pillar.GetComponent<CastellaPillarController>().finalPillarInAttack = true;
+    	        		animator.Play("CastellaAttack", -1, 0.0f);
+            		} else {
+            			yield return new WaitForSeconds(1.0f);
+            		}
+    	        }
 
-	        attackType = 1;
-	    } else if (attackType == 1) {
-        	// Second attack type: dead man's volley
-	        GameObject projectile = (GameObject)Instantiate(Resources.Load("Castella Projectile"));
-	        projectile.transform.position = transform.position;
-	        animator.Play("CastellaAttack", -1, 0.0f);
+    	        attackType = 1;
+    	    } else if (attackType == 1) {
+            	// Second attack type: dead man's volley
+    	        GameObject projectile = (GameObject)Instantiate(Resources.Load("Castella Projectile"));
+    	        projectile.transform.position = transform.position;
+    	        animator.Play("CastellaAttack", -1, 0.0f);
 
-	        attackType = 0;
-	    }
+    	        attackType = 0;
+    	    }
+        } else {
+            if (attackType == 0) {
+                // First attack type: dark pillar dancefloor
+                GameObject pillars = (GameObject)Instantiate(Resources.Load("Pillar Multi Attack"));
+                animator.Play("CastellaAttack", -1, 0.0f);
+
+                yield return new WaitForSeconds(1.5f);
+
+                pillars = (GameObject)Instantiate(Resources.Load("Pillar Multi Attack 2"));
+                animator.Play("CastellaAttack", -1, 0.0f);
+
+                attackType = 1;
+            } else if (attackType == 1) {
+                // Second attack type: dark pillar volley
+                GameObject projectile = (GameObject)Instantiate(Resources.Load("Castella Projectile"));
+                projectile.transform.position = transform.position;
+                animator.Play("CastellaAttack", -1, 0.0f);
+
+                while (projectile != null) {
+                    GameObject pillar = (GameObject)Instantiate(Resources.Load("Castella Pillar Light"));
+                    pillar.transform.position = new Vector3(target.transform.position.x, 5.02f, target.transform.position.z);
+                    yield return new WaitForSeconds(1.0f);
+                }
+
+                attackType = 0;
+            }
+        }
     }
 }
