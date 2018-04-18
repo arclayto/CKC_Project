@@ -6,16 +6,6 @@ public class TeleporterController : MonoBehaviour {
 
 	public Vector3 teleportCoordinates;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		Debug.Log(Camera.main.transform.position);
-	}
-
 	void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player") {
             // Teleport player to specified coordinates
