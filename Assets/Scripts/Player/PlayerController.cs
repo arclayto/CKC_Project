@@ -34,7 +34,6 @@ public class PlayerController : MonoBehaviour {
     private int beans;
     private bool invulnerable;
     private bool isFloating;
-	private bool paused = false;
     private GameObject bubble;
 	private bool inTornado;
 	private bool canMove;
@@ -314,13 +313,6 @@ public class PlayerController : MonoBehaviour {
 		//ESC key quits the application
 		if(Input.GetKey(KeyCode.Escape))
 		{
-			Time.timeScale = 0;
-			if (paused == true) {
-			
-				Time.timeScale = 1;
-				paused = false;
-			}
-			paused = true;
 			Application.Quit ();
 		}
 	}
