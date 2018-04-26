@@ -61725,15 +61725,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4813762291740996, guid: e9eec65b9d77c4e438da375c623c76d2, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -138.34
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4813762291740996, guid: e9eec65b9d77c4e438da375c623c76d2, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 105.08
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4813762291740996, guid: e9eec65b9d77c4e438da375c623c76d2, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 195.66
+      value: -4.9
       objectReference: {fileID: 0}
     - target: {fileID: 4813762291740996, guid: e9eec65b9d77c4e438da375c623c76d2, type: 2}
       propertyPath: m_LocalRotation.x

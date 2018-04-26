@@ -89,14 +89,6 @@ public class PlayerController : MonoBehaviour {
 
 		moveDirection = new Vector3(Input.GetAxis("Horizontal") * movementSpeed, moveDirection.y, Input.GetAxis("Vertical") * movementSpeed);
 
-		//broken code for tornados, just leave it for now
-		/*if (inTornado == true) {
-			Vector3 velocity = Vector3.zero;
-										moveDirection = new Vector3((Input.GetAxis("Horizontal") * movementSpeed) + Vector3.Lerp(transform.position, otherTornado, 0.5f).x,
-										moveDirection.y, 
-										(Input.GetAxis("Vertical") * movementSpeed) + Vector3.Lerp(transform.position, otherTornado, 0.5f).z);
-		}*/
-
         // Idle & Walk animation based on x and z movement
         if (controller.isGrounded) {
             if (moveDirection.x == 0.0f && moveDirection.z == 0.0f) {
@@ -614,12 +606,13 @@ public class PlayerController : MonoBehaviour {
 	 	
 		if (other.tag == "Tornado") {
 			inTornado = true;
-
-			if (controller.isGrounded) {
-				moveDirection.y = 2f;
-			} else {
-				moveDirection.y += 2f;
-			} 
+			if (moveDirection.y <= 30f) {
+				if (controller.isGrounded) {
+					moveDirection.y = 2f;
+				} else {
+					moveDirection.y += 2f;
+				} 
+			}
 		}
 
         if (other.tag == "Lightning") {

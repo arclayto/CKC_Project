@@ -32,3 +32,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Candyboss.unity
     guid: 59a9f10150207be4c9a7ed29ec269bfd
+  - enabled: 1
+    path: Assets/Scenes/StoryScreen.unity
+    guid: 6db3374694ba1ce43af7a474eca7bbe0
