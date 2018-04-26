@@ -22,10 +22,10 @@ public class GumballController : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		if (rb.velocity.magnitude <= 0.1f && rb.velocity.magnitude > 0.0f) {
-			rb.velocity = Vector3.zero;
-			rb.isKinematic = true;
-		}
+		//if (rb.velocity.magnitude <= 0.1f && rb.velocity.magnitude > 0.0f) {
+		//	rb.velocity = Vector3.zero;
+		//	rb.isKinematic = true;
+		//}
 	}
 
 	private void OnCollisionEnter(Collision other) {
@@ -73,4 +73,12 @@ public class GumballController : MonoBehaviour {
             tc.Activate();
         }
     }
+
+	private void OnTriggerStay(Collider other){
+		if (other.tag == "Tornado") {
+
+			rb.AddForce(new Vector3(0f,7f,0f));
+		}
+	
+	}
 }

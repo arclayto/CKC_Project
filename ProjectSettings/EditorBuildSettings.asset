@@ -29,3 +29,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Candyland.unity
     guid: e66d056efc5d9a641ba7ed659468a29d
+  - enabled: 1
+    path: Assets/Scenes/Candyboss.unity
+    guid: 59a9f10150207be4c9a7ed29ec269bfd

@@ -619,13 +619,7 @@ public class PlayerController : MonoBehaviour {
 				moveDirection.y = 2f;
 			} else {
 				moveDirection.y += 2f;
-			}
-			//otherTornado.y = other.transform.position.y;
-			//otherTornado.x = other.transform.position.x;
-			//otherTornado.z = other.transform.position.z;
-			//moveDirection.z += other.transform.position.z * 10;
-			//moveDirection.x += other.transform.position.x * 10;
-            
+			} 
 		}
 
         if (other.tag == "Lightning") {

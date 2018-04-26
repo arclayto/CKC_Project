@@ -25,7 +25,9 @@ public class PlatformStick : MonoBehaviour {
 	}
 
 	void OnTriggerExit(Collider col){
-		col.gameObject.transform.SetParent(null);
+		if(col.gameObject.tag == "Player"){
+			col.gameObject.transform.SetParent(null);
+		}
 	}
 		
 }
