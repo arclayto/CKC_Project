@@ -56,7 +56,7 @@ public class FirebugController : MonoBehaviour {
             		StartCoroutine("JumpTimer");
             	}
             	grounded = true;
-            	Debug.Log("Grounded");
+            	//Debug.Log("Grounded");
             }
             else
             {

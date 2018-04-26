@@ -42,16 +42,7 @@ public class GumballController : MonoBehaviour {
         		gumballSwitch.ActivateTarget();
         	}
         }
-
-        if (other.gameObject.tag == "Bumper") {
-            rb.isKinematic = false;
-            Vector3 dir = (transform.position - other.transform.position).normalized;
-            dir.y = 0.0f;
-            rb.AddForce(dir * 10.0f, ForceMode.Impulse);
-
-            audioSource.pitch = (Random.Range(0.9f, 1.1f));
-            audioSource.PlayOneShot(sfxBumper, 1f);
-        }
+			
     }
 
 	private void OnTriggerEnter(Collider other) {
@@ -62,8 +53,19 @@ public class GumballController : MonoBehaviour {
             rb.AddForce(dir * 7.5f, ForceMode.Impulse);
         }
 
+		if (other.gameObject.tag == "Bumper") {
+			rb.isKinematic = false;
+			Vector3 dir = (transform.position - other.transform.position).normalized;
+			dir.y = 0.0f;
+			rb.AddForce(dir * 10.0f, ForceMode.Impulse);
+
+			audioSource.pitch = (Random.Range(0.9f, 1.1f));
+			audioSource.PlayOneShot(sfxBumper, 1f);
+		}
+
         if (other.gameObject.tag == "Kill Zone") {
-            transform.position = startPosition;
+			rb.velocity = new Vector3(0f, -0.11f, 0);
+			transform.position = startPosition + new Vector3(0, 6, 0);
         }
 
         if (other.gameObject.tag == "Target") {
