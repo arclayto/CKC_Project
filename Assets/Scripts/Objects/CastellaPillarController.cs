@@ -36,7 +36,11 @@ public class CastellaPillarController : MonoBehaviour {
 	        renderer.material.color -= new Color(0, 0, 0, fadeAmount);
 	        pillarRenderer.material.color -= new Color(0, 0, 0, fadeAmount);
 	        innerPillarRenderer.material.color -= new Color(0, 0, 0, fadeAmount);
+	        
 	        yield return new WaitForSeconds(fadeAmount);
+
+	        pillar.GetComponent<CapsuleCollider>().enabled = false;
+        	innerPillar.GetComponent<CapsuleCollider>().enabled = false;
 	    }
 
 	    if (finalPillarInAttack == true) {

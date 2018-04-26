@@ -85,22 +85,22 @@ public class TitlePhaseController : MonoBehaviour {
 		switch (currentPhase) 
 		{
 		case 0:	mAngle = 0 * Mathf.PI; mangleText.text = mAngle.ToString () + "\n0" ;
-			if (moveOn == 1) {GetComponent<LevelLoadTrigger>().initiateLoad("PhysicsTEST"); moveOn = 2;}
+			if (moveOn == 1) {GetComponent<LevelLoadTrigger>().initiateLoad("StoryScreen"); moveOn = 2;}
 				break;
 		case 1:	mAngle =  Mathf.PI / 3; mangleText.text = mAngle.ToString ()  + "\n1/3";
-			if (moveOn == 1) {GetComponent<LevelLoadTrigger>().initiateLoad("Temple"); moveOn = 2;}
+			if (moveOn == 1) {GetComponent<LevelLoadTrigger>().initiateLoad("Desert"); moveOn = 2;}
 				break;
 		case 2: mAngle =  2 * (Mathf.PI / 3); mangleText.text = mAngle.ToString () + "\n2/3";
-			if (moveOn == 1) {GetComponent<LevelLoadTrigger>().initiateLoad("Candyland"); moveOn = 2;}
+			if (moveOn == 1) {GetComponent<LevelLoadTrigger>().initiateLoad("Temple"); moveOn = 2;}
 				break;
 		case 3: mAngle = (1) * Mathf.PI; mangleText.text = mAngle.ToString () + "\n1";
-			if (moveOn == 1) {Application.Quit ();}
+			if (moveOn == 1) {GetComponent<LevelLoadTrigger>().initiateLoad("Candyland"); moveOn = 2;}
 				break;
 		case 4: mAngle = (4 * Mathf.PI) / 3; mangleText.text = mAngle.ToString () + "\n4/3";
-			if (moveOn == 1) {GetComponent<LevelLoadTrigger>().initiateLoad("TitleScreen"); moveOn = 2;}
+			if (moveOn == 1) {GetComponent<LevelLoadTrigger>().initiateLoad("Candyboss"); moveOn = 2;}
 				break;
 		case 5: mAngle = (5) * Mathf.PI / 3; mangleText.text = mAngle.ToString () + "\n5/3";
-			if (moveOn == 1) {GetComponent<LevelLoadTrigger>().initiateLoad("TitleScreen"); moveOn = 2;}
+			if (moveOn == 1) {Application.Quit();}
 				break;
 		default: mAngle = 0 * Mathf.PI; mangleText.text = mAngle.ToString () + "\n0";
 				break;
@@ -216,15 +216,15 @@ public class TitlePhaseController : MonoBehaviour {
 		{
 			case 0:	sOption = "New Game";
 					break;
-			case 1:	sOption = "Load Game";
+			case 1:	sOption = "Desert";
 					break;
-			case 2: sOption = "Options";
+			case 2: sOption = "Temple";
 					break;
-			case 3: sOption = "Quit";
+			case 3: sOption = "Candyland";
 					break;
-			case 4: sOption = "Credits";
+			case 4: sOption = "Castella Fight";
 					break;
-			case 5: sOption = "Controls";
+			case 5: sOption = "Quit";
 					break;
 			default: sOption = "Start Game";
 				break;
