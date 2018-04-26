@@ -85,7 +85,7 @@ public class TitlePhaseController : MonoBehaviour {
 		switch (currentPhase) 
 		{
 		case 0:	mAngle = 0 * Mathf.PI; mangleText.text = mAngle.ToString () + "\n0" ;
-			if (moveOn == 1) {GetComponent<LevelLoadTrigger>().initiateLoad("PhysicsTEST"); moveOn = 2;}
+			if (moveOn == 1) {GetComponent<LevelLoadTrigger>().initiateLoad("StoryScreen"); moveOn = 2;}
 				break;
 		case 1:	mAngle =  Mathf.PI / 3; mangleText.text = mAngle.ToString ()  + "\n1/3";
 			if (moveOn == 1) {GetComponent<LevelLoadTrigger>().initiateLoad("Temple"); moveOn = 2;}
