@@ -43,6 +43,8 @@ public class TitlePhaseController : MonoBehaviour {
 		SetCountText (currentPhase);
 		//winText.text = "";
 
+		Cursor.visible = false;
+
 		angle = 0;
 		// radius = 3;
 		mSeconds = 5; //num of seconds to complete a circle;
