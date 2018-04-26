@@ -65,7 +65,7 @@ public class GumballController : MonoBehaviour {
 
         if (other.gameObject.tag == "Kill Zone") {
 			rb.velocity = new Vector3(0f, -0.11f, 0);
-			transform.position = startPosition + new Vector3(0, 6, 0);
+			transform.position = startPosition;
         }
 
         if (other.gameObject.tag == "Target") {
