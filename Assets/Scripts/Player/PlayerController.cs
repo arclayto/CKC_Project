@@ -270,8 +270,12 @@ public class PlayerController : MonoBehaviour {
         }
 
         if (Input.GetButton("Jump") && equippedItem == 2 && !isFloating && moveDirection.y < 0f) {
-    		// Umbrella reduces gravity
-    		isFloating = true;
+        	if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumCry") && health != 0) {
+	    		// Umbrella reduces gravity
+	    		isFloating = true;
+	    	} else {
+	    		isFloating = false;
+	    	}
     	}
 
 		if (isFloating) {
@@ -288,6 +292,12 @@ public class PlayerController : MonoBehaviour {
         else {
         	// Normal gravity
         	moveDirection.y -= gravityForce * Time.deltaTime;
+        }
+
+        if (health < 1) {
+        	if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlumCry")) {
+        		animator.Play("PlumCry", -1, 0.0f);
+        	}
         }
 
 		if (canMove) {
@@ -542,7 +552,7 @@ public class PlayerController : MonoBehaviour {
                 TakeDamage();
 
                 CastellaProjectileController castellaProjectile = other.gameObject.GetComponent<CastellaProjectileController>();
-                castellaProjectile.castellaC.projectileVolleys = 2 * (4 - castellaProjectile.castellaC.health);
+                castellaProjectile.castellaC.projectileVolleys = 2 * (5 - castellaProjectile.castellaC.health);
 
                 castellaProjectile.MakeSmoke();
                 Destroy(other.gameObject);
@@ -704,6 +714,7 @@ public class PlayerController : MonoBehaviour {
         else {
             health = 0;
             animator.Play("PlumCry", -1, 0.0f);
+            isFloating = false;
             StartCoroutine("RestartTimer");
         }
 
